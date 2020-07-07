@@ -1,0 +1,1046 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{48039FD4-1F5C-4CF0-9F7F-A97A38D846B0}</ProjectGuid>
+    <RootNamespace>Atlas Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Atlas Engine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)bin\Intermediates\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Atlas Engine\Source;$(SolutionDir)Dependencies\GLFW x64\include;$(SolutionDir)Dependencies\GLEW x64\include;$(SolutionDir)Dependencies\OPENVR\include;$(SolutionDir)Dependencies\IRRKLANG x64\include;$(SolutionDir)Dependencies\FREETYPE x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\FREETYPE\lib;$(SolutionDir)Dependencies\OPENVR\lib;$(SolutionDir)Dependencies\IRRKLANG\lib;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32;$(SolutionDir)Dependencies\GLFW\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comdlg32.lib;freetype.lib;irrklang.lib;openvr_api.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Atlas Engine\Source;$(SolutionDir)Dependencies\GLFW x64\include;$(SolutionDir)Dependencies\GLEW x64\include;$(SolutionDir)Dependencies\OPENVR\include;$(SolutionDir)Dependencies\IRRKLANG x64\include;$(SolutionDir)Dependencies\FREETYPE x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\OPENVR x64\lib;$(SolutionDir)Dependencies\FREETYPE x64\lib;$(SolutionDir)Dependencies\IRRKLANG x64\lib;$(SolutionDir)Dependencies\GLEW x64\lib\Release\x64;$(SolutionDir)Dependencies\GLFW x64\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comdlg32.lib;freetype.lib;irrklang.lib;openvr_api.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Atlas Engine\Source;$(SolutionDir)Dependencies\GLFW x64\include;$(SolutionDir)Dependencies\GLEW x64\include;$(SolutionDir)Dependencies\OPENVR\include;$(SolutionDir)Dependencies\IRRKLANG x64\include;$(SolutionDir)Dependencies\FREETYPE x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\FREETYPE\lib;$(SolutionDir)Dependencies\OPENVR\lib;$(SolutionDir)Dependencies\IRRKLANG\lib;$(SolutionDir)Dependencies\GLEW\lib\Release\Win32;$(SolutionDir)Dependencies\GLFW\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comdlg32.lib;freetype.lib;irrklang.lib;openvr_api.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)Atlas Engine\Source;$(SolutionDir)Dependencies\GLFW x64\include;$(SolutionDir)Dependencies\GLEW x64\include;$(SolutionDir)Dependencies\OPENVR\include;$(SolutionDir)Dependencies\IRRKLANG x64\include;$(SolutionDir)Dependencies\FREETYPE x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\OPENVR x64\lib;$(SolutionDir)Dependencies\FREETYPE x64\lib;$(SolutionDir)Dependencies\IRRKLANG x64\lib;$(SolutionDir)Dependencies\GLEW x64\lib\Release\x64;$(SolutionDir)Dependencies\GLFW x64\lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalDependencies>comdlg32.lib;freetype.lib;irrklang.lib;openvr_api.lib;glew32s.lib;glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Legacy\L_AtlasEngine.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Physics\L_PhysicsLight.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Physics\L_PhysicsLinker.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Physics\L_PhysicsObject.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Physics\L_PhysicsRenderer.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Physics\L_PhysicsScene.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Player.cpp" />
+    <ClCompile Include="Source\Legacy\L_Game\L_Scene.cpp" />
+    <ClCompile Include="Source\Legacy\L_Global\L_Global.cpp" />
+    <ClCompile Include="Source\Legacy\L_Global\L_GlobalVariables.cpp" />
+    <ClCompile Include="Source\New\AtlasEngine.cpp" />
+    <ClCompile Include="Source\Shared\S_Input\S_InputHandler.cpp" />
+    <ClCompile Include="Source\Legacy\L_LevelEditor\L_LevelEditorControl.cpp" />
+    <ClCompile Include="Source\Legacy\L_Other\L_Convert.cpp" />
+    <ClCompile Include="Source\Legacy\L_Physics\L_PhysicsEngine.cpp" />
+    <ClCompile Include="Source\Legacy\L_Physics\L_PhysicsSimulator.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_FX\L_PostProcessor.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_GUI.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_Window.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_RenderingEngine.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_VR\L_VRHandler.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_WindowManager.cpp" />
+    <ClCompile Include="Source\Legacy\L_System\L_System.cpp" />
+    <ClCompile Include="Source\Legacy\L_Other\L_Search.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Font.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Mesh2D.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Object2D.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Sentence.cpp" />
+    <ClCompile Include="Source\Legacy\L_System\L_IO.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Light.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Loader.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Object.cpp" />
+    <ClCompile Include="Source\Legacy\L_System\L_Config.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Camera.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Mesh.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Primitives\L_ShapeGenerator.cpp" />
+    <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_Shader.cpp" />
+    <ClCompile Include="Source\Legacy\L_Other\L_Timer.cpp" />
+    <ClCompile Include="Source\Legacy\L_Rendering\L_Scene\L_SimpleRenderer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3ConvexUtility.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3CpuNarrowPhase.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3AlignedAllocator.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Logging.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Vector3.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\b3CpuRigidBodyPipeline.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3FixedConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3Generic6DofConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3PgsJacobiSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3Point2PointConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3TypedConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3ConvexHullComputer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3GeometryUtil.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3BulletFile.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Chunk.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3DNA.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3File.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Serializer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btAxisSweep3.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btBroadphaseProxy.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDbvt.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDbvtBroadphase.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDispatcher.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btOverlappingPairCache.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btQuantizedBvh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btSimpleBroadphase.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBoxBoxDetector.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionDispatcher.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionDispatcherMt.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionObject.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionWorldImporter.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCompoundCompoundCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btGhostObject.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btHashedSimplePairCache.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btInternalEdgeUtility.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btManifoldResult.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSimulationIslandManager.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btUnionFind.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\SphereTriangleDetector.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBox2dShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBoxShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCapsuleShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCollisionShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCompoundShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConcaveShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConeShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvex2dShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexHullShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexInternalShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexPointCloudShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexPolyhedron.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCylinderShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btEmptyShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMiniSDF.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMinkowskiSumShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMultiSphereShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btOptimizedBvh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btPolyhedralConvexShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btSdfCollisionShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btShapeHull.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btSphereShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btStaticPlaneShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btStridingMeshInterface.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTetrahedronShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleBuffer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleCallback.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleMesh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleMeshShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btUniformScalingShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btContactProcessing.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGenericPoolAllocator.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactBvh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactQuantizedBvh.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactShape.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btTriangleShapeEx.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_box_set.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_contact.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_memory.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_tri_collision.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btConvexCast.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkEpa2.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btPersistentManifold.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btRaycastCallback.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Character\btKinematicCharacterController.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btBatchedConstraints.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btConeTwistConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btContactConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btFixedConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGearConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofSpring2Constraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btHinge2Constraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btHingeConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btNNCGConstraintSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolverMt.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSliderConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btTypedConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btUniversalConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btDiscreteDynamicsWorldMt.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btRigidBody.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btSimpleDynamicsWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btSimulationIslandManagerMt.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBody.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyConstraintSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyFixedConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyGearConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyJointLimitConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyJointMotor.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyMLCPConstraintSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyPoint2Point.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodySliderConstraint.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodySphericalJointMotor.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btDantzigLCP.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btLemkeAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btMLCPSolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Vehicle\btRaycastVehicle.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Vehicle\btWheelInfo.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\MultiBodyTreeImpl.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\MultiBodyTreeInitCache.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDMath.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\MultiBodyTree.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btDefaultSoftBodySolver.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBody.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyHelpers.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftMultiBodyDynamicsWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftRigidCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftRigidDynamicsWorld.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftSoftCollisionAlgorithm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\clew\clew.c" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btAlignedAllocator.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btConvexHull.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btConvexHullComputer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btGeometryUtil.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btPolarDecomposition.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btQuickprof.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btSerializer.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btSerializer64.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btThreads.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btVector3.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\TaskScheduler\btTaskScheduler.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\TaskScheduler\btThreadSupportPosix.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\TaskScheduler\btThreadSupportWin32.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_GLM\detail\glm.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_IMGUI\imgui.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_IMGUI\imgui_demo.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_IMGUI\imgui_draw.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_IMGUI\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="Source\Shared\S_Vendor\S_STB_Image\stb_image.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+    <None Include="imgui.ini" />
+    <None Include="Resources\shaders\NoPostFX.shader" />
+    <None Include="Resources\shaders\Basic.shader" />
+    <None Include="Resources\shaders\BlurPostFX.shader" />
+    <None Include="Resources\shaders\FXAAPostFX.shader" />
+    <None Include="Resources\shaders\InvertPostFX.shader" />
+    <None Include="Resources\shaders\Lighting.shader" />
+    <None Include="Resources\shaders\GreyscalePostFX.shader" />
+    <None Include="Resources\shaders\SharpenPostFX.shader" />
+    <None Include="Resources\shaders\Text.shader" />
+    <None Include="Resources\shaders\Window.shader" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_common.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_common_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_exponential.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_exponential_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_geometric.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_geometric_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_integer.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_integer_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_matrix.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_matrix_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_packing.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_packing_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_trigonometric.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_trigonometric_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_vector_relational.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\func_vector_relational_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_gentype.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_half.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x2.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x3.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x4.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x2.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x3.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x4.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x2.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x3.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x4.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x4_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec1.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec2.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec3.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec4.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec4_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\bitfield.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\color_encoding.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\color_space.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\constants.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\epsilon.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\functions.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\integer.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_access.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_inverse.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_transform.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\noise.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\packing.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\quaternion.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\quaternion_simd.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\random.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\reciprocal.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\round.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\type_precision.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\type_ptr.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\ulp.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtc\vec1.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\associated_min_max.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\bit.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\closest_point.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\color_space.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\color_space_YCoCg.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\common.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\compatibility.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\component_wise.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\dual_quaternion.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\euler_angles.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\extend.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\extended_min_max.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_exponential.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_square_root.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_trigonometry.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\float_notmalize.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\gradient_paint.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\handed_coordinate_space.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\hash.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\integer.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\intersect.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\io.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\log_base.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_cross_product.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_decompose.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_interpolation.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_major_storage.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_operation.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_query.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_transform_2d.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\mixed_product.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\norm.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\normal.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\normalize_dot.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\number_precision.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\optimum_pow.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\orthonormalize.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\perpendicular.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\polar_coordinates.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\projection.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\quaternion.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\raw_data.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\rotate_normalized_axis.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\rotate_vector.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\scalar_relational.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\spline.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\std_based_type.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\string_cast.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\transform.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\transform2.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\type_aligned.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\type_trait.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\vector_angle.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\vector_query.inl" />
+    <None Include="Source\Shared\S_Vendor\S_GLM\gtx\wrap.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Legacy\L_AtlasEngine.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Physics\L_PhysicsLight.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Physics\L_PhysicsLinker.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Physics\L_PhysicsObject.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Physics\L_PhysicsRenderer.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Physics\L_PhysicsScene.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Player.h" />
+    <ClInclude Include="Source\Legacy\L_Game\L_Scene.h" />
+    <ClInclude Include="Source\Legacy\L_Global\L_Global.h" />
+    <ClInclude Include="Source\Legacy\L_Global\L_GlobalVariables.h" />
+    <ClInclude Include="Source\New\AtlasEngine.h" />
+    <ClInclude Include="Source\Shared\S_Input\S_Input.h" />
+    <ClInclude Include="Source\Shared\S_Input\S_InputHandler.h" />
+    <ClInclude Include="Source\Legacy\L_LevelEditor\L_LevelEditorControl.h" />
+    <ClInclude Include="Source\Legacy\L_Other\L_Convert.h" />
+    <ClInclude Include="Source\Legacy\L_Physics\L_PhysicsEngine.h" />
+    <ClInclude Include="Source\Legacy\L_Physics\L_PhysicsSimulator.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_FX\L_PostProcessor.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_GUI.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_Window.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_RenderingEngine.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_VR\L_Target.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_VR\L_VRHandler.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_WindowManager.h" />
+    <ClInclude Include="Source\Legacy\L_System\L_Callbacks.h" />
+    <ClInclude Include="Source\Legacy\L_System\L_System.h" />
+    <ClInclude Include="Source\Legacy\L_Other\L_Search.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Font.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Mesh2D.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Object2D.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_GUI\L_Primitives\L_Sentence.h" />
+    <ClInclude Include="Source\Legacy\L_LevelEditor\L_LevelEditor.h" />
+    <ClInclude Include="Source\Legacy\L_System\L_IO.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Light.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Loader.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Object.h" />
+    <ClInclude Include="Source\Legacy\L_System\L_Config.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Camera.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Mesh.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Primitives\L_ShapeGenerator.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Primitives\L_ShapeData.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Primitives\L_Vertex.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Renderer.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_Shader.h" />
+    <ClInclude Include="Source\Legacy\L_Rendering\L_Scene\L_SimpleRenderer.h" />
+    <ClInclude Include="Source\Legacy\L_Other\L_Timer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\btBulletCollisionCommon.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\btBulletDynamicsCommon.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3BroadphaseCallback.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3DynamicBvh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3DynamicBvhBroadphase.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3OverlappingPair.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\b3OverlappingPairCache.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\BroadPhaseCollision\shared\b3Aabb.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3Config.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3Contact4.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3ConvexUtility.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3CpuNarrowPhase.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3RaycastInfo.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\b3RigidBodyCL.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3BvhSubtreeInfoData.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3BvhTraversal.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3ClipFaces.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3Collidable.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3Contact4Data.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3ContactConvexConvexSAT.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3ContactSphereSphere.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3ConvexPolyhedronData.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3FindConcaveSatAxis.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3FindSeparatingAxis.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3MprPenetration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3NewContactReduction.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3QuantizedBvhNodeData.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3ReduceContacts.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3RigidBodyData.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Collision\NarrowPhaseCollision\shared\b3UpdateAabbs.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3AlignedAllocator.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3AlignedObjectArray.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3CommandLineArgs.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3FileUtils.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3HashMap.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Logging.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Matrix3x3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3MinMax.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3PoolAllocator.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3QuadWord.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Quaternion.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Random.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3ResizablePool.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Scalar.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3StackAlloc.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Transform.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3TransformUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\b3Vector3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3Float4.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3Int2.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3Int4.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3Mat3x3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3PlatformDefinitions.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Common\shared\b3Quat.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\b3CpuRigidBodyPipeline.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3ContactSolverInfo.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3FixedConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3Generic6DofConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3JacobianEntry.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3PgsJacobiSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3Point2PointConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3SolverBody.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3SolverConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\ConstraintSolver\b3TypedConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\shared\b3ContactConstraint4.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\shared\b3ConvertConstraint4.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\shared\b3Inertia.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Dynamics\shared\b3IntegrateTransforms.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3AabbUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3ConvexHullComputer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3GeometryUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Geometry\b3GrahamScan2dConvexHull.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\autogenerated\bullet2.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3BulletFile.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Chunk.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Common.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Defines.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3DNA.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3File.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\Bullet3Serialize\Bullet2FileLoader\b3Serializer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btAxisSweep3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btAxisSweep3Internal.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btBroadphaseInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btBroadphaseProxy.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDbvt.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDbvtBroadphase.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btDispatcher.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btOverlappingPairCache.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btOverlappingPairCallback.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btQuantizedBvh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\BroadphaseCollision\btSimpleBroadphase.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btBoxBoxDetector.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionConfiguration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionCreateFunc.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionDispatcher.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionDispatcherMt.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionObject.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCollisionWorldImporter.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btCompoundCompoundCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btGhostObject.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btHashedSimplePairCache.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btInternalEdgeUtility.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btManifoldResult.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSimulationIslandManager.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\btUnionFind.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionDispatch\SphereTriangleDetector.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBox2dShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBoxShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCapsuleShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCollisionMargin.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCollisionShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCompoundShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConcaveShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConeShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvex2dShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexHullShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexInternalShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexPointCloudShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexPolyhedron.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btCylinderShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btEmptyShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMaterial.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMiniSDF.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMinkowskiSumShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btMultiSphereShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btOptimizedBvh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btPolyhedralConvexShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btSdfCollisionShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btShapeHull.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btSphereShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btStaticPlaneShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btStridingMeshInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTetrahedronShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleBuffer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleCallback.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleInfoMap.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleMesh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleMeshShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btTriangleShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\CollisionShapes\btUniformScalingShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btBoxCollision.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btClipPolygon.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btCompoundFromGimpact.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btContactProcessing.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btContactProcessingStructs.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGenericPoolAllocator.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGeometryOperations.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactBvh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactBvhStructs.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactMassUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactQuantizedBvh.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactQuantizedBvhStructs.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btGImpactShape.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btQuantization.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\btTriangleShapeEx.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_array.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_basic_geometry_operations.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_bitset.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_box_collision.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_box_set.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_clip_polygon.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_contact.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_geometry.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_geom_types.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_hash_table.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_linear_math.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_math.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_memory.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_radixsort.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\Gimpact\gim_tri_collision.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btComputeGjkEpaPenetration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btConvexCast.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btConvexPenetrationDepthSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btDiscreteCollisionDetectorInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkCollisionDescription.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkEpa2.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkEpa3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btManifoldPoint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btMprPenetration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btPersistentManifold.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btPointCollector.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btRaycastCallback.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btSimplexSolverInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Character\btCharacterControllerInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Character\btKinematicCharacterController.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btBatchedConstraints.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btFixedConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofSpring2Constraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btHingeConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btJacobianEntry.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btNNCGConstraintSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolverMt.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSliderConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSolverBody.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btSolverConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btTypedConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\ConstraintSolver\btUniversalConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btActionInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btDiscreteDynamicsWorldMt.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btRigidBody.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Dynamics\btSimulationIslandManagerMt.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBody.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyConstraintSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyFixedConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyGearConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyJointFeedback.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyJointLimitConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyJointMotor.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyLink.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyLinkCollider.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyMLCPConstraintSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodyPoint2Point.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodySliderConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodySolverConstraint.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Featherstone\btMultiBodySphericalJointMotor.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btDantzigLCP.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btDantzigSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btLemkeAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btLemkeSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btMLCPSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btMLCPSolverInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btPATHSolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\MLCPSolvers\btSolveProjectedGaussSeidel.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Vehicle\btRaycastVehicle.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Vehicle\btVehicleRaycaster.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletDynamics\Vehicle\btWheelInfo.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\IDEigenInterface.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\IDLinearMathInterface.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\IDMatVec.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\MultiBodyTreeImpl.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\details\MultiBodyTreeInitCache.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDConfig.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDConfigBuiltin.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDConfigEigen.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDErrorMessages.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\IDMath.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletInverseDynamics\MultiBodyTree.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btDefaultSoftBodySolver.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBody.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyData.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyHelpers.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyInternals.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodySolvers.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftBodySolverVertexBuffer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftMultiBodyDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftRigidCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftRigidDynamicsWorld.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSoftSoftCollisionAlgorithm.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\BulletSoftBody\btSparseSDF.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\clew\clew.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btAabbUtil2.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btAlignedAllocator.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btAlignedObjectArray.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btConvexHull.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btConvexHullComputer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btCpuFeatureUtility.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btDefaultMotionState.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btGeometryUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btGrahamScan2dConvexHull.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btHashMap.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btIDebugDraw.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btList.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btMatrix3x3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btMatrixX.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btMinMax.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btMotionState.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btPolarDecomposition.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btPoolAllocator.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btQuadWord.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btQuaternion.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btQuickprof.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btRandom.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btScalar.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btSerializer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btSpatialAlgebra.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btStackAlloc.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btThreads.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btTransform.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btTransformUtil.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\btVector3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_Bullet\LinearMath\TaskScheduler\btThreadSupportInterface.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\common.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_common.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_exponential.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_geometric.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_integer.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_matrix.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_packing.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_trigonometric.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\func_vector_relational.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\precision.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\setup.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_float.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_gentype.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_half.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_int.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat2x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat3x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_mat4x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec1.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\type_vec4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_features.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_fixes.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_noise.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_swizzle.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_swizzle_func.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\detail\_vectorize.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\exponential.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\ext.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\fwd.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\geometric.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\glm.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\bitfield.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\color_space.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\constants.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\epsilon.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\functions.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\integer.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_access.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_integer.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_inverse.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\matrix_transform.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\noise.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\packing.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\quaternion.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\random.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\reciprocal.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\round.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\type_aligned.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\type_precision.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\type_ptr.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\ulp.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtc\vec1.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\associated_min_max.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\bit.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\closest_point.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\color_space.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\color_space_YCoCg.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\common.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\compatibility.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\component_wise.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\dual_quaternion.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\euler_angles.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\extend.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\extended_min_max.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_exponential.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_square_root.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\fast_trigonometry.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\gradient_paint.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\handed_coordinate_space.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\hash.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\integer.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\intersect.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\io.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\log_base.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_cross_product.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_decompose.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_interpolation.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_major_storage.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_operation.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_query.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\matrix_transform_2d.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\mixed_product.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\norm.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\normal.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\normalize_dot.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\number_precision.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\optimum_pow.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\orthonormalize.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\perpendicular.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\polar_coordinates.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\projection.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\quaternion.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\range.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\raw_data.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\rotate_normalized_axis.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\rotate_vector.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\scalar_multiplication.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\scalar_relational.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\spline.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\std_based_type.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\string_cast.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\transform.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\transform2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\type_aligned.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\type_trait.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\vector_angle.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\vector_query.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\gtx\wrap.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\integer.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat2x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat2x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat2x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat3x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat3x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat3x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat4x2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat4x3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\mat4x4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\matrix.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\packing.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\common.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\exponential.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\geometric.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\integer.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\matrix.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\packing.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\platform.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\trigonometric.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\simd\vector_relational.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\trigonometric.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\vec2.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\vec3.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\vec4.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_GLM\vector_relational.hpp" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\imconfig.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\imgui.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\imgui_internal.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\stb_rect_pack.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\stb_textedit.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_IMGUI\stb_truetype.h" />
+    <ClInclude Include="Source\Shared\S_Vendor\S_STB_Image\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\Legacy\L_audio\L_Audio.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
