@@ -15,7 +15,7 @@
 #include <iostream>
 
 //#define ATLAS_DEBUG
-#define INHERIT_ROTATION
+//#define INHERIT_ROTATION
 
 namespace Atlas {
 

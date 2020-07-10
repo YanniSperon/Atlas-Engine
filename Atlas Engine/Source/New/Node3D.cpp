@@ -43,7 +43,7 @@ void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatr
 	glm::mat4 newTransformationMatrix = RotateAbout(GetTranslationScaleMatrix(), rotation, axis) * currentTransformationMatrix;
 #endif
 #ifndef INHERIT_ROTATION
-	glm::mat4 newTransformationMatrix = GetTransformationMatrix() * currentTransformationMatrix;
+	glm::mat4 newTransformationMatrix = currentTransformationMatrix * GetTransformationMatrix();
 #endif
 #ifdef ATLAS_DEBUG
 	printf("Name: %s\n", name.c_str());
@@ -81,7 +81,7 @@ void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatr
 		renderer->AddRenderable3D(Renderable3D(objectComponent, newTransformationMatrix * objectComponent->GetTransformationMatrix()));
 #endif
 #ifndef INHERIT_ROTATION
-		renderer->AddRenderable3D(Renderable3D(objectComponent, objectComponent->GetTransformationMatrix() * newTransformationMatrix));
+		renderer->AddRenderable3D(Renderable3D(objectComponent, newTransformationMatrix * objectComponent->GetTransformationMatrix()));
 #endif
 	}
 #ifdef ATLAS_DEBUG
