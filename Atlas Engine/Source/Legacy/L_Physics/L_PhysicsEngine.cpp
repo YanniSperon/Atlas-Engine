@@ -22,12 +22,12 @@ namespace L_Atlas {
 	bool BulletCollisionCallbackFunc(btManifoldPoint& cp, const btCollisionObjectWrapper* obj1, int id1, int index1, const btCollisionObjectWrapper* obj2, int id2, int index2) {
 		const btCollisionObject* obj1Object = obj1->getCollisionObject();
 		const btCollisionObject* obj2Object = obj1->getCollisionObject();
-		if (obj1Object == NULL || obj1Object == nullptr) {
+		if (obj1Object == nullptr || obj1Object == nullptr) {
 			L_System::Err("This is our problem1");
 		}
 		L_BulletPhysicsObject* userPtr1 = (L_BulletPhysicsObject*)obj1Object->getUserPointer();
 		L_BulletPhysicsObject* userPtr2 = (L_BulletPhysicsObject*)obj2Object->getUserPointer();
-		if (userPtr1 == NULL || userPtr1 == nullptr) {
+		if (userPtr1 == nullptr || userPtr1 == nullptr) {
 			L_System::Err("This is our problem ptr1");
 		}
 		userPtr1->collisionData.obj1 = obj1Object;
@@ -79,7 +79,7 @@ namespace L_Atlas {
 
 	btCollisionObject* L_PhysicsEngine::AddPhysicsBody(btCollisionShape* shape, btTransform& transformation, float mass, L_PhysicsObject* pObj)
 	{
-		if (shape != NULL) {
+		if (shape != nullptr) {
 			btScalar massOfObject(mass);
 			bool isDynamic = (massOfObject != 0.0f);
 			btVector3 localInertia(0.0, 0.0, 0.0);
@@ -87,20 +87,20 @@ namespace L_Atlas {
 				shape->calculateLocalInertia(massOfObject, localInertia);
 			}
 			//printf("%f, %f, %f", transformation.getOrigin()[0], transformation.getOrigin()[1], transformation.getOrigin()[2]);
-			if (&transformation == NULL) {
-				L_System::Err("NULL transformation");
+			if (&transformation == nullptr) {
+				L_System::Err("nullptr transformation");
 			}
 			btDefaultMotionState* myMotionState = new btDefaultMotionState(transformation);
-			if (myMotionState == NULL) {
-				L_System::Err("NULL myMotionState");
+			if (myMotionState == nullptr) {
+				L_System::Err("nullptr myMotionState");
 			}
 			btRigidBody::btRigidBodyConstructionInfo rbInfo(massOfObject, myMotionState, shape, localInertia);
-			if (&rbInfo == NULL) {
-				L_System::Err("NULL rbInfo");
+			if (&rbInfo == nullptr) {
+				L_System::Err("nullptr rbInfo");
 			}
 			btRigidBody* body = new btRigidBody(rbInfo);
-			if (body == NULL) {
-				L_System::Err("NULL body");
+			if (body == nullptr) {
+				L_System::Err("nullptr body");
 			}
 			
 			bool shouldCollideWithPlayerBody = true;
@@ -121,8 +121,8 @@ namespace L_Atlas {
 			return body;
 		}
 		else {
-			L_System::Err("NULL shape!");
-			return NULL;
+			L_System::Err("nullptr shape!");
+			return nullptr;
 		}
 	}
 

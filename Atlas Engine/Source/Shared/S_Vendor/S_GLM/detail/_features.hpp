@@ -82,7 +82,7 @@
 // Extern templates	N1987	Yes
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2006/n1987.htm
 
-// #define GLM_CXX11_NULLPTR
+// #define GLM_CXX11_nullptrPTR
 // Null pointer constant	N2431	GCC 4.6
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2431.pdf
 
@@ -341,7 +341,7 @@
 #	endif
 
 #	if(__has_feature(cxx_nullptr))
-#		define GLM_CXX11_NULLPTR
+#		define GLM_CXX11_nullptrPTR
 #	endif
 
 #	if(__has_feature(cxx_override_control))

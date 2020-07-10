@@ -177,7 +177,7 @@ JobQueue
 		{
 			// free old
 			btAlignedFree(m_jobMem);
-			m_jobMem = NULL;
+			m_jobMem = nullptr;
 		}
 	}
 	void resizeJobMem(int newSize)
@@ -193,10 +193,10 @@ JobQueue
 public:
 	JobQueue()
 	{
-		m_jobMem = NULL;
+		m_jobMem = nullptr;
 		m_jobMemSize = 0;
-		m_threadSupport = NULL;
-		m_queueLock = NULL;
+		m_threadSupport = nullptr;
+		m_queueLock = nullptr;
 		m_headIndex = 0;
 		m_tailIndex = 0;
 		m_useSpinMutex = false;
@@ -211,7 +211,7 @@ public:
 		if (m_queueLock && m_threadSupport)
 		{
 			m_threadSupport->deleteCriticalSection(m_queueLock);
-			m_queueLock = NULL;
+			m_queueLock = nullptr;
 			m_threadSupport = 0;
 		}
 	}
@@ -317,9 +317,9 @@ public:
 		if (m_queueIsEmpty)
 		{
 			// lock free path. even if this is taken erroneously it isn't harmful
-			return NULL;
+			return nullptr;
 		}
-		IJob* job = NULL;
+		IJob* job = nullptr;
 		lockQueue();
 		if (!m_queueIsEmpty)
 		{
@@ -348,7 +348,7 @@ public:
 				return job;
 			}
 		}
-		return NULL;
+		return nullptr;
 	}
 };
 
@@ -439,8 +439,8 @@ class btTaskSchedulerDefault : public btITaskScheduler
 public:
 	btTaskSchedulerDefault() : btITaskScheduler("ThreadSupport")
 	{
-		m_threadSupport = NULL;
-		m_workerDirective = NULL;
+		m_threadSupport = nullptr;
+		m_workerDirective = nullptr;
 	}
 
 	virtual ~btTaskSchedulerDefault()
@@ -455,12 +455,12 @@ public:
 		if (m_threadSupport)
 		{
 			delete m_threadSupport;
-			m_threadSupport = NULL;
+			m_threadSupport = nullptr;
 		}
 		if (m_workerDirective)
 		{
 			btAlignedFree(m_workerDirective);
-			m_workerDirective = NULL;
+			m_workerDirective = nullptr;
 		}
 	}
 
@@ -485,7 +485,7 @@ public:
 		m_perThreadJobQueues.resize(m_numThreads);
 		for (int i = 0; i < m_numThreads; i++)
 		{
-			JobQueue* jq = NULL;
+			JobQueue* jq = nullptr;
 			// only worker threads get a job queue
 			if (i > 0)
 			{
@@ -786,7 +786,7 @@ btITaskScheduler* btCreateDefaultTaskScheduler()
 
 btITaskScheduler* btCreateDefaultTaskScheduler()
 {
-	return NULL;
+	return nullptr;
 }
 
 #endif  // #else // #if BT_THREADSAFE

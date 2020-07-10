@@ -10,8 +10,8 @@ namespace L_Atlas {
 		const btCollisionObject* obj2;
 
 		L_Collision() {
-			obj1 = NULL;
-			obj2 = NULL;
+			obj1 = nullptr;
+			obj2 = nullptr;
 		}
 
 		L_Collision(const btCollisionObject* object1, const btCollisionObject* object2)

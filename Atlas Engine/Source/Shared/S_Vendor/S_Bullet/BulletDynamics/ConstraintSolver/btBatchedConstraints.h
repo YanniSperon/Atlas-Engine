@@ -49,7 +49,7 @@ struct btBatchedConstraints
 
 	static bool s_debugDrawBatches;
 
-	btBatchedConstraints() { m_debugDrawer = NULL; }
+	btBatchedConstraints() { m_debugDrawer = nullptr; }
 	void setup(btConstraintArray* constraints,
 			   const btAlignedObjectArray<btSolverBody>& bodies,
 			   BatchingMethod batchingMethod,

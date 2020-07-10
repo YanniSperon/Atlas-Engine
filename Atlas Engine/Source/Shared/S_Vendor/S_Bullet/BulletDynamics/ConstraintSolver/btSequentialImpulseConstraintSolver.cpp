@@ -690,7 +690,7 @@ int btSequentialImpulseConstraintSolver::getOrInitSolverBody(btCollisionObject& 
 {
 #if BT_THREADSAFE
 	int solverBodyId = -1;
-	bool isRigidBodyType = btRigidBody::upcast(&body) != NULL;
+	bool isRigidBodyType = btRigidBody::upcast(&body) != nullptr;
 	if (isRigidBodyType && !body.isStaticOrKinematicObject())
 	{
 		// dynamic body

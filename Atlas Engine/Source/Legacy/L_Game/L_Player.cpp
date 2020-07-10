@@ -7,7 +7,7 @@
 namespace L_Atlas {
 
 	L_Player::L_Player()
-		: hasControls(false), movementSpeed(0.1f), viewDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), cameraTranslation(0.0f, 0.0f, 0.0f), oldMouseX(36000000.0), oldMouseY(0.0), mouseSensitivity(0.0f), skybox(NULL)
+		: hasControls(false), movementSpeed(0.1f), viewDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), cameraTranslation(0.0f, 0.0f, 0.0f), oldMouseX(36000000.0), oldMouseY(0.0), mouseSensitivity(0.0f), skybox(nullptr)
 	{
 
 	}
@@ -63,10 +63,10 @@ namespace L_Atlas {
 			glm::vec2 normalizedViewDirection = glm::normalize(glm::vec2(viewDirection.x, viewDirection.z));
 			cameraTranslation.x += movementSpeed * normalizedViewDirection.x * delta;
 			cameraTranslation.z += movementSpeed * normalizedViewDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -78,10 +78,10 @@ namespace L_Atlas {
 			glm::vec2 normalizedViewDirection = glm::normalize(glm::vec2(viewDirection.x, viewDirection.z));
 			cameraTranslation.x += -movementSpeed * normalizedViewDirection.x * delta;
 			cameraTranslation.z += -movementSpeed * normalizedViewDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -94,10 +94,10 @@ namespace L_Atlas {
 			glm::vec2 normalizedStrafeDirection = glm::normalize(glm::vec2(strafeDirection.x, strafeDirection.z));
 			cameraTranslation.x += -movementSpeed * normalizedStrafeDirection.x * delta;
 			cameraTranslation.z += -movementSpeed * normalizedStrafeDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -110,10 +110,10 @@ namespace L_Atlas {
 			glm::vec2 normalizedStrafeDirection = glm::normalize(glm::vec2(strafeDirection.x, strafeDirection.z));
 			cameraTranslation.x += movementSpeed * normalizedStrafeDirection.x * delta;
 			cameraTranslation.z += movementSpeed * normalizedStrafeDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -123,10 +123,10 @@ namespace L_Atlas {
 	{
 		if (hasControls) {
 			cameraTranslation += movementSpeed * upDirection * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -136,10 +136,10 @@ namespace L_Atlas {
 	{
 		if (hasControls) {
 			cameraTranslation += -movementSpeed * upDirection * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
-			if (playerModel != NULL) {
+			if (playerModel != nullptr) {
 				BringWith(playerModel);
 			}
 		}
@@ -148,10 +148,10 @@ namespace L_Atlas {
 	void L_Player::Follow(L_PhysicsObject* obj)
 	{
 		cameraTranslation = obj->GetTranslation();
-		if (skybox != NULL) {
+		if (skybox != nullptr) {
 			skybox->TranslateVec3(cameraTranslation);
 		}
-		if (playerModel != NULL) {
+		if (playerModel != nullptr) {
 			BringWith(playerModel);
 		}
 	}
@@ -159,7 +159,7 @@ namespace L_Atlas {
 	void L_Player::FollowMesh(L_Mesh* obj)
 	{
 		cameraTranslation = obj->GetTranslation();
-		if (skybox != NULL) {
+		if (skybox != nullptr) {
 			skybox->TranslateVec3(cameraTranslation);
 		}
 	}
@@ -173,7 +173,7 @@ namespace L_Atlas {
 	{
 		obj->TranslateVec3(cameraTranslation);
 		btRigidBody* body = btRigidBody::upcast(obj->GetL_PhysicsObject());
-		if (body != NULL) {
+		if (body != nullptr) {
 			body->setLinearVelocity(btVector3(0.0, 0.0, 0.0));
 		}
 		obj->InverseUpdate();

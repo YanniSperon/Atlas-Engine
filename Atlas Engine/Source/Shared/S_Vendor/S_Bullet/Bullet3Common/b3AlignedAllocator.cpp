@@ -153,7 +153,7 @@ void b3AlignedFreeInternal(void *ptr, int line, char *filename)
 	}
 	else
 	{
-		b3Printf("NULL ptr\n");
+		b3Printf("nullptr ptr\n");
 	}
 }
 

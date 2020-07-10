@@ -3,7 +3,7 @@
 #include "Shared/S_Vendor/S_GLM/gtx/euler_angles.hpp"
 
 Atlas::Object3D::Object3D()
-	: ibo(0), vbo(0), mesh(), shader(NULL), texture(NULL), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
+	: ibo(0), vbo(0), mesh(), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
 {
 
 }

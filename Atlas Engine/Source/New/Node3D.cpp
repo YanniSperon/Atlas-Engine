@@ -4,13 +4,13 @@
 #include "Global.h"
 
 Atlas::Node3D::Node3D()
-	: parent(NULL), cameraComponent(NULL), lightComponent(NULL), objectComponent(NULL), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: parent(nullptr), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	SetName("Root Node");
 }
 
 Atlas::Node3D::Node3D(Node3D* parentNode)
-	: parent(parentNode), cameraComponent(NULL), lightComponent(NULL), objectComponent(NULL), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: parent(parentNode), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	parentNode->AddChildNode(this);
 	SetName("Node");
@@ -142,7 +142,7 @@ void Atlas::Node3D::RemoveAndDeleteChildByName(std::string name)
 
 Atlas::Node3D* Atlas::Node3D::SearchChildrenForNode(std::string nodeName)
 {
-	Node3D* returnValue = NULL;
+	Node3D* returnValue = nullptr;
 	if (this->name == nodeName) {
 		return this;
 	}

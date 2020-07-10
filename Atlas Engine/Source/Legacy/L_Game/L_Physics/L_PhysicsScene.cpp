@@ -30,7 +30,7 @@ namespace L_Atlas {
 
 	L_PhysicsScene::~L_PhysicsScene()
 	{
-		// MAKE SURE TO SWITCH OUT CAMERA BEFORE THIS GETS DESTROYED BECAUSE THEN ACTIVECAMERA = NULL
+		// MAKE SURE TO SWITCH OUT CAMERA BEFORE THIS GETS DESTROYED BECAUSE THEN ACTIVECAMERA = nullptr
 		for (unsigned int i = 0; i < physicsObjectsOnScene.size(); i++) {
 			delete physicsObjectsOnScene.at(i);
 		}

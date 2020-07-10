@@ -42,7 +42,7 @@ btPersistentManifold* btCollisionDispatcherMt::getNewManifold(const btCollisionO
 	btScalar contactProcessingThreshold = btMin(body0->getContactProcessingThreshold(), body1->getContactProcessingThreshold());
 
 	void* mem = m_persistentManifoldPoolAllocator->allocate(sizeof(btPersistentManifold));
-	if (NULL == mem)
+	if (nullptr == mem)
 	{
 		//we got a pool memory overflow, by default we fallback to dynamically allocate memory. If we require a contiguous contact pool then assert.
 		if ((m_dispatcherFlags & CD_DISABLE_CONTACTPOOL_DYNAMIC_ALLOCATION) == 0)
@@ -104,10 +104,10 @@ struct CollisionDispatcherUpdater : public btIParallelForBody
 
 	CollisionDispatcherUpdater()
 	{
-		mPairArray = NULL;
-		mCallback = NULL;
-		mDispatcher = NULL;
-		mInfo = NULL;
+		mPairArray = nullptr;
+		mCallback = nullptr;
+		mDispatcher = nullptr;
+		mInfo = nullptr;
 	}
 	void forLoop(int iBegin, int iEnd) const
 	{

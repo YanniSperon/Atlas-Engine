@@ -77,7 +77,7 @@ btPersistentManifold* btCollisionDispatcher::getNewManifold(const btCollisionObj
 	btScalar contactProcessingThreshold = btMin(body0->getContactProcessingThreshold(), body1->getContactProcessingThreshold());
 
 	void* mem = m_persistentManifoldPoolAllocator->allocate(sizeof(btPersistentManifold));
-	if (NULL == mem)
+	if (nullptr == mem)
 	{
 		//we got a pool memory overflow, by default we fallback to dynamically allocate memory. If we require a contiguous contact pool then assert.
 		if ((m_dispatcherFlags & CD_DISABLE_CONTACTPOOL_DYNAMIC_ALLOCATION) == 0)
@@ -268,7 +268,7 @@ void btCollisionDispatcher::defaultNearCallback(btBroadphasePair& collisionPair,
 void* btCollisionDispatcher::allocateCollisionAlgorithm(int size)
 {
 	void* mem = m_collisionAlgorithmPoolAllocator->allocate(size);
-	if (NULL == mem)
+	if (nullptr == mem)
 	{
 		//warn user for overflow?
 		return btAlignedAlloc(static_cast<size_t>(size), 16);

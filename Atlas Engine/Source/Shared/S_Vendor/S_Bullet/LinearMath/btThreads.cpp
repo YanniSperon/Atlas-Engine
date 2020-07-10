@@ -424,7 +424,7 @@ void btParallelFor(int iBegin, int iEnd, int grainSize, const btIParallelForBody
 	}
 #endif  // #if BT_DETECT_BAD_THREAD_INDEX
 
-	btAssert(gBtTaskScheduler != NULL);  // call btSetTaskScheduler() with a valid task scheduler first!
+	btAssert(gBtTaskScheduler != nullptr);  // call btSetTaskScheduler() with a valid task scheduler first!
 	gBtTaskScheduler->parallelFor(iBegin, iEnd, grainSize, body);
 
 #else  // #if BT_THREADSAFE
@@ -451,7 +451,7 @@ btScalar btParallelSum(int iBegin, int iEnd, int grainSize, const btIParallelSum
 	}
 #endif  // #if BT_DETECT_BAD_THREAD_INDEX
 
-	btAssert(gBtTaskScheduler != NULL);  // call btSetTaskScheduler() with a valid task scheduler first!
+	btAssert(gBtTaskScheduler != nullptr);  // call btSetTaskScheduler() with a valid task scheduler first!
 	return gBtTaskScheduler->parallelSum(iBegin, iEnd, grainSize, body);
 
 #else  // #if BT_THREADSAFE
@@ -564,14 +564,14 @@ public:
 	btTaskSchedulerTBB() : btITaskScheduler("IntelTBB")
 	{
 		m_numThreads = 0;
-		m_tbbSchedulerInit = NULL;
+		m_tbbSchedulerInit = nullptr;
 	}
 	~btTaskSchedulerTBB()
 	{
 		if (m_tbbSchedulerInit)
 		{
 			delete m_tbbSchedulerInit;
-			m_tbbSchedulerInit = NULL;
+			m_tbbSchedulerInit = nullptr;
 		}
 	}
 
@@ -590,7 +590,7 @@ public:
 		{
 			// destroys all previous threads
 			delete m_tbbSchedulerInit;
-			m_tbbSchedulerInit = NULL;
+			m_tbbSchedulerInit = nullptr;
 		}
 		m_tbbSchedulerInit = new tbb::task_scheduler_init(m_numThreads);
 		m_savedThreadCounter = 0;
@@ -765,7 +765,7 @@ btITaskScheduler* btGetOpenMPTaskScheduler()
 	static btTaskSchedulerOpenMP sTaskScheduler;
 	return &sTaskScheduler;
 #else
-	return NULL;
+	return nullptr;
 #endif
 }
 
@@ -776,7 +776,7 @@ btITaskScheduler* btGetTBBTaskScheduler()
 	static btTaskSchedulerTBB sTaskScheduler;
 	return &sTaskScheduler;
 #else
-	return NULL;
+	return nullptr;
 #endif
 }
 
@@ -787,6 +787,6 @@ btITaskScheduler* btGetPPLTaskScheduler()
 	static btTaskSchedulerPPL sTaskScheduler;
 	return &sTaskScheduler;
 #else
-	return NULL;
+	return nullptr;
 #endif
 }

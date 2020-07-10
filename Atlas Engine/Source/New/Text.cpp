@@ -3,7 +3,7 @@
 Atlas::Text::Text()
 {
 	text = "";
-	font = NULL;
+	font = nullptr;
 }
 
 Atlas::Text::~Text()

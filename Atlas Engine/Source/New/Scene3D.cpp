@@ -1,13 +1,13 @@
 #include "Scene3D.h"
 
 Atlas::Scene3D::Scene3D()
-	: Scene(), rootNode(new Node3D()), activeCameraNode(NULL)
+	: Scene(), rootNode(new Node3D()), activeCameraNode(nullptr)
 {
 
 }
 
 Atlas::Scene3D::Scene3D(int initialWidth, int initialHeight)
-	: Scene(initialWidth, initialHeight), rootNode(new Node3D()), activeCameraNode(NULL)
+	: Scene(initialWidth, initialHeight), rootNode(new Node3D()), activeCameraNode(nullptr)
 {
 }
 

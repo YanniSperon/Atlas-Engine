@@ -2,10 +2,10 @@
 
 Atlas::Node2D::Node2D()
 {
-	parent = NULL;
+	parent = nullptr;
 	children = std::vector<Node2D*>();
 	translation = glm::vec3(0.0f);
-	objectComponent = NULL;
+	objectComponent = nullptr;
 }
 
 Atlas::Node2D::~Node2D()

@@ -66,7 +66,7 @@ btConstraintSolverPoolMt::ThreadSolver* btConstraintSolverPoolMt::getAndLockThre
 		// failed, try the next one
 		i = (i + 1) % m_solvers.size();
 	}
-	return NULL;
+	return nullptr;
 }
 
 void btConstraintSolverPoolMt::init(btConstraintSolver** solvers, int numSolvers)
@@ -109,7 +109,7 @@ btConstraintSolverPoolMt::~btConstraintSolverPoolMt()
 	{
 		ThreadSolver& solver = m_solvers[i];
 		delete solver.solver;
-		solver.solver = NULL;
+		solver.solver = nullptr;
 	}
 }
 

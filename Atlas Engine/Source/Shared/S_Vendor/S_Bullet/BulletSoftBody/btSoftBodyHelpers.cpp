@@ -563,7 +563,7 @@ void btSoftBodyHelpers::ReoptimizeLinkOrder(btSoftBody* psb /* This can be repla
 	}
 	for (i = 0; i < nLinks; i++)
 	{
-		linkDepListStarts[i] = NULL;
+		linkDepListStarts[i] = nullptr;
 	}
 	readyListHead = readyListTail = linkDepFrees = 0;
 

@@ -11,7 +11,7 @@
 namespace L_Atlas {
 
 	L_PhysicsObject::L_PhysicsObject()
-		: uid(0), vertexBufferID(0), indexBufferID(0), texID(0), shaderID(0), numIndices(0), material(), glInitialized(false), textureDirectory(""), textureName(""), shaderDirectory(""), shaderName(""), hasLighting(false), physicsObject(NULL)
+		: uid(0), vertexBufferID(0), indexBufferID(0), texID(0), shaderID(0), numIndices(0), material(), glInitialized(false), textureDirectory(""), textureName(""), shaderDirectory(""), shaderName(""), hasLighting(false), physicsObject(nullptr)
 	{
 	}
 
@@ -90,7 +90,7 @@ namespace L_Atlas {
 
 	void L_PhysicsObject::Update()
 	{
-		if (physicsObject != NULL) {
+		if (physicsObject != nullptr) {
 			TranslateVec3(L_Convert::Vector3(physicsObject->getWorldTransform().getOrigin()));
 			glm::vec3 rotation = glm::vec3(0.0f, 0.0f, 0.0f);
 			physicsObject->getWorldTransform().getRotation().getEulerZYX(rotation.z, rotation.y, rotation.x);
@@ -100,7 +100,7 @@ namespace L_Atlas {
 
 	void L_PhysicsObject::InverseUpdate()
 	{
-		if (physicsObject != NULL) {
+		if (physicsObject != nullptr) {
 			btTransform transform;
 			transform.setIdentity();
 			transform.setFromOpenGLMatrix(&GetModelTransRotMatrix()[0][0]);
@@ -111,7 +111,7 @@ namespace L_Atlas {
 	glm::mat4 L_PhysicsObject::GetModelTransformMatrix()
 	{
 		glm::mat4 returnMat4;
-		if (physicsObject != NULL) {
+		if (physicsObject != nullptr) {
 			physicsObject->getWorldTransform().getOpenGLMatrix(&returnMat4[0][0]);
 		}
 		else {
@@ -169,7 +169,7 @@ namespace L_Atlas {
 	void L_PhysicsObject::Launch(glm::vec3 viewDirection)
 	{
 		btRigidBody* body = btRigidBody::upcast(physicsObject);
-		if (body != NULL) {
+		if (body != nullptr) {
 			body->setLinearVelocity(L_Convert::Vector3(50.0f * viewDirection));
 			glm::normalize(viewDirection);
 		}
@@ -201,7 +201,7 @@ namespace L_Atlas {
 	{
 		L_BulletPhysicsObject* userPtr = (L_BulletPhysicsObject*)physicsObject->getUserPointer();
 		delete userPtr;
-		physicsObject->setUserPointer(NULL);
+		physicsObject->setUserPointer(nullptr);
 		L_PhysicsEngine::RemovePhysicsBody(physicsObject);
 	}
 

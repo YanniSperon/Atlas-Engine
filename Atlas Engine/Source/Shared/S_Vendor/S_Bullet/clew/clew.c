@@ -148,7 +148,7 @@ int clewInit(const char* path)
 		//  Failure queuing atexit, shutdown with error
 		CLEW_DYNLIB_CLOSE(module);
 		module = NULL;
-
+		
 		return CLEW_ERROR_ATEXIT_FAILED;
 	}
 

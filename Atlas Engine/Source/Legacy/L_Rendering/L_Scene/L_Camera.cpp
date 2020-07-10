@@ -6,7 +6,7 @@
 namespace L_Atlas {
 
 	L_Camera::L_Camera()
-		: hasControls(false), movementSpeed(0.1f), viewDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), cameraTranslation(0.0f, 0.0f, 0.0f), oldMouseX(36000000.0), oldMouseY(0.0), mouseSensitivity(0.0f), skybox(NULL), hasLookControls(true)
+		: hasControls(false), movementSpeed(0.1f), viewDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), cameraTranslation(0.0f, 0.0f, 0.0f), oldMouseX(36000000.0), oldMouseY(0.0), mouseSensitivity(0.0f), skybox(nullptr), hasLookControls(true)
 	{
 
 	}
@@ -62,7 +62,7 @@ namespace L_Atlas {
 			glm::vec2 normalizedViewDirection = glm::normalize(glm::vec2(viewDirection.x, viewDirection.z));
 			cameraTranslation.x += movementSpeed * normalizedViewDirection.x * delta;
 			cameraTranslation.z += movementSpeed * normalizedViewDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -74,7 +74,7 @@ namespace L_Atlas {
 			glm::vec2 normalizedViewDirection = glm::normalize(glm::vec2(viewDirection.x, viewDirection.z));
 			cameraTranslation.x += -movementSpeed * normalizedViewDirection.x * delta;
 			cameraTranslation.z += -movementSpeed * normalizedViewDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -87,7 +87,7 @@ namespace L_Atlas {
 			glm::vec2 normalizedStrafeDirection = glm::normalize(glm::vec2(strafeDirection.x, strafeDirection.z));
 			cameraTranslation.x += -movementSpeed * normalizedStrafeDirection.x * delta;
 			cameraTranslation.z += -movementSpeed * normalizedStrafeDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -100,7 +100,7 @@ namespace L_Atlas {
 			glm::vec2 normalizedStrafeDirection = glm::normalize(glm::vec2(strafeDirection.x, strafeDirection.z));
 			cameraTranslation.x += movementSpeed * normalizedStrafeDirection.x * delta;
 			cameraTranslation.z += movementSpeed * normalizedStrafeDirection.y * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -110,7 +110,7 @@ namespace L_Atlas {
 	{
 		if (hasControls) {
 			cameraTranslation += movementSpeed * upDirection * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -120,7 +120,7 @@ namespace L_Atlas {
 	{
 		if (hasControls) {
 			cameraTranslation += -movementSpeed * upDirection * delta;
-			if (skybox != NULL) {
+			if (skybox != nullptr) {
 				skybox->TranslateVec3(cameraTranslation);
 			}
 		}
@@ -129,7 +129,7 @@ namespace L_Atlas {
 	void L_Camera::Follow(L_Mesh* obj)
 	{
 		cameraTranslation = obj->GetTranslation();
-		if (skybox != NULL) {
+		if (skybox != nullptr) {
 			skybox->TranslateVec3(cameraTranslation);
 		}
 	}
@@ -173,7 +173,7 @@ namespace L_Atlas {
 	{
 		L_Object* tempSkybox = L_Global::Variables.activeCamera->GetSkybox();
 		cam->SetSkybox(tempSkybox);
-		L_Global::Variables.activeCamera->SetSkybox(NULL);
+		L_Global::Variables.activeCamera->SetSkybox(nullptr);
 		L_Global::Variables.activeCamera = cam;
 		cam->SetSkybox(tempSkybox);
 		glm::vec2 temp = L_Global::Variables.activeCamera->GetOldMousePos();

@@ -1,7 +1,7 @@
 #include "Renderable2D.h"
 
 Atlas::Renderable2D::Renderable2D()
-	: objectBeingRendered(NULL), finalTranslation(0.0f), finalRotation(0.0f), finalScale(0.0f)
+	: objectBeingRendered(nullptr), finalTranslation(0.0f), finalRotation(0.0f), finalScale(0.0f)
 {
 }
 

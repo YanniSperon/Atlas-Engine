@@ -54,7 +54,7 @@ namespace L_Atlas {
 
 			glGenTextures(1, &screenTexture);
 			glBindTexture(GL_TEXTURE_2D, screenTexture);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -69,7 +69,7 @@ namespace L_Atlas {
 			glGenFramebuffers(1, &postProcessingFramebuffer);
 			glGenTextures(1, &textureColorbuffer);
 			glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 

@@ -288,7 +288,7 @@ void btThreadSupportPosix::startThreads(const ConstructionInfo& threadConstructi
 		threadStatus.m_mainSemaphore = m_mainSemaphore;
 		threadStatus.m_userThreadFunc = threadConstructionInfo.m_userThreadFunc;
 		threadStatus.threadUsed = 0;
-		checkPThreadFunction(pthread_create(&threadStatus.thread, NULL, &threadFunction, (void*)&threadStatus));
+		checkPThreadFunction(pthread_create(&threadStatus.thread, nullptr, &threadFunction, (void*)&threadStatus));
 
 	}
 }
@@ -318,7 +318,7 @@ class btCriticalSectionPosix : public btCriticalSection
 public:
 	btCriticalSectionPosix()
 	{
-		pthread_mutex_init(&m_mutex, NULL);
+		pthread_mutex_init(&m_mutex, nullptr);
 	}
 	virtual ~btCriticalSectionPosix()
 	{

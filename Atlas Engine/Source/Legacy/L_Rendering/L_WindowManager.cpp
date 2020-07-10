@@ -15,22 +15,22 @@ namespace L_Atlas {
 		}
 
 		if (L_Global::Variables.fullscreen) {
-			L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", glfwGetPrimaryMonitor(), NULL);
+			L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", glfwGetPrimaryMonitor(), nullptr);
 		}
 		else {
 			if (L_Global::Variables.forceFullscreen) {
 				const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 				if (mode->width == L_Global::Variables.currentWidth && mode->height == L_Global::Variables.currentHeight) {
-					L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", glfwGetPrimaryMonitor(), NULL);
+					L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", glfwGetPrimaryMonitor(), nullptr);
 				}
 				else {
 					//glfwWindowHint(GLFW_DECORATED, false);
-					L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", NULL, NULL);
+					L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", nullptr, nullptr);
 				}
 			}
 			else {
 				//glfwWindowHint(GLFW_DECORATED, false);
-				L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", NULL, NULL);
+				L_Global::Variables.window = glfwCreateWindow(L_Global::Variables.initialWidth, L_Global::Variables.initialHeight, "Atlas", nullptr, nullptr);
 			}
 		}
 

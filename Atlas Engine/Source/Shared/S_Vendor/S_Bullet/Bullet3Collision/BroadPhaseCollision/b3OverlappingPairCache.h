@@ -46,7 +46,7 @@ extern int b3g_removePairs;
 extern int b3g_addedPairs;
 extern int b3g_findPairs;
 
-const int B3_NULL_PAIR = 0xffffffff;
+const int B3_nullptr_PAIR = 0xffffffff;
 
 ///The b3OverlappingPairCache provides an interface for overlapping pair management (add, remove, storage), used by the b3BroadphaseInterface broadphases.
 ///The b3HashedOverlappingPairCache and b3SortedOverlappingPairCache classes are two implementations.
@@ -219,14 +219,14 @@ private:
 
 		int index = m_hashTable[hash];
 
-		while (index != B3_NULL_PAIR && equalsPair(m_overlappingPairArray[index], proxyId1, proxyId2) == false)
+		while (index != B3_nullptr_PAIR && equalsPair(m_overlappingPairArray[index], proxyId1, proxyId2) == false)
 		{
 			index = m_next[index];
 		}
 
-		if (index == B3_NULL_PAIR)
+		if (index == B3_nullptr_PAIR)
 		{
-			return NULL;
+			return nullptr;
 		}
 
 		b3Assert(index < m_overlappingPairArray.size());

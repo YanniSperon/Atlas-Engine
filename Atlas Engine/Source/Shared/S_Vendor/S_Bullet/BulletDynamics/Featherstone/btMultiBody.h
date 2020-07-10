@@ -121,7 +121,7 @@ public:
 		return m_links[index];
 	}
 
-	void setBaseCollider(btMultiBodyLinkCollider * collider)  //collider can be NULL to disable collision for the base
+	void setBaseCollider(btMultiBodyLinkCollider * collider)  //collider can be nullptr to disable collision for the base
 	{
 		m_baseCollider = collider;
 	}
@@ -640,7 +640,7 @@ private:
 	void mulMatrix(btScalar * pA, btScalar * pB, int rowsA, int colsA, int rowsB, int colsB, btScalar *pC) const;
 
 private:
-	btMultiBodyLinkCollider *m_baseCollider;  //can be NULL
+	btMultiBodyLinkCollider *m_baseCollider;  //can be nullptr
 	const char *m_baseName;                   //memory needs to be manager by user!
 
 	btVector3 m_basePos;      // position of COM of base (world frame)

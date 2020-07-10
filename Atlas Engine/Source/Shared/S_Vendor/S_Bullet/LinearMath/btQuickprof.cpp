@@ -306,8 +306,8 @@ CProfileNode::CProfileNode(const char* name, CProfileNode* parent) : Name(name),
 																	 StartTime(0),
 																	 RecursionCounter(0),
 																	 Parent(parent),
-																	 Child(NULL),
-																	 Sibling(NULL),
+																	 Child(nullptr),
+																	 Sibling(nullptr),
 																	 m_userPtr(0)
 {
 	Reset();
@@ -316,9 +316,9 @@ CProfileNode::CProfileNode(const char* name, CProfileNode* parent) : Name(name),
 void CProfileNode::CleanupMemory()
 {
 	delete (Child);
-	Child = NULL;
+	Child = nullptr;
 	delete (Sibling);
-	Sibling = NULL;
+	Sibling = nullptr;
 }
 
 CProfileNode::~CProfileNode(void)
@@ -415,19 +415,19 @@ void CProfileIterator::Next(void)
 
 bool CProfileIterator::Is_Done(void)
 {
-	return CurrentChild == NULL;
+	return CurrentChild == nullptr;
 }
 
 void CProfileIterator::Enter_Child(int index)
 {
 	CurrentChild = CurrentParent->Get_Child();
-	while ((CurrentChild != NULL) && (index != 0))
+	while ((CurrentChild != nullptr) && (index != 0))
 	{
 		index--;
 		CurrentChild = CurrentChild->Get_Sibling();
 	}
 
-	if (CurrentChild != NULL)
+	if (CurrentChild != nullptr)
 	{
 		CurrentParent = CurrentChild;
 		CurrentChild = CurrentParent->Get_Child();
@@ -436,7 +436,7 @@ void CProfileIterator::Enter_Child(int index)
 
 void CProfileIterator::Enter_Parent(void)
 {
-	if (CurrentParent->Get_Parent() != NULL)
+	if (CurrentParent->Get_Parent() != nullptr)
 	{
 		CurrentParent = CurrentParent->Get_Parent();
 	}
@@ -450,22 +450,22 @@ void CProfileIterator::Enter_Parent(void)
 ***************************************************************************************************/
 
 CProfileNode gRoots[BT_QUICKPROF_MAX_THREAD_COUNT] = {
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL),
-	CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL), CProfileNode("Root", NULL)};
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr),
+	CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr), CProfileNode("Root", nullptr)};
 
 CProfileNode* gCurrentNodes[BT_QUICKPROF_MAX_THREAD_COUNT] =
 	{

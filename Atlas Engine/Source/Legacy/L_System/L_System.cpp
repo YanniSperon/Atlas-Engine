@@ -48,9 +48,9 @@ namespace L_Atlas {
 	std::string L_System::GetEXEDirectory()
 	{
 		char ownPth[MAX_PATH];
-		HMODULE hModule = GetModuleHandle(NULL);
+		HMODULE hModule = GetModuleHandle(nullptr);
 		ownPth[0] = '\0';
-		if (hModule != NULL) {
+		if (hModule != nullptr) {
 			GetModuleFileName(hModule, ownPth, sizeof(ownPth));
 		};
 		
@@ -71,9 +71,9 @@ namespace L_Atlas {
 	std::string L_System::GetEXEName()
 	{
 		char ownPth[MAX_PATH];
-		HMODULE hModule = GetModuleHandle(NULL);
+		HMODULE hModule = GetModuleHandle(nullptr);
 		ownPth[0] = '\0';
-		if (hModule != NULL) {
+		if (hModule != nullptr) {
 			GetModuleFileName(hModule, ownPth, sizeof(ownPth));
 		};
 
@@ -354,7 +354,7 @@ namespace L_Atlas {
 		static char InputConsoleString[128] = "";
 		ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (860.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((750.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (200.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Console", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Console", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::BeginChild("Log");
 		for (int i = 0; i < L_Global::Variables.consoleLog.size(); i++) {
 			std::string temp = L_Global::Variables.consoleLog[i];

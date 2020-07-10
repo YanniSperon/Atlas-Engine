@@ -70,7 +70,7 @@ struct b3HashString
 	}
 };
 
-const int B3_HASH_NULL = 0xffffffff;
+const int B3_HASH_nullptr = 0xffffffff;
 
 class b3HashInt
 {
@@ -248,11 +248,11 @@ protected:
 
 			for (i = 0; i < newCapacity; ++i)
 			{
-				m_hashTable[i] = B3_HASH_NULL;
+				m_hashTable[i] = B3_HASH_nullptr;
 			}
 			for (i = 0; i < newCapacity; ++i)
 			{
-				m_next[i] = B3_HASH_NULL;
+				m_next[i] = B3_HASH_nullptr;
 			}
 
 			for (i = 0; i < curHashtableSize; i++)
@@ -274,7 +274,7 @@ public:
 
 		//replace value if the key is already there
 		int index = findIndex(key);
-		if (index != B3_HASH_NULL)
+		if (index != B3_HASH_nullptr)
 		{
 			m_valueArray[index] = value;
 			return;
@@ -302,23 +302,23 @@ public:
 
 		int pairIndex = findIndex(key);
 
-		if (pairIndex == B3_HASH_NULL)
+		if (pairIndex == B3_HASH_nullptr)
 		{
 			return;
 		}
 
 		// Remove the pair from the hash table.
 		int index = m_hashTable[hash];
-		b3Assert(index != B3_HASH_NULL);
+		b3Assert(index != B3_HASH_nullptr);
 
-		int previous = B3_HASH_NULL;
+		int previous = B3_HASH_nullptr;
 		while (index != pairIndex)
 		{
 			previous = index;
 			index = m_next[index];
 		}
 
-		if (previous != B3_HASH_NULL)
+		if (previous != B3_HASH_nullptr)
 		{
 			b3Assert(m_next[previous] == pairIndex);
 			m_next[previous] = m_next[pairIndex];
@@ -346,16 +346,16 @@ public:
 		int lastHash = m_keyArray[lastPairIndex].getHash() & (m_valueArray.capacity() - 1);
 
 		index = m_hashTable[lastHash];
-		b3Assert(index != B3_HASH_NULL);
+		b3Assert(index != B3_HASH_nullptr);
 
-		previous = B3_HASH_NULL;
+		previous = B3_HASH_nullptr;
 		while (index != lastPairIndex)
 		{
 			previous = index;
 			index = m_next[index];
 		}
 
-		if (previous != B3_HASH_NULL)
+		if (previous != B3_HASH_nullptr)
 		{
 			b3Assert(m_next[previous] == lastPairIndex);
 			m_next[previous] = m_next[lastPairIndex];
@@ -416,9 +416,9 @@ public:
 	const Value* find(const Key& key) const
 	{
 		int index = findIndex(key);
-		if (index == B3_HASH_NULL)
+		if (index == B3_HASH_nullptr)
 		{
-			return NULL;
+			return nullptr;
 		}
 		return &m_valueArray[index];
 	}
@@ -426,9 +426,9 @@ public:
 	Value* find(const Key& key)
 	{
 		int index = findIndex(key);
-		if (index == B3_HASH_NULL)
+		if (index == B3_HASH_nullptr)
 		{
-			return NULL;
+			return nullptr;
 		}
 		return &m_valueArray[index];
 	}
@@ -439,11 +439,11 @@ public:
 
 		if (hash >= (unsigned int)m_hashTable.size())
 		{
-			return B3_HASH_NULL;
+			return B3_HASH_nullptr;
 		}
 
 		int index = m_hashTable[hash];
-		while ((index != B3_HASH_NULL) && key.equals(m_keyArray[index]) == false)
+		while ((index != B3_HASH_nullptr) && key.equals(m_keyArray[index]) == false)
 		{
 			index = m_next[index];
 		}

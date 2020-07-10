@@ -182,7 +182,7 @@ void btSequentialImpulseConstraintSolverMt::internalSetupContactConstraints(int 
 		btSolverConstraint* frictionConstraint1 = &m_tmpSolverContactFrictionConstraintPool[contactConstraint.m_frictionIndex];
 		btAssert(frictionConstraint1->m_frictionIndex == iContactConstraint);
 
-		btSolverConstraint* frictionConstraint2 = NULL;
+		btSolverConstraint* frictionConstraint2 = nullptr;
 		if (infoGlobal.m_solverMode & SOLVER_USE_2_FRICTION_DIRECTIONS)
 		{
 			frictionConstraint2 = &m_tmpSolverContactFrictionConstraintPool[contactConstraint.m_frictionIndex + 1];
@@ -302,7 +302,7 @@ int btSequentialImpulseConstraintSolverMt::getOrInitSolverBodyThreadsafe(btColli
 	// getOrInitSolverBodyThreadsafe -- attempts to be fully threadsafe (however may affect determinism)
 	//
 	int solverBodyId = -1;
-	bool isRigidBodyType = btRigidBody::upcast(&body) != NULL;
+	bool isRigidBodyType = btRigidBody::upcast(&body) != nullptr;
 	if (isRigidBodyType && !body.isStaticOrKinematicObject())
 	{
 		// dynamic body
@@ -809,7 +809,7 @@ void btSequentialImpulseConstraintSolverMt::convertBodies(btCollisionObject** bo
 	m_fixedBodyId = numBodies;
 	{
 		btSolverBody& fixedBody = m_tmpSolverBodyPool[m_fixedBodyId];
-		initSolverBody(&fixedBody, NULL, infoGlobal.m_timeStep);
+		initSolverBody(&fixedBody, nullptr, infoGlobal.m_timeStep);
 	}
 
 	bool parallelBodySetup = true;

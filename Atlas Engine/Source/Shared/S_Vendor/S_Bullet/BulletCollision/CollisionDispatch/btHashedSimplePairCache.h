@@ -18,7 +18,7 @@ subject to the following restrictions:
 
 #include "Shared/S_Vendor/S_Bullet/LinearMath/btAlignedObjectArray.h"
 
-const int BT_SIMPLE_NULL_PAIR = 0xffffffff;
+const int BT_SIMPLE_nullptr_PAIR = 0xffffffff;
 
 struct btSimplePair
 {
@@ -130,14 +130,14 @@ private:
 	{
 		int index = m_hashTable[hash];
 
-		while (index != BT_SIMPLE_NULL_PAIR && equalsPair(m_overlappingPairArray[index], proxyIdA, proxyIdB) == false)
+		while (index != BT_SIMPLE_nullptr_PAIR && equalsPair(m_overlappingPairArray[index], proxyIdA, proxyIdB) == false)
 		{
 			index = m_next[index];
 		}
 
-		if (index == BT_SIMPLE_NULL_PAIR)
+		if (index == BT_SIMPLE_nullptr_PAIR)
 		{
-			return NULL;
+			return nullptr;
 		}
 
 		btAssert(index < m_overlappingPairArray.size());

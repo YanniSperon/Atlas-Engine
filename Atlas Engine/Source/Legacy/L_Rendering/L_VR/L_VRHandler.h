@@ -19,7 +19,7 @@ namespace L_Atlas {
 			bool initialized;
 
 			L_OpenVRApplication() :
-				hmd(NULL), rtWidth(0), rtHeight(0), initialized(false)
+				hmd(nullptr), rtWidth(0), rtHeight(0), initialized(false)
 			{
 				if (L_Global::Variables.hasVR) {
 					if (!hmdIsPresent())
@@ -34,7 +34,7 @@ namespace L_Atlas {
 						else {
 							initVR();
 
-							if (hmd != NULL) {
+							if (hmd != nullptr) {
 								if (!vr::VRCompositor())
 								{
 									L_System::Err("Unable to initialize VR compositor!\n ");
@@ -61,7 +61,7 @@ namespace L_Atlas {
 				if (hmd)
 				{
 					vr::VR_Shutdown();
-					hmd = NULL;
+					hmd = nullptr;
 				}
 			}
 
@@ -69,7 +69,7 @@ namespace L_Atlas {
 			{
 				if (!hmd)
 				{
-					L_System::Err("Error : presenting frames when VR system handle is NULL");
+					L_System::Err("Error : presenting frames when VR system handle is nullptr");
 				}
 				else {
 					vr::TrackedDevicePose_t trackedDevicePose[vr::k_unMaxTrackedDeviceCount];
@@ -115,7 +115,7 @@ namespace L_Atlas {
 		};
 
 		static void Setup();
-		static std::string GetTrackedDeviceString(vr::IVRSystem* pHmd, vr::TrackedDeviceIndex_t unDevice, vr::TrackedDeviceProperty prop, vr::TrackedPropertyError* peError = NULL);
+		static std::string GetTrackedDeviceString(vr::IVRSystem* pHmd, vr::TrackedDeviceIndex_t unDevice, vr::TrackedDeviceProperty prop, vr::TrackedPropertyError* peError = nullptr);
 		static void Submit();
 		static void Cleanup();
 	};
@@ -133,7 +133,7 @@ namespace L_Atlas {
 //	vr::TrackedDevicePose_t trackedDevicePose;
 //	vr_pointer->GetDeviceToAbsoluteTrackingPose(
 //		vr::TrackingUniverseStanding, 0, &trackedDevicePose, 1);
-//	vr::VRCompositor()->WaitGetPoses(&trackedDevicePose, vr::k_unMaxTrackedDeviceCount, NULL, 0);
+//	vr::VRCompositor()->WaitGetPoses(&trackedDevicePose, vr::k_unMaxTrackedDeviceCount, nullptr, 0);
 //
 //	glBlitNamedFramebuffer(0, leftEyeFrameBuffer, 0, 0, currentWidth, currentHeight, 0, 0, currentWidth, currentHeight, GL_COLOR_BUFFER_BIT, GL_LINEAR);
 //	const vr::Texture_t tex = { reinterpret_cast<void*>(intptr_t(leftEyeFrameBuffer)), vr::TextureType_OpenGL, vr::ColorSpace_Gamma };

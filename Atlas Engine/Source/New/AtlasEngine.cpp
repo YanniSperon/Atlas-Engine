@@ -32,7 +32,7 @@ namespace Atlas {
             return false;
         }
 
-        Global::Variables.window = glfwCreateWindow(Global::Variables.screenWidth, Global::Variables.screenHeight, "Atlas", NULL, NULL);
+        Global::Variables.window = glfwCreateWindow(Global::Variables.screenWidth, Global::Variables.screenHeight, "Atlas", nullptr, nullptr);
 
         if (!Global::Variables.window)
         {
@@ -64,7 +64,7 @@ namespace Atlas {
 
         glEnable(GL_DEBUG_OUTPUT);
         glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-        //glDebugMessageCallback(L_Callbacks::openglCallbackFunction, NULL);
+        //glDebugMessageCallback(L_Callbacks::openglCallbackFunction, nullptr);
 
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_BLEND);
@@ -80,7 +80,7 @@ namespace Atlas {
         // IMGUI INIT
         ImGui::CreateContext();
         ImGuiIO& io = ImGui::GetIO(); (void)io;
-        io.IniFilename = NULL;
+        io.IniFilename = nullptr;
 
         ImGui_ImplGlfwGL3_Init(Global::Variables.window, true);
         ImGui::StyleColorsDark();
@@ -168,7 +168,7 @@ namespace Atlas {
                     // DEBUG
                     ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)Global::Variables.screenWidth), (20.0f / 1080.0f) * ((float)Global::Variables.screenHeight)));
                     ImGui::SetNextWindowSize(ImVec2((240.0f / 1920.0f) * ((float)Global::Variables.screenWidth), (100.0f / 1080.0f) * ((float)Global::Variables.screenHeight)));
-                    ImGui::Begin("Debug", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+                    ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
                     ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.12f).x);
                     ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
                     ImGui::Checkbox("Enable movement", &Global::Variables.shouldReceiveInput);

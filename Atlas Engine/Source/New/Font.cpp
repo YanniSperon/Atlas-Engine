@@ -2,7 +2,7 @@
 
 Atlas::Font::Font()
 {
-	texture = NULL;
+	texture = nullptr;
 	characters = std::vector<Object2D*>();
 }
 

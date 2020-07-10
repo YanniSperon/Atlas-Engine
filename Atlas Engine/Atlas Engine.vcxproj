@@ -535,6 +535,7 @@
     <ClInclude Include="Source\Legacy\L_Game\L_Scene.h" />
     <ClInclude Include="Source\Legacy\L_Global\L_Global.h" />
     <ClInclude Include="Source\Legacy\L_Global\L_GlobalVariables.h" />
+    <ClInclude Include="Source\New\AcceleratedVector.h" />
     <ClInclude Include="Source\New\AtlasEngine.h" />
     <ClInclude Include="Source\New\Camera.h" />
     <ClInclude Include="Source\New\Event.h" />

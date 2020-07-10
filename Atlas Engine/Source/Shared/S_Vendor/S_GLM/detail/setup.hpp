@@ -537,7 +537,7 @@
 #	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #else
 #	define GLM_STATIC_ASSERT(x, message)
-#	define GLM_STATIC_ASSERT_NULL
+#	define GLM_STATIC_ASSERT_nullptr
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////

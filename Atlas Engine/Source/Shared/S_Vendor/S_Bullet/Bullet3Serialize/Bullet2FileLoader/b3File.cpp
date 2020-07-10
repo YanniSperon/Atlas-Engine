@@ -1451,7 +1451,7 @@ void bFile::dumpChunks(bParse::bDNA *dna)
 #if 0
 	IDFinderData ifd;
 	ifd.success = 0;
-	ifd.IDname = NULL;
+	ifd.IDname = nullptr;
 	ifd.just_print_it = 1;
 	for (i=0; i<bf->m_blocks.size(); ++i)
 	{

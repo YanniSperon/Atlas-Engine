@@ -23,7 +23,7 @@ namespace L_Atlas {
 		VSyncPreference = config.GetVSyncPreference();
 		mouseMode = config.GetMouseMode();
 
-		activeCamera = new L_Camera(true, movementSpeed, glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), mouseSensitivity, NULL);
+		activeCamera = new L_Camera(true, movementSpeed, glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f), mouseSensitivity, nullptr);
 
 		currentWidth = initialWidth;
 		currentHeight = initialHeight;
@@ -58,8 +58,8 @@ namespace L_Atlas {
 		currentScene = L_Scene();
 		currentScene.camerasOnScene.push_back(activeCamera);
 
-		window = NULL;
+		window = nullptr;
 
-		currentRenderer = NULL;
+		currentRenderer = nullptr;
 	}
 }

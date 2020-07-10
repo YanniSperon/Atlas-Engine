@@ -76,7 +76,7 @@ public:
 		btAssert(!size || size <= m_elemSize);
 		//btAssert(m_freeCount>0);  // should return null if all full
 		void* result = m_firstFree;
-		if (NULL != m_firstFree)
+		if (nullptr != m_firstFree)
 		{
 			m_firstFree = *(void**)m_firstFree;
 			--m_freeCount;

@@ -43,7 +43,7 @@ btSimulationIslandManagerMt::btSimulationIslandManagerMt()
 	m_minimumSolverBatchSize = calcBatchCost(0, 128, 0);
 	m_batchIslandMinBodyCount = 32;
 	m_islandDispatch = parallelIslandDispatch;
-	m_batchIsland = NULL;
+	m_batchIsland = nullptr;
 }
 
 btSimulationIslandManagerMt::~btSimulationIslandManagerMt()
@@ -132,7 +132,7 @@ void btSimulationIslandManagerMt::initIslandPools()
 	m_lookupIslandFromId.resize(numElem);
 	for (int i = 0; i < m_lookupIslandFromId.size(); ++i)
 	{
-		m_lookupIslandFromId[i] = NULL;
+		m_lookupIslandFromId[i] = nullptr;
 	}
 	m_activeIslands.resize(0);
 	m_freeIslands.resize(0);
@@ -155,7 +155,7 @@ void btSimulationIslandManagerMt::initIslandPools()
 		m_allocatedIslands.quickSort(IslandBodyCapacitySortPredicate());
 	}
 
-	m_batchIsland = NULL;
+	m_batchIsland = nullptr;
 	// mark all islands free (but avoid deallocation)
 	for (int i = 0; i < m_allocatedIslands.size(); ++i)
 	{
@@ -172,7 +172,7 @@ void btSimulationIslandManagerMt::initIslandPools()
 btSimulationIslandManagerMt::Island* btSimulationIslandManagerMt::getIsland(int id)
 {
 	Island* island = m_lookupIslandFromId[id];
-	if (island == NULL)
+	if (island == nullptr)
 	{
 		// search for existing island
 		for (int i = 0; i < m_activeIslands.size(); ++i)
@@ -190,7 +190,7 @@ btSimulationIslandManagerMt::Island* btSimulationIslandManagerMt::getIsland(int 
 
 btSimulationIslandManagerMt::Island* btSimulationIslandManagerMt::allocateIsland(int id, int numBodies)
 {
-	Island* island = NULL;
+	Island* island = nullptr;
 	int allocSize = numBodies;
 	if (numBodies < m_batchIslandMinBodyCount)
 	{
@@ -202,7 +202,7 @@ btSimulationIslandManagerMt::Island* btSimulationIslandManagerMt::allocateIsland
 			if (island->bodyArray.size() + numBodies >= m_batchIslandMinBodyCount)
 			{
 				// next time start a new batch
-				m_batchIsland = NULL;
+				m_batchIsland = nullptr;
 			}
 			return island;
 		}
@@ -242,7 +242,7 @@ btSimulationIslandManagerMt::Island* btSimulationIslandManagerMt::allocateIsland
 			freeIslands.pop_back();
 		}
 	}
-	if (island == NULL)
+	if (island == nullptr)
 	{
 		// no free island found, allocate
 		island = new Island();  // TODO: change this to use the pool allocator
@@ -525,8 +525,8 @@ void btSimulationIslandManagerMt::mergeIslands()
 
 void btSimulationIslandManagerMt::solveIsland(btConstraintSolver* solver, Island& island, const SolverParams& solverParams)
 {
-	btPersistentManifold** manifolds = island.manifoldArray.size() ? &island.manifoldArray[0] : NULL;
-	btTypedConstraint** constraintsPtr = island.constraintArray.size() ? &island.constraintArray[0] : NULL;
+	btPersistentManifold** manifolds = island.manifoldArray.size() ? &island.manifoldArray[0] : nullptr;
+	btTypedConstraint** constraintsPtr = island.constraintArray.size() ? &island.constraintArray[0] : nullptr;
 	solver->solveGroup(&island.bodyArray[0],
 					   island.bodyArray.size(),
 					   manifolds,
@@ -659,7 +659,7 @@ void btSimulationIslandManagerMt::buildAndProcessIslands(btDispatcher* dispatche
 				}
 			}
 		}
-		btTypedConstraint** constraintsPtr = constraints.size() ? &constraints[0] : NULL;
+		btTypedConstraint** constraintsPtr = constraints.size() ? &constraints[0] : nullptr;
 		btConstraintSolver* solver = solverParams.m_solverMt ? solverParams.m_solverMt : solverParams.m_solverPool;
 		solver->solveGroup(&collisionObjects[0],
 						   collisionObjects.size(),

@@ -747,7 +747,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_vertices3f, curPart->m_vertices3f, sizeof(btVector3FloatData) * curNewPart->m_numVertices);
 		}
 		else
-			curNewPart->m_vertices3f = NULL;
+			curNewPart->m_vertices3f = nullptr;
 
 		if (curPart->m_vertices3d)
 		{
@@ -755,7 +755,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_vertices3d, curPart->m_vertices3d, sizeof(btVector3DoubleData) * curNewPart->m_numVertices);
 		}
 		else
-			curNewPart->m_vertices3d = NULL;
+			curNewPart->m_vertices3d = nullptr;
 
 		int numIndices = curNewPart->m_numTriangles * 3;
 		///the m_3indices8 was not initialized in some Bullet versions, this can cause crashes at loading time
@@ -769,7 +769,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_indices32, curPart->m_indices32, sizeof(btIntIndexData) * numIndices);
 		}
 		else
-			curNewPart->m_indices32 = NULL;
+			curNewPart->m_indices32 = nullptr;
 
 		if (curPart->m_3indices16)
 		{
@@ -778,7 +778,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_3indices16, curPart->m_3indices16, sizeof(btShortIntIndexTripletData) * curNewPart->m_numTriangles);
 		}
 		else
-			curNewPart->m_3indices16 = NULL;
+			curNewPart->m_3indices16 = nullptr;
 
 		if (curPart->m_indices16)
 		{
@@ -787,7 +787,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_indices16, curPart->m_indices16, sizeof(btShortIntIndexData) * numIndices);
 		}
 		else
-			curNewPart->m_indices16 = NULL;
+			curNewPart->m_indices16 = nullptr;
 
 		if (!uninitialized3indices8Workaround && curPart->m_3indices8)
 		{
@@ -795,7 +795,7 @@ btStridingMeshInterfaceData* btCollisionWorldImporter::createStridingL_MeshInter
 			memcpy(curNewPart->m_3indices8, curPart->m_3indices8, sizeof(btCharIndexTripletData) * curNewPart->m_numTriangles);
 		}
 		else
-			curNewPart->m_3indices8 = NULL;
+			curNewPart->m_3indices8 = nullptr;
 	}
 
 	m_allocatedbtStridingMeshInterfaceDatas.push_back(newData);

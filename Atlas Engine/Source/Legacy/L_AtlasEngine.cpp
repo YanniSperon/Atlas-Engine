@@ -77,7 +77,7 @@ namespace L_Atlas {
 				///////////////////////////////////////////////////////////////////////////
 				if ((L_Global::Variables.keyIn.leftControlHeld && L_Global::Variables.keyIn.fHeld) || (L_Global::Variables.keyIn.leftControlPressed && L_Global::Variables.keyIn.fPressed)) {
 					glfwSetWindowMonitor(L_Global::Variables.window, glfwGetPrimaryMonitor(), 0, 0, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, GLFW_DONT_CARE);
-					//glfwSetWindowMonitor(window, NULL, 0, 0, Global::Variables.currentWidth, Global::Variables.currentHeight, GLFW_DONT_CARE);
+					//glfwSetWindowMonitor(window, nullptr, 0, 0, Global::Variables.currentWidth, Global::Variables.currentHeight, GLFW_DONT_CARE);
 				}
 				else if ((L_Global::Variables.keyIn.leftControlHeld && L_Global::Variables.keyIn.qHeld) || (L_Global::Variables.keyIn.leftControlPressed && L_Global::Variables.keyIn.qPressed)) {
 					glfwSetWindowShouldClose(L_Global::Variables.window, GLFW_TRUE);

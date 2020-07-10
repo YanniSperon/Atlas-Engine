@@ -52,7 +52,7 @@
 #include "Shared/S_Input/S_InputHandler.h"
 
 // GLFW data
-static GLFWwindow*  g_Window = NULL;
+static GLFWwindow*  g_Window = nullptr;
 static double       g_Time = 0.0f;
 static bool         g_MouseJustPressed[3] = { false, false, false };
 static GLFWcursor*  g_MouseCursors[ImGuiMouseCursor_COUNT] = { 0 };
@@ -307,8 +307,8 @@ bool ImGui_ImplGlfwGL3_CreateDeviceObjects()
     g_ShaderHandle = glCreateProgram();
     g_VertHandle = glCreateShader(GL_VERTEX_SHADER);
     g_FragHandle = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(g_VertHandle, 2, vertex_shader_with_version, NULL);
-    glShaderSource(g_FragHandle, 2, fragment_shader_with_version, NULL);
+    glShaderSource(g_VertHandle, 2, vertex_shader_with_version, nullptr);
+    glShaderSource(g_FragHandle, 2, fragment_shader_with_version, nullptr);
     glCompileShader(g_VertHandle);
     glCompileShader(g_FragHandle);
     glAttachShader(g_ShaderHandle, g_VertHandle);
@@ -372,7 +372,7 @@ bool    ImGui_ImplGlfwGL3_Init(GLFWwindow* window, bool install_callbacks, const
     g_Window = window;
 
     // Store GL version string so we can refer to it later in case we recreate shaders.
-    if (glsl_version == NULL)
+    if (glsl_version == nullptr)
         glsl_version = "#version 150";
     IM_ASSERT((int)strlen(glsl_version) + 2 < IM_ARRAYSIZE(g_GlslVersion));
     strcpy(g_GlslVersion, glsl_version);

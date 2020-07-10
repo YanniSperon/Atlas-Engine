@@ -2,7 +2,7 @@
 #include "Global.h"
 
 Atlas::Layer::Layer()
-	: width(Global::Variables.screenWidth), height(Global::Variables.screenHeight), x(0), y(0), scene(NULL), layerType(E_LayerType::NONE)
+	: width(Global::Variables.screenWidth), height(Global::Variables.screenHeight), x(0), y(0), scene(nullptr), layerType(E_LayerType::NONE)
 {
 
 }
@@ -13,16 +13,16 @@ Atlas::Layer::Layer(E_LayerType type, int w, int h, int xPos, int yPos)
 	switch (type)
 	{
 	case Atlas::E_LayerType::NONE:
-		scene = NULL;
+		scene = nullptr;
 		break;
 	case Atlas::E_LayerType::TWODIMENSIONAL:
-		scene = NULL;
+		scene = nullptr;
 		break;
 	case Atlas::E_LayerType::THREEDIMENSIONAL:
 		scene = new Scene3D(w, h);
 		break;
 	default:
-		scene = NULL;
+		scene = nullptr;
 		break;
 	}
 }

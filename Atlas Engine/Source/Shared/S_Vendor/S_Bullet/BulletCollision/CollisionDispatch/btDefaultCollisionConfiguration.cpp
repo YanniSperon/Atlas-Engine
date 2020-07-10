@@ -37,7 +37,7 @@ subject to the following restrictions:
 btDefaultCollisionConfiguration::btDefaultCollisionConfiguration(const btDefaultCollisionConstructionInfo& constructionInfo)
 //btDefaultCollisionConfiguration::btDefaultCollisionConfiguration(btStackAlloc*	stackAlloc,btPoolAllocator*	persistentManifoldPool,btPoolAllocator*	collisionAlgorithmPool)
 {
-	void* mem = NULL;
+	void* mem = nullptr;
 	if (constructionInfo.m_useEpaPenetrationAlgorithm)
 	{
 		mem = btAlignedAlloc(sizeof(btGjkEpaPenetrationDepthSolver), 16);

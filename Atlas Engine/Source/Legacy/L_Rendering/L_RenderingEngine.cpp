@@ -21,7 +21,7 @@ namespace L_Atlas {
 
 		glEnable(GL_DEBUG_OUTPUT);
 		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-		glDebugMessageCallback(L_Callbacks::openglCallbackFunction, NULL);
+		glDebugMessageCallback(L_Callbacks::openglCallbackFunction, nullptr);
 
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_BLEND);

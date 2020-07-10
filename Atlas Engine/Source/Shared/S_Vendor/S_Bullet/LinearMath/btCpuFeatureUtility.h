@@ -44,7 +44,7 @@ public:
 		{
 			uint32_t hasFeature = 0;
 			size_t featureSize = sizeof(hasFeature);
-			int err = sysctlbyname("hw.optional.neon_hpfp", &hasFeature, &featureSize, NULL, 0);
+			int err = sysctlbyname("hw.optional.neon_hpfp", &hasFeature, &featureSize, nullptr, 0);
 			if (0 == err && hasFeature)
 				capabilities |= CPU_FEATURE_NEON_HPFP;
 		}

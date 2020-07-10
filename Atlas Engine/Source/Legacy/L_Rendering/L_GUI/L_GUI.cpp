@@ -18,7 +18,7 @@ namespace L_Atlas {
 
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-		io.IniFilename = NULL;
+		io.IniFilename = nullptr;
 
 		ImGui_ImplGlfwGL3_Init(window, true);
 		ImGui::StyleColorsDark();
@@ -53,7 +53,7 @@ namespace L_Atlas {
 		{
 			ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (20.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 			ImGui::SetNextWindowSize(ImVec2((190.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (245.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-			ImGui::Begin("File", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+			ImGui::Begin("File", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 			ImGui::Checkbox("Enable Debug Options##debugControl", &EnableDebug);
 			ImGui::Checkbox("Enable File Manager##filemanager", &EnableFileManager);
 			ImGui::Checkbox("Enable Spawn Menu##spawnControl", &EnableSpawnMenu);

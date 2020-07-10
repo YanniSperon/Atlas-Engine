@@ -8,7 +8,7 @@ namespace Atlas {
 	struct Mesh2D {
 
 		Mesh2D()
-			: vertices(NULL), numVertices(0), indices(NULL), numIndices(0)
+			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0)
 		{
 
 		}

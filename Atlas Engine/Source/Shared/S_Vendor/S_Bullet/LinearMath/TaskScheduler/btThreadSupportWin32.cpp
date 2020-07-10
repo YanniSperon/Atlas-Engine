@@ -84,12 +84,12 @@ void getProcessorInformation(btProcessorInfo* procInfo)
 	memset(procInfo, 0, sizeof(*procInfo));
 	Pfn_GetLogicalProcessorInformation getLogicalProcInfo =
 		(Pfn_GetLogicalProcessorInformation)GetProcAddress(GetModuleHandle(TEXT("kernel32")), "GetLogicalProcessorInformation");
-	if (getLogicalProcInfo == NULL)
+	if (getLogicalProcInfo == nullptr)
 	{
 		// no info
 		return;
 	}
-	PSYSTEM_LOGICAL_PROCESSOR_INFORMATION buf = NULL;
+	PSYSTEM_LOGICAL_PROCESSOR_INFORMATION buf = nullptr;
 	DWORD bufSize = 0;
 	while (true)
 	{
@@ -328,7 +328,7 @@ void btThreadSupportWin32::startThreads(const ConstructionInfo& threadConstructi
 
 		btThreadStatus& threadStatus = m_activeThreadStatus[i];
 
-		LPSECURITY_ATTRIBUTES lpThreadAttributes = NULL;
+		LPSECURITY_ATTRIBUTES lpThreadAttributes = nullptr;
 		SIZE_T dwStackSize = threadConstructionInfo.m_threadStackSize;
 		LPTHREAD_START_ROUTINE lpStartAddress = &win32threadStartFunc;
 		LPVOID lpParameter = &threadStatus;
@@ -391,7 +391,7 @@ void btThreadSupportWin32::stopThreads()
 			WaitForSingleObject(threadStatus.m_eventCompleteHandle, INFINITE);
 		}
 
-		threadStatus.m_userPtr = NULL;
+		threadStatus.m_userPtr = nullptr;
 		SetEvent(threadStatus.m_eventStartHandle);
 		WaitForSingleObject(threadStatus.m_eventCompleteHandle, INFINITE);
 

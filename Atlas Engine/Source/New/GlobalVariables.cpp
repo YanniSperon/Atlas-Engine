@@ -12,7 +12,7 @@ Atlas::GlobalVariables::GlobalVariables()
 	keyIn = Input::KeyboardInput();
 	mouseIn = Input::MouseInput();
 
-	window = NULL;
+	window = nullptr;
 
 	shouldReceiveInput = true;
 }

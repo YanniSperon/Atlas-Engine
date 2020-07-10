@@ -593,8 +593,8 @@ static void writeOutBatches(btBatchedConstraints* bc,
 //
 // Example Usage:
 //
-//  btVector3* bodyPositions = NULL;
-//  btBatchedConstraintInfo* conInfos = NULL;
+//  btVector3* bodyPositions = nullptr;
+//  btBatchedConstraintInfo* conInfos = nullptr;
 //  {
 //    PreallocatedMemoryHelper<8> memHelper;
 //    memHelper.addChunk( (void**) &bodyPositions, sizeof( btVector3 ) * bodies.size() );
@@ -830,14 +830,14 @@ static void setupSpatialGridBatchesMt(
 	int minNumBatchesPerPhase = 16;
 	int allocNumBatches = allocNumBatchesPerPhase * numPhases;
 
-	btVector3* bodyPositions = NULL;
-	bool* bodyDynamicFlags = NULL;
-	btIntVec3* bodyGridCoords = NULL;
-	btBatchInfo* batches = NULL;
-	int* batchWork = NULL;
-	btBatchedConstraintInfo* conInfos = NULL;
-	int* constraintBatchIds = NULL;
-	int* constraintRowBatchIds = NULL;
+	btVector3* bodyPositions = nullptr;
+	bool* bodyDynamicFlags = nullptr;
+	btIntVec3* bodyGridCoords = nullptr;
+	btBatchInfo* batches = nullptr;
+	int* batchWork = nullptr;
+	btBatchedConstraintInfo* conInfos = nullptr;
+	int* constraintBatchIds = nullptr;
+	int* constraintRowBatchIds = nullptr;
 	{
 		PreallocatedMemoryHelper<10> memHelper;
 		memHelper.addChunk((void**)&bodyPositions, sizeof(btVector3) * bodies.size());

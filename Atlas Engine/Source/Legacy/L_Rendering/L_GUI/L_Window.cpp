@@ -93,7 +93,7 @@ namespace L_Atlas {
 	{
 		ImGui::SetNextWindowPos(ImVec2((812.5f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (20.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((295.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (70.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Info", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Info", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::Text("Current Editor Type: ");
 		ImGui::SameLine();
 		if (currentEditorType == L_LevelEditor::L_EditorType::light) {
@@ -127,7 +127,7 @@ namespace L_Atlas {
 	{
 		ImGui::SetNextWindowPos(ImVec2((230.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (20.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((240.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (100.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Debug", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.12f).x);
 		ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 		ImGui::Separator();
@@ -151,7 +151,7 @@ namespace L_Atlas {
 	{
 		ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (20.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((240.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (50.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Debug", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Debug", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.12f).x);
 		ImGui::Text("%.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 		ImGui::End();
@@ -161,7 +161,7 @@ namespace L_Atlas {
 	{
 		ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (285.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((190.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (100.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("File Manager", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("File Manager", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.125f).x);
 		if (ImGui::Button("Load new mesh##loadmeshbutton1", ImVec2(ImGui::GetWindowSize().x * 0.75f, 0.0f))) {
 			std::string file = L_System::FileOpenDialog("Select a mesh to load", "OBJECT File\0*.obj\0", window);
@@ -381,7 +381,7 @@ namespace L_Atlas {
 		static std::string currentSelectedPSFX = "";
 		ImGui::SetNextWindowPos(ImVec2((1605.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (935.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((295.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (125.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Post-Processing Manager", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Post-Processing Manager", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.125f).x);
 		if (ImGui::Button("Load new PSFX shader##loadpsfxshader", ImVec2(ImGui::GetWindowSize().x * 0.75f, 0.0f))) {
 			std::string file = L_System::FileOpenDialog("Select a mesh to load", "SHADER File\0*.shader\0", window);
@@ -490,7 +490,7 @@ namespace L_Atlas {
 
 		ImGui::SetNextWindowPos(ImVec2((1605.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (20.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((295.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (405.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Spawn Menu", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Spawn Menu", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.1f).x);
 		if (ImGui::BeginCombo("L_Mesh##meshcombo", currentSelectedL_Mesh.c_str()))
 		{
@@ -602,7 +602,7 @@ namespace L_Atlas {
 
 		ImGui::SetNextWindowPos(ImVec2((1605.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (445.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((295.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (470.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Object Settings", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Object Settings", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.17f).x);
 		if (ImGui::BeginCombo("##combo", current_item)) // The second parameter is the label previewed before opening the combo.
 		{
@@ -763,7 +763,7 @@ namespace L_Atlas {
 		L_PhysicsEngine::SetPhysics(EnablePhysics);
 		ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (405.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::SetNextWindowSize(ImVec2((190.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (175.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::Begin("Physics Manager", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+		ImGui::Begin("Physics Manager", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.3f).x);
 		ImGui::Checkbox("Enable Physics", &EnablePhysics);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.1f).x);

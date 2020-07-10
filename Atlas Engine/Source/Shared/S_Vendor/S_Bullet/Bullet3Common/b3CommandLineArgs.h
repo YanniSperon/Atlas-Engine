@@ -98,7 +98,7 @@ inline bool b3CommandLineArgs::GetCmdLineArgument<char *>(const char *arg_name, 
 	}
 	else
 	{
-		val = NULL;
+		val = nullptr;
 	}
 	return false;
 }

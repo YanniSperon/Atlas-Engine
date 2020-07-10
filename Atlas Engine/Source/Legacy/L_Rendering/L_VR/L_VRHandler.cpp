@@ -2,9 +2,9 @@
 
 namespace L_Atlas {
 
-	static L_VRHandler::L_OpenVRApplication* app = NULL;
-	static L_BasicRenderTarget* leftRT = NULL;
-	static L_BasicRenderTarget* rightRT = NULL;
+	static L_VRHandler::L_OpenVRApplication* app = nullptr;
+	static L_BasicRenderTarget* leftRT = nullptr;
+	static L_BasicRenderTarget* rightRT = nullptr;
 	static GLuint leftEyeTexture;
 	static GLuint rightEyeTexture;
 
@@ -20,7 +20,7 @@ namespace L_Atlas {
 					//vr_pointer = VR_Init(&eError, vr::VRApplication_Scene); // VRApplication_Background OR VRApplication_Scene OR VRApplication_Overlay OR VRApplication_Utility
 					//if (eError != vr::VRInitError_None)
 					//{
-					//	vr_pointer = NULL;
+					//	vr_pointer = nullptr;
 					//	std::string error = VR_GetVRInitErrorAsEnglishDescription(eError);
 					//	L_System::Err("Unable to init VR runtime: \"" + error + "\"");
 					//}
@@ -117,19 +117,19 @@ namespace L_Atlas {
 
 	std::string L_VRHandler::GetTrackedDeviceString(vr::IVRSystem* pHmd, vr::TrackedDeviceIndex_t unDevice, vr::TrackedDeviceProperty prop, vr::TrackedPropertyError* peError)
 	{
-		//vr::IVRSystem* vr_pointer = NULL;
+		//vr::IVRSystem* vr_pointer = nullptr;
 		//if (Global::Variables.hasVR) {
 		//	vr::EVRInitError eError = vr::VRInitError_None;
 		//	vr_pointer = VR_Init(&eError, vr::VRApplication_Scene); // VRApplication_Background OR VRApplication_Scene OR VRApplication_Overlay OR VRApplication_Utility
 		//	if (eError != vr::VRInitError_None)
 		//	{
-		//		vr_pointer = NULL;
+		//		vr_pointer = nullptr;
 		//		std::string error = VR_GetVRInitErrorAsEnglishDescription(eError);
 		//		L_System::Err("Unable to init VR runtime: \"" + error + "\"");
 		//	}
 		//}
 		if (L_Global::Variables.hasVR) {
-			uint32_t unRequiredBufferLen = pHmd->GetStringTrackedDeviceProperty(unDevice, prop, NULL, 0, peError);
+			uint32_t unRequiredBufferLen = pHmd->GetStringTrackedDeviceProperty(unDevice, prop, nullptr, 0, peError);
 			if (unRequiredBufferLen == 0)
 				return "";
 
