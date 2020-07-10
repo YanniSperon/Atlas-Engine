@@ -401,8 +401,6 @@
     <ClCompile Include="Source\Shared\S_Vendor\S_STB_Image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
-    <None Include="imgui.ini" />
     <None Include="Resources\shaders\Basic2D.shader" />
     <None Include="Resources\shaders\NoPostFX.shader" />
     <None Include="Resources\shaders\Basic.shader" />

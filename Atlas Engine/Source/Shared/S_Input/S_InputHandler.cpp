@@ -29,848 +29,850 @@ namespace Input {
 		mousePosition.y = ypos;
 	}
 
-	void InputHandler::ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn)
+	void InputHandler::ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn, bool shouldReceiveInput)
 	{
-		if (keyButtons.size() == keyActions.size()) {
-			for (unsigned int i = 0; i < keyButtons.size(); i++) {
-				if (keyButtons[i] == GLFW_KEY_A) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->aPressed = true;
-						keyIn->aHeld = false;
-						keyIn->aReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->aPressed = false;
-						keyIn->aHeld = false;
-						keyIn->aReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_B) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->bPressed = true;
-						keyIn->bHeld = false;
-						keyIn->bReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->bPressed = false;
-						keyIn->bHeld = false;
-						keyIn->bReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_C) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->cPressed = true;
-						keyIn->cHeld = false;
-						keyIn->cReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->cPressed = false;
-						keyIn->cHeld = false;
-						keyIn->cReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_D) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->dPressed = true;
-						keyIn->dHeld = false;
-						keyIn->dReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->dPressed = false;
-						keyIn->dHeld = false;
-						keyIn->dReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_E) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->ePressed = true;
-						keyIn->eHeld = false;
-						keyIn->eReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->ePressed = false;
-						keyIn->eHeld = false;
-						keyIn->eReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_F) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->fPressed = true;
-						keyIn->fHeld = false;
-						keyIn->fReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->fPressed = false;
-						keyIn->fHeld = false;
-						keyIn->fReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_G) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->gPressed = true;
-						keyIn->gHeld = false;
-						keyIn->gReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->gPressed = false;
-						keyIn->gHeld = false;
-						keyIn->gReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_H) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->hPressed = true;
-						keyIn->hHeld = false;
-						keyIn->hReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->hPressed = false;
-						keyIn->hHeld = false;
-						keyIn->hReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_I) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->iPressed = true;
-						keyIn->iHeld = false;
-						keyIn->iReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->iPressed = false;
-						keyIn->iHeld = false;
-						keyIn->iReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_J) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->jPressed = true;
-						keyIn->jHeld = false;
-						keyIn->jReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->jPressed = false;
-						keyIn->jHeld = false;
-						keyIn->jReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_K) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->kPressed = true;
-						keyIn->kHeld = false;
-						keyIn->kReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->kPressed = false;
-						keyIn->kHeld = false;
-						keyIn->kReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_L) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->lPressed = true;
-						keyIn->lHeld = false;
-						keyIn->lReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->lPressed = false;
-						keyIn->lHeld = false;
-						keyIn->lReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_M) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->mPressed = true;
-						keyIn->mHeld = false;
-						keyIn->mReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->mPressed = false;
-						keyIn->mHeld = false;
-						keyIn->mReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_N) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->nPressed = true;
-						keyIn->nHeld = false;
-						keyIn->nReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->nPressed = false;
-						keyIn->nHeld = false;
-						keyIn->nReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_O) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->oPressed = true;
-						keyIn->oHeld = false;
-						keyIn->oReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->oPressed = false;
-						keyIn->oHeld = false;
-						keyIn->oReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_P) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->pPressed = true;
-						keyIn->pHeld = false;
-						keyIn->pReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->pPressed = false;
-						keyIn->pHeld = false;
-						keyIn->pReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_Q) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->qPressed = true;
-						keyIn->qHeld = false;
-						keyIn->qReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->qPressed = false;
-						keyIn->qHeld = false;
-						keyIn->qReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_R) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rPressed = true;
-						keyIn->rHeld = false;
-						keyIn->rReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rPressed = false;
-						keyIn->rHeld = false;
-						keyIn->rReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_S) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->sPressed = true;
-						keyIn->sHeld = false;
-						keyIn->sReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->sPressed = false;
-						keyIn->sHeld = false;
-						keyIn->sReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_T) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->tPressed = true;
-						keyIn->tHeld = false;
-						keyIn->tReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->tPressed = false;
-						keyIn->tHeld = false;
-						keyIn->tReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_U) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->uPressed = true;
-						keyIn->uHeld = false;
-						keyIn->uReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->uPressed = false;
-						keyIn->uHeld = false;
-						keyIn->uReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_V) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->vPressed = true;
-						keyIn->vHeld = false;
-						keyIn->vReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->vPressed = false;
-						keyIn->vHeld = false;
-						keyIn->vReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_W) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->wPressed = true;
-						keyIn->wHeld = false;
-						keyIn->wReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->wPressed = false;
-						keyIn->wHeld = false;
-						keyIn->wReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_X) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->xPressed = true;
-						keyIn->xHeld = false;
-						keyIn->xReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->xPressed = false;
-						keyIn->xHeld = false;
-						keyIn->xReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_Y) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->yPressed = true;
-						keyIn->yHeld = false;
-						keyIn->yReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->yPressed = false;
-						keyIn->yHeld = false;
-						keyIn->yReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_Z) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->zPressed = true;
-						keyIn->zHeld = false;
-						keyIn->zReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->zPressed = false;
-						keyIn->zHeld = false;
-						keyIn->zReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_LEFT_CONTROL) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->leftControlPressed = true;
-						keyIn->leftControlHeld = false;
-						keyIn->leftControlReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->leftControlPressed = false;
-						keyIn->leftControlHeld = false;
-						keyIn->leftControlReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_LEFT_SHIFT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->leftShiftPressed = true;
-						keyIn->leftShiftHeld = false;
-						keyIn->leftShiftReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->leftShiftPressed = false;
-						keyIn->leftShiftHeld = false;
-						keyIn->leftShiftReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_CAPS_LOCK) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->capsLockPressed = true;
-						keyIn->capsLockHeld = false;
-						keyIn->capsLockReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->capsLockPressed = false;
-						keyIn->capsLockHeld = false;
-						keyIn->capsLockReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_LEFT_ALT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->leftAltPressed = true;
-						keyIn->leftAltHeld = false;
-						keyIn->leftAltReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->leftAltPressed = false;
-						keyIn->leftAltHeld = false;
-						keyIn->leftAltReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_TAB) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->tabPressed = true;
-						keyIn->tabHeld = false;
-						keyIn->tabReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->tabPressed = false;
-						keyIn->tabHeld = false;
-						keyIn->tabReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_GRAVE_ACCENT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->tildePressed = true;
-						keyIn->tildeHeld = false;
-						keyIn->tildeReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->tildePressed = false;
-						keyIn->tildeHeld = false;
-						keyIn->tildeReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_0) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->zeroPressed = true;
-						keyIn->zeroHeld = false;
-						keyIn->zeroReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->zeroPressed = false;
-						keyIn->zeroHeld = false;
-						keyIn->zeroReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_1) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->onePressed = true;
-						keyIn->oneHeld = false;
-						keyIn->oneReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->onePressed = false;
-						keyIn->oneHeld = false;
-						keyIn->oneReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_2) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->twoPressed = true;
-						keyIn->twoHeld = false;
-						keyIn->twoReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->twoPressed = false;
-						keyIn->twoHeld = false;
-						keyIn->twoReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_3) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->threePressed = true;
-						keyIn->threeHeld = false;
-						keyIn->threeReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->threePressed = false;
-						keyIn->threeHeld = false;
-						keyIn->threeReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_4) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->fourPressed = true;
-						keyIn->fourHeld = false;
-						keyIn->fourReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->fourPressed = false;
-						keyIn->fourHeld = false;
-						keyIn->fourReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_5) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->fivePressed = true;
-						keyIn->fiveHeld = false;
-						keyIn->fiveReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->fivePressed = false;
-						keyIn->fiveHeld = false;
-						keyIn->fiveReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_6) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->sixPressed = true;
-						keyIn->sixHeld = false;
-						keyIn->sixReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->sixPressed = false;
-						keyIn->sixHeld = false;
-						keyIn->sixReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_7) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->sevenPressed = true;
-						keyIn->sevenHeld = false;
-						keyIn->sevenReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->sevenPressed = false;
-						keyIn->sevenHeld = false;
-						keyIn->sevenReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_8) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->eightPressed = true;
-						keyIn->eightHeld = false;
-						keyIn->eightReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->eightPressed = false;
-						keyIn->eightHeld = false;
-						keyIn->eightReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_9) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->ninePressed = true;
-						keyIn->nineHeld = false;
-						keyIn->nineReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->ninePressed = false;
-						keyIn->nineHeld = false;
-						keyIn->nineReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_MINUS) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->minusPressed = true;
-						keyIn->minusHeld = false;
-						keyIn->minusReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->minusPressed = false;
-						keyIn->minusHeld = false;
-						keyIn->minusReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_EQUAL) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->equalPressed = true;
-						keyIn->equalHeld = false;
-						keyIn->equalReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->equalPressed = false;
-						keyIn->equalHeld = false;
-						keyIn->equalReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_BACKSPACE) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->backspacePressed = true;
-						keyIn->backspaceHeld = false;
-						keyIn->backspaceReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->backspacePressed = false;
-						keyIn->backspaceHeld = false;
-						keyIn->backspaceReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_DELETE) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->deletePressed = true;
-						keyIn->deleteHeld = false;
-						keyIn->deleteReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->deletePressed = false;
-						keyIn->deleteHeld = false;
-						keyIn->deleteReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_LEFT_BRACKET) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->leftBracketPressed = true;
-						keyIn->leftBracketHeld = false;
-						keyIn->leftBracketReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->leftBracketPressed = false;
-						keyIn->leftBracketHeld = false;
-						keyIn->leftBracketReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_RIGHT_BRACKET) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rightBracketPressed = true;
-						keyIn->rightBracketHeld = false;
-						keyIn->rightBracketReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rightBracketPressed = false;
-						keyIn->rightBracketHeld = false;
-						keyIn->rightBracketReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_BACKSLASH) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->backslashPressed = true;
-						keyIn->backslashHeld = false;
-						keyIn->backslashReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->backslashPressed = false;
-						keyIn->backslashHeld = false;
-						keyIn->backslashReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_SLASH) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->frontslashPressed = true;
-						keyIn->frontslashHeld = false;
-						keyIn->frontslashReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->frontslashPressed = false;
-						keyIn->frontslashHeld = false;
-						keyIn->frontslashReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_COMMA) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->commaPressed = true;
-						keyIn->commaHeld = false;
-						keyIn->commaReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->commaPressed = false;
-						keyIn->commaHeld = false;
-						keyIn->commaReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_PERIOD) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->periodPressed = true;
-						keyIn->periodHeld = false;
-						keyIn->periodReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->periodPressed = false;
-						keyIn->periodHeld = false;
-						keyIn->periodReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_SEMICOLON) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->semiColonPressed = true;
-						keyIn->semiColonHeld = false;
-						keyIn->semiColonReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->semiColonPressed = false;
-						keyIn->semiColonHeld = false;
-						keyIn->semiColonReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_APOSTROPHE) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->apostrophePressed = true;
-						keyIn->apostropheHeld = false;
-						keyIn->apostropheReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->apostrophePressed = false;
-						keyIn->apostropheHeld = false;
-						keyIn->apostropheReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_ENTER) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->enterPressed = true;
-						keyIn->enterHeld = false;
-						keyIn->enterReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->enterPressed = false;
-						keyIn->enterHeld = false;
-						keyIn->enterReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_RIGHT_SHIFT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rightShiftPressed = true;
-						keyIn->rightShiftHeld = false;
-						keyIn->rightShiftReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rightShiftPressed = false;
-						keyIn->rightShiftHeld = false;
-						keyIn->rightShiftReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_RIGHT_CONTROL) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rightControlPressed = true;
-						keyIn->rightControlHeld = false;
-						keyIn->rightControlReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rightControlPressed = false;
-						keyIn->rightControlHeld = false;
-						keyIn->rightControlReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_RIGHT_ALT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rightAltPressed = true;
-						keyIn->rightAltHeld = false;
-						keyIn->rightAltReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rightAltPressed = false;
-						keyIn->rightAltHeld = false;
-						keyIn->rightAltReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_LEFT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->leftPressed = true;
-						keyIn->leftHeld = false;
-						keyIn->leftReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->leftPressed = false;
-						keyIn->leftHeld = false;
-						keyIn->leftReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_RIGHT) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->rightPressed = true;
-						keyIn->rightHeld = false;
-						keyIn->rightReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->rightPressed = false;
-						keyIn->rightHeld = false;
-						keyIn->rightReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_UP) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->upPressed = true;
-						keyIn->upHeld = false;
-						keyIn->upReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->upPressed = false;
-						keyIn->upHeld = false;
-						keyIn->upReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_DOWN) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->downPressed = true;
-						keyIn->downHeld = false;
-						keyIn->downReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->downPressed = false;
-						keyIn->downHeld = false;
-						keyIn->downReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_ESCAPE) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->escapePressed = true;
-						keyIn->escapeHeld = false;
-						keyIn->escapeReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->escapePressed = false;
-						keyIn->escapeHeld = false;
-						keyIn->escapeReleased = true;
-					}
-				}
-				else if (keyButtons[i] == GLFW_KEY_SPACE) {
-					if (keyActions[i] == GLFW_PRESS) {
-						keyIn->spacePressed = true;
-						keyIn->spaceHeld = false;
-						keyIn->spaceReleased = false;
-					}
-					else if (keyActions[i] == GLFW_RELEASE) {
-						keyIn->spacePressed = false;
-						keyIn->spaceHeld = false;
-						keyIn->spaceReleased = true;
+		if (shouldReceiveInput) {
+			if (keyButtons.size() == keyActions.size()) {
+				for (unsigned int i = 0; i < keyButtons.size(); i++) {
+					if (keyButtons[i] == GLFW_KEY_A) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->aPressed = true;
+							keyIn->aHeld = false;
+							keyIn->aReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->aPressed = false;
+							keyIn->aHeld = false;
+							keyIn->aReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_B) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->bPressed = true;
+							keyIn->bHeld = false;
+							keyIn->bReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->bPressed = false;
+							keyIn->bHeld = false;
+							keyIn->bReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_C) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->cPressed = true;
+							keyIn->cHeld = false;
+							keyIn->cReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->cPressed = false;
+							keyIn->cHeld = false;
+							keyIn->cReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_D) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->dPressed = true;
+							keyIn->dHeld = false;
+							keyIn->dReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->dPressed = false;
+							keyIn->dHeld = false;
+							keyIn->dReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_E) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->ePressed = true;
+							keyIn->eHeld = false;
+							keyIn->eReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->ePressed = false;
+							keyIn->eHeld = false;
+							keyIn->eReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_F) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->fPressed = true;
+							keyIn->fHeld = false;
+							keyIn->fReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->fPressed = false;
+							keyIn->fHeld = false;
+							keyIn->fReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_G) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->gPressed = true;
+							keyIn->gHeld = false;
+							keyIn->gReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->gPressed = false;
+							keyIn->gHeld = false;
+							keyIn->gReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_H) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->hPressed = true;
+							keyIn->hHeld = false;
+							keyIn->hReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->hPressed = false;
+							keyIn->hHeld = false;
+							keyIn->hReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_I) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->iPressed = true;
+							keyIn->iHeld = false;
+							keyIn->iReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->iPressed = false;
+							keyIn->iHeld = false;
+							keyIn->iReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_J) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->jPressed = true;
+							keyIn->jHeld = false;
+							keyIn->jReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->jPressed = false;
+							keyIn->jHeld = false;
+							keyIn->jReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_K) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->kPressed = true;
+							keyIn->kHeld = false;
+							keyIn->kReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->kPressed = false;
+							keyIn->kHeld = false;
+							keyIn->kReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_L) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->lPressed = true;
+							keyIn->lHeld = false;
+							keyIn->lReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->lPressed = false;
+							keyIn->lHeld = false;
+							keyIn->lReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_M) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->mPressed = true;
+							keyIn->mHeld = false;
+							keyIn->mReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->mPressed = false;
+							keyIn->mHeld = false;
+							keyIn->mReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_N) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->nPressed = true;
+							keyIn->nHeld = false;
+							keyIn->nReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->nPressed = false;
+							keyIn->nHeld = false;
+							keyIn->nReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_O) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->oPressed = true;
+							keyIn->oHeld = false;
+							keyIn->oReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->oPressed = false;
+							keyIn->oHeld = false;
+							keyIn->oReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_P) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->pPressed = true;
+							keyIn->pHeld = false;
+							keyIn->pReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->pPressed = false;
+							keyIn->pHeld = false;
+							keyIn->pReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_Q) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->qPressed = true;
+							keyIn->qHeld = false;
+							keyIn->qReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->qPressed = false;
+							keyIn->qHeld = false;
+							keyIn->qReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_R) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rPressed = true;
+							keyIn->rHeld = false;
+							keyIn->rReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rPressed = false;
+							keyIn->rHeld = false;
+							keyIn->rReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_S) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->sPressed = true;
+							keyIn->sHeld = false;
+							keyIn->sReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->sPressed = false;
+							keyIn->sHeld = false;
+							keyIn->sReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_T) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->tPressed = true;
+							keyIn->tHeld = false;
+							keyIn->tReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->tPressed = false;
+							keyIn->tHeld = false;
+							keyIn->tReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_U) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->uPressed = true;
+							keyIn->uHeld = false;
+							keyIn->uReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->uPressed = false;
+							keyIn->uHeld = false;
+							keyIn->uReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_V) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->vPressed = true;
+							keyIn->vHeld = false;
+							keyIn->vReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->vPressed = false;
+							keyIn->vHeld = false;
+							keyIn->vReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_W) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->wPressed = true;
+							keyIn->wHeld = false;
+							keyIn->wReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->wPressed = false;
+							keyIn->wHeld = false;
+							keyIn->wReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_X) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->xPressed = true;
+							keyIn->xHeld = false;
+							keyIn->xReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->xPressed = false;
+							keyIn->xHeld = false;
+							keyIn->xReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_Y) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->yPressed = true;
+							keyIn->yHeld = false;
+							keyIn->yReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->yPressed = false;
+							keyIn->yHeld = false;
+							keyIn->yReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_Z) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->zPressed = true;
+							keyIn->zHeld = false;
+							keyIn->zReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->zPressed = false;
+							keyIn->zHeld = false;
+							keyIn->zReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_LEFT_CONTROL) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->leftControlPressed = true;
+							keyIn->leftControlHeld = false;
+							keyIn->leftControlReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->leftControlPressed = false;
+							keyIn->leftControlHeld = false;
+							keyIn->leftControlReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_LEFT_SHIFT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->leftShiftPressed = true;
+							keyIn->leftShiftHeld = false;
+							keyIn->leftShiftReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->leftShiftPressed = false;
+							keyIn->leftShiftHeld = false;
+							keyIn->leftShiftReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_CAPS_LOCK) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->capsLockPressed = true;
+							keyIn->capsLockHeld = false;
+							keyIn->capsLockReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->capsLockPressed = false;
+							keyIn->capsLockHeld = false;
+							keyIn->capsLockReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_LEFT_ALT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->leftAltPressed = true;
+							keyIn->leftAltHeld = false;
+							keyIn->leftAltReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->leftAltPressed = false;
+							keyIn->leftAltHeld = false;
+							keyIn->leftAltReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_TAB) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->tabPressed = true;
+							keyIn->tabHeld = false;
+							keyIn->tabReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->tabPressed = false;
+							keyIn->tabHeld = false;
+							keyIn->tabReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_GRAVE_ACCENT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->tildePressed = true;
+							keyIn->tildeHeld = false;
+							keyIn->tildeReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->tildePressed = false;
+							keyIn->tildeHeld = false;
+							keyIn->tildeReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_0) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->zeroPressed = true;
+							keyIn->zeroHeld = false;
+							keyIn->zeroReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->zeroPressed = false;
+							keyIn->zeroHeld = false;
+							keyIn->zeroReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_1) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->onePressed = true;
+							keyIn->oneHeld = false;
+							keyIn->oneReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->onePressed = false;
+							keyIn->oneHeld = false;
+							keyIn->oneReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_2) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->twoPressed = true;
+							keyIn->twoHeld = false;
+							keyIn->twoReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->twoPressed = false;
+							keyIn->twoHeld = false;
+							keyIn->twoReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_3) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->threePressed = true;
+							keyIn->threeHeld = false;
+							keyIn->threeReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->threePressed = false;
+							keyIn->threeHeld = false;
+							keyIn->threeReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_4) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->fourPressed = true;
+							keyIn->fourHeld = false;
+							keyIn->fourReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->fourPressed = false;
+							keyIn->fourHeld = false;
+							keyIn->fourReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_5) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->fivePressed = true;
+							keyIn->fiveHeld = false;
+							keyIn->fiveReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->fivePressed = false;
+							keyIn->fiveHeld = false;
+							keyIn->fiveReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_6) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->sixPressed = true;
+							keyIn->sixHeld = false;
+							keyIn->sixReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->sixPressed = false;
+							keyIn->sixHeld = false;
+							keyIn->sixReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_7) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->sevenPressed = true;
+							keyIn->sevenHeld = false;
+							keyIn->sevenReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->sevenPressed = false;
+							keyIn->sevenHeld = false;
+							keyIn->sevenReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_8) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->eightPressed = true;
+							keyIn->eightHeld = false;
+							keyIn->eightReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->eightPressed = false;
+							keyIn->eightHeld = false;
+							keyIn->eightReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_9) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->ninePressed = true;
+							keyIn->nineHeld = false;
+							keyIn->nineReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->ninePressed = false;
+							keyIn->nineHeld = false;
+							keyIn->nineReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_MINUS) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->minusPressed = true;
+							keyIn->minusHeld = false;
+							keyIn->minusReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->minusPressed = false;
+							keyIn->minusHeld = false;
+							keyIn->minusReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_EQUAL) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->equalPressed = true;
+							keyIn->equalHeld = false;
+							keyIn->equalReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->equalPressed = false;
+							keyIn->equalHeld = false;
+							keyIn->equalReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_BACKSPACE) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->backspacePressed = true;
+							keyIn->backspaceHeld = false;
+							keyIn->backspaceReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->backspacePressed = false;
+							keyIn->backspaceHeld = false;
+							keyIn->backspaceReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_DELETE) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->deletePressed = true;
+							keyIn->deleteHeld = false;
+							keyIn->deleteReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->deletePressed = false;
+							keyIn->deleteHeld = false;
+							keyIn->deleteReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_LEFT_BRACKET) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->leftBracketPressed = true;
+							keyIn->leftBracketHeld = false;
+							keyIn->leftBracketReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->leftBracketPressed = false;
+							keyIn->leftBracketHeld = false;
+							keyIn->leftBracketReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_RIGHT_BRACKET) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rightBracketPressed = true;
+							keyIn->rightBracketHeld = false;
+							keyIn->rightBracketReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rightBracketPressed = false;
+							keyIn->rightBracketHeld = false;
+							keyIn->rightBracketReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_BACKSLASH) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->backslashPressed = true;
+							keyIn->backslashHeld = false;
+							keyIn->backslashReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->backslashPressed = false;
+							keyIn->backslashHeld = false;
+							keyIn->backslashReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_SLASH) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->frontslashPressed = true;
+							keyIn->frontslashHeld = false;
+							keyIn->frontslashReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->frontslashPressed = false;
+							keyIn->frontslashHeld = false;
+							keyIn->frontslashReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_COMMA) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->commaPressed = true;
+							keyIn->commaHeld = false;
+							keyIn->commaReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->commaPressed = false;
+							keyIn->commaHeld = false;
+							keyIn->commaReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_PERIOD) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->periodPressed = true;
+							keyIn->periodHeld = false;
+							keyIn->periodReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->periodPressed = false;
+							keyIn->periodHeld = false;
+							keyIn->periodReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_SEMICOLON) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->semiColonPressed = true;
+							keyIn->semiColonHeld = false;
+							keyIn->semiColonReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->semiColonPressed = false;
+							keyIn->semiColonHeld = false;
+							keyIn->semiColonReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_APOSTROPHE) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->apostrophePressed = true;
+							keyIn->apostropheHeld = false;
+							keyIn->apostropheReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->apostrophePressed = false;
+							keyIn->apostropheHeld = false;
+							keyIn->apostropheReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_ENTER) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->enterPressed = true;
+							keyIn->enterHeld = false;
+							keyIn->enterReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->enterPressed = false;
+							keyIn->enterHeld = false;
+							keyIn->enterReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_RIGHT_SHIFT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rightShiftPressed = true;
+							keyIn->rightShiftHeld = false;
+							keyIn->rightShiftReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rightShiftPressed = false;
+							keyIn->rightShiftHeld = false;
+							keyIn->rightShiftReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_RIGHT_CONTROL) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rightControlPressed = true;
+							keyIn->rightControlHeld = false;
+							keyIn->rightControlReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rightControlPressed = false;
+							keyIn->rightControlHeld = false;
+							keyIn->rightControlReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_RIGHT_ALT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rightAltPressed = true;
+							keyIn->rightAltHeld = false;
+							keyIn->rightAltReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rightAltPressed = false;
+							keyIn->rightAltHeld = false;
+							keyIn->rightAltReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_LEFT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->leftPressed = true;
+							keyIn->leftHeld = false;
+							keyIn->leftReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->leftPressed = false;
+							keyIn->leftHeld = false;
+							keyIn->leftReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_RIGHT) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->rightPressed = true;
+							keyIn->rightHeld = false;
+							keyIn->rightReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->rightPressed = false;
+							keyIn->rightHeld = false;
+							keyIn->rightReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_UP) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->upPressed = true;
+							keyIn->upHeld = false;
+							keyIn->upReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->upPressed = false;
+							keyIn->upHeld = false;
+							keyIn->upReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_DOWN) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->downPressed = true;
+							keyIn->downHeld = false;
+							keyIn->downReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->downPressed = false;
+							keyIn->downHeld = false;
+							keyIn->downReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_ESCAPE) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->escapePressed = true;
+							keyIn->escapeHeld = false;
+							keyIn->escapeReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->escapePressed = false;
+							keyIn->escapeHeld = false;
+							keyIn->escapeReleased = true;
+						}
+					}
+					else if (keyButtons[i] == GLFW_KEY_SPACE) {
+						if (keyActions[i] == GLFW_PRESS) {
+							keyIn->spacePressed = true;
+							keyIn->spaceHeld = false;
+							keyIn->spaceReleased = false;
+						}
+						else if (keyActions[i] == GLFW_RELEASE) {
+							keyIn->spacePressed = false;
+							keyIn->spaceHeld = false;
+							keyIn->spaceReleased = true;
+						}
 					}
 				}
 			}
-		}
-		else {
-			printf("Error keyboard key handling!\n");
-		}
+			else {
+				printf("Error keyboard key handling!\n");
+			}
 
-		keyButtons.clear();
-		keyActions.clear();
+			keyButtons.clear();
+			keyActions.clear();
 
-		if (mouseButtons.size() == mouseActions.size()) {
-			for (unsigned int i = 0; i < mouseButtons.size(); i++) {
-				if (mouseButtons[i] == GLFW_MOUSE_BUTTON_LEFT) {
-					if (mouseActions[i] == GLFW_PRESS) {
-						mouseIn->leftClicked = true;
-						mouseIn->leftHeld = false;
-						mouseIn->leftReleased = false;
+			if (mouseButtons.size() == mouseActions.size()) {
+				for (unsigned int i = 0; i < mouseButtons.size(); i++) {
+					if (mouseButtons[i] == GLFW_MOUSE_BUTTON_LEFT) {
+						if (mouseActions[i] == GLFW_PRESS) {
+							mouseIn->leftClicked = true;
+							mouseIn->leftHeld = false;
+							mouseIn->leftReleased = false;
+						}
+						else if (mouseActions[i] == GLFW_RELEASE) {
+							mouseIn->leftClicked = false;
+							mouseIn->leftHeld = false;
+							mouseIn->leftReleased = true;
+						}
 					}
-					else if (mouseActions[i] == GLFW_RELEASE) {
-						mouseIn->leftClicked = false;
-						mouseIn->leftHeld = false;
-						mouseIn->leftReleased = true;
+					else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_RIGHT) {
+						if (mouseActions[i] == GLFW_PRESS) {
+							mouseIn->rightClicked = true;
+							mouseIn->rightHeld = false;
+							mouseIn->rightReleased = false;
+						}
+						else if (mouseActions[i] == GLFW_RELEASE) {
+							mouseIn->rightClicked = false;
+							mouseIn->rightHeld = false;
+							mouseIn->rightReleased = true;
+						}
 					}
-				}
-				else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_RIGHT) {
-					if (mouseActions[i] == GLFW_PRESS) {
-						mouseIn->rightClicked = true;
-						mouseIn->rightHeld = false;
-						mouseIn->rightReleased = false;
+					else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_MIDDLE) {
+						if (mouseActions[i] == GLFW_PRESS) {
+							mouseIn->middleClicked = true;
+							mouseIn->middleHeld = false;
+							mouseIn->middleReleased = false;
+						}
+						else if (mouseActions[i] == GLFW_RELEASE) {
+							mouseIn->middleClicked = false;
+							mouseIn->middleHeld = false;
+							mouseIn->middleReleased = true;
+						}
 					}
-					else if (mouseActions[i] == GLFW_RELEASE) {
-						mouseIn->rightClicked = false;
-						mouseIn->rightHeld = false;
-						mouseIn->rightReleased = true;
-					}
-				}
-				else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_MIDDLE) {
-					if (mouseActions[i] == GLFW_PRESS) {
-						mouseIn->middleClicked = true;
-						mouseIn->middleHeld = false;
-						mouseIn->middleReleased = false;
-					}
-					else if (mouseActions[i] == GLFW_RELEASE) {
-						mouseIn->middleClicked = false;
-						mouseIn->middleHeld = false;
-						mouseIn->middleReleased = true;
-					}
-				}
-				else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_4) {
-					if (mouseActions[i] == GLFW_PRESS) {
-						mouseIn->mb4Clicked = true;
-						mouseIn->mb4Held = false;
-						mouseIn->mb4Released = false;
-					}
-					else if (mouseActions[i] == GLFW_RELEASE) {
-						mouseIn->mb4Clicked = false;
-						mouseIn->mb4Held = false;
-						mouseIn->mb4Released = true;
+					else if (mouseButtons[i] == GLFW_MOUSE_BUTTON_4) {
+						if (mouseActions[i] == GLFW_PRESS) {
+							mouseIn->mb4Clicked = true;
+							mouseIn->mb4Held = false;
+							mouseIn->mb4Released = false;
+						}
+						else if (mouseActions[i] == GLFW_RELEASE) {
+							mouseIn->mb4Clicked = false;
+							mouseIn->mb4Held = false;
+							mouseIn->mb4Released = true;
+						}
 					}
 				}
 			}
-		}
-		else {
-			printf("Error mouse key handling!\n");
-		}
+			else {
+				printf("Error mouse key handling!\n");
+			}
 
-		mouseButtons.clear();
-		mouseActions.clear();
+			mouseButtons.clear();
+			mouseActions.clear();
 
-		mouseIn->mouseXPos = mousePosition.x;
-		mouseIn->mouseYPos = mousePosition.y;
+			mouseIn->mouseXPos = mousePosition.x;
+			mouseIn->mouseYPos = mousePosition.y;
+		}
 	}
 
 	void Input::InputHandler::Flush(KeyboardInput* keyIn, MouseInput* mouseIn)

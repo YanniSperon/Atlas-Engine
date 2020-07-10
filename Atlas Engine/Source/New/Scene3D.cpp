@@ -1,13 +1,13 @@
 #include "Scene3D.h"
 
 Atlas::Scene3D::Scene3D()
-	: Scene(), rootNode(new Node3D())
+	: Scene(), rootNode(new Node3D()), activeCameraNode(NULL)
 {
 
 }
 
 Atlas::Scene3D::Scene3D(int initialWidth, int initialHeight)
-	: Scene(initialWidth, initialHeight), rootNode(new Node3D())
+	: Scene(initialWidth, initialHeight), rootNode(new Node3D()), activeCameraNode(NULL)
 {
 }
 
@@ -26,19 +26,27 @@ void Atlas::Scene3D::Update(float deltaTime)
 	}
 }
 
-Atlas::Node3D* Atlas::Scene3D::GetRootNode()
+void Atlas::Scene3D::Begin()
 {
-	return rootNode;
+	Renderer::ClearFramebuffer(GetBackgroundColor());
 }
 
 void Atlas::Scene3D::Draw(Renderer* renderer)
 {
 	if (activeCameraNode) {
-		Renderer::ClearFramebuffer(GetBackgroundColor());
-		rootNode->Draw(renderer, glm::mat4());
+		rootNode->Draw(renderer, glm::mat4(1.0f), glm::vec3(0.0f));
 		renderer->Flush(activeCameraNode->GetCameraViewMatrix(), activeCameraNode->GetCameraProjectionMatrix());
-		Renderer::SwapFramebuffer();
 	}
+}
+
+void Atlas::Scene3D::End()
+{
+	Renderer::SwapFramebuffer();
+}
+
+Atlas::Node3D* Atlas::Scene3D::GetRootNode()
+{
+	return rootNode;
 }
 
 Atlas::Node3D* Atlas::Scene3D::CreateChildNode()

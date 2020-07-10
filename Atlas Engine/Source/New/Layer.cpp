@@ -35,6 +35,8 @@ Atlas::Layer::~Layer()
 void Atlas::Layer::Draw(Renderer* renderer)
 {
 	if (scene) {
+		scene->Begin();
 		scene->Draw(renderer);
+		scene->End();
 	}
 }

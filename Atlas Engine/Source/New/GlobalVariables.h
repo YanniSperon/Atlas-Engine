@@ -23,6 +23,8 @@ namespace Atlas {
 		Input::KeyboardInput keyIn;
 		Input::MouseInput mouseIn;
 
+		bool shouldReceiveInput;
+
 		GLFWwindow* window;
 	};
 }

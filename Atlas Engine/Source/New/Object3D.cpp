@@ -118,6 +118,11 @@ glm::mat4 Atlas::Object3D::GetTransformationMatrix()
 	return glm::translate(glm::mat4(), localTranslation) * glm::yawPitchRoll(glm::radians(localRotation.x), glm::radians(localRotation.y), glm::radians(localRotation.z)) * glm::scale(glm::mat4(), localScale);
 }
 
+glm::mat4 Atlas::Object3D::GetTranslationScaleMatrix()
+{
+	return glm::translate(glm::mat4(), localTranslation) * glm::scale(glm::mat4(), localScale);
+}
+
 void Atlas::Object3D::SetLocalTranslation(glm::vec3 newTranslation)
 {
 	localTranslation = newTranslation;

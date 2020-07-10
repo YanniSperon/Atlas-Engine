@@ -37,9 +37,15 @@ void Atlas::Node3D::Update(float deltaTime)
 	objectComponent->Update(deltaTime);
 }
 
-void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix)
+void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix, glm::vec3 axis)
 {
+#ifdef INHERIT_ROTATION
+	glm::mat4 newTransformationMatrix = RotateAbout(GetTranslationScaleMatrix(), rotation, axis) * currentTransformationMatrix;
+#endif
+#ifndef INHERIT_ROTATION
 	glm::mat4 newTransformationMatrix = GetTransformationMatrix() * currentTransformationMatrix;
+#endif
+#ifdef ATLAS_DEBUG
 	printf("Name: %s\n", name.c_str());
 	printf("Current Matrix:\n");
 	printf("    (%f, %f, %f, %f)\n", currentTransformationMatrix[0][0], currentTransformationMatrix[0][1], currentTransformationMatrix[0][2], currentTransformationMatrix[0][3]);
@@ -56,7 +62,13 @@ void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatr
 	printf("    (%f, %f, %f, %f)\n", newTransformationMatrix[1][0], newTransformationMatrix[1][1], newTransformationMatrix[1][2], newTransformationMatrix[1][3]);
 	printf("    (%f, %f, %f, %f)\n", newTransformationMatrix[2][0], newTransformationMatrix[2][1], newTransformationMatrix[2][2], newTransformationMatrix[2][3]);
 	printf("    (%f, %f, %f, %f)\n", newTransformationMatrix[3][0], newTransformationMatrix[3][1], newTransformationMatrix[3][2], newTransformationMatrix[3][3]);
+#endif
+	for (int i = 0; i < children.size(); i++) {
+		//children.at(i)->Draw(renderer, newTransformationMatrix);
+		children.at(i)->Draw(renderer, newTransformationMatrix, translation);
+	}
 	if (objectComponent) {
+#ifdef ATLAS_DEBUG
 		printf("   Object Transformation Matrix:\n");
 		printf("        (%f, %f, %f, %f)\n", objectComponent->GetTransformationMatrix()[0][0], objectComponent->GetTransformationMatrix()[0][1], objectComponent->GetTransformationMatrix()[0][2], objectComponent->GetTransformationMatrix()[0][3]);
 		printf("        (%f, %f, %f, %f)\n", objectComponent->GetTransformationMatrix()[1][0], objectComponent->GetTransformationMatrix()[1][1], objectComponent->GetTransformationMatrix()[1][2], objectComponent->GetTransformationMatrix()[1][3]);
@@ -64,15 +76,20 @@ void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatr
 		printf("        (%f, %f, %f, %f)\n", objectComponent->GetTransformationMatrix()[3][0], objectComponent->GetTransformationMatrix()[3][1], objectComponent->GetTransformationMatrix()[3][2], objectComponent->GetTransformationMatrix()[3][3]);
 		printf("Children size of %i\n", children.size());
 		printf("-----------------------------------------------------------------------------------\n");
+#endif
+#ifdef INHERIT_ROTATION
+		renderer->AddRenderable3D(Renderable3D(objectComponent, newTransformationMatrix * objectComponent->GetTransformationMatrix()));
+#endif
+#ifndef INHERIT_ROTATION
 		renderer->AddRenderable3D(Renderable3D(objectComponent, objectComponent->GetTransformationMatrix() * newTransformationMatrix));
+#endif
 	}
+#ifdef ATLAS_DEBUG
 	else {
 		printf("Children size of %i\n", children.size());
 		printf("-----------------------------------------------------------------------------------\n");
 	}
-	for (int i = 0; i < children.size(); i++) {
-		children.at(i)->Draw(renderer, newTransformationMatrix);
-	}
+#endif
 }
 
 void Atlas::Node3D::AddChildNode(Node3D* newChild)
@@ -203,16 +220,12 @@ void Atlas::Node3D::SetObject(Object3D* object)
 
 void Atlas::Node3D::SetName(std::string newName)
 {
-	printf("Trying to name: %s\n", newName.c_str());
 	int count = 1;
 	if (IsNameTaken(newName)) {
-		printf("Name is taken: %s\n", newName.c_str());
 		while (IsNameTaken(newName + std::to_string(count))) {
-			printf("Name is taken: %s\n", newName.c_str());
 			count++;
 		}
 		name = newName + std::to_string(count);
-		printf("Setting name to: %s\n", (newName + std::to_string(count)).c_str());
 	}
 	else {
 		name = newName;
@@ -299,6 +312,11 @@ glm::mat4 Atlas::Node3D::GetTransformationMatrix()
 	return glm::translate(glm::mat4(), translation) * glm::yawPitchRoll(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z)) * glm::scale(glm::mat4(), scale);
 }
 
+glm::mat4 Atlas::Node3D::GetTranslationScaleMatrix()
+{
+	return glm::translate(glm::mat4(), translation) * glm::scale(glm::mat4(), scale);
+}
+
 glm::mat4 Atlas::Node3D::GetCameraViewMatrix()
 {
 	if (cameraComponent) {
@@ -313,4 +331,50 @@ glm::mat4 Atlas::Node3D::GetCameraProjectionMatrix()
 		return cameraComponent->GetProjectionMatrix();
 	}
 	return glm::mat4();
+}
+
+glm::mat4 Atlas::Node3D::RotateAbout(glm::mat4 matrix, glm::vec3 rotation, glm::vec3 axis)
+{
+	glm::mat4 returnValue = matrix;
+#ifdef ATLAS_DEBUG
+	printf("Input:\n");
+	printf("    [(%f, %f, %f, %f)\n", matrix[0][0], matrix[0][1], matrix[0][2], matrix[0][3]);
+	printf("    (%f, %f, %f, %f)\n", matrix[1][0], matrix[1][1], matrix[1][2], matrix[1][3]);
+	printf("    (%f, %f, %f, %f)\n", matrix[2][0], matrix[2][1], matrix[2][2], matrix[2][3]);
+	printf("    (%f, %f, %f, %f)]\n", matrix[3][0], matrix[3][1], matrix[3][2], matrix[3][3]);
+	printf("    Axis: (%f, %f, %f)\n", axis.x, axis.y, axis.z);
+	printf("    Rotation: (%f, %f, %f)\n", rotation.x, rotation.y, rotation.z);
+#endif
+	if (axis.x > 0.05f || axis.x < -0.05f) {
+		returnValue = glm::rotate(returnValue, glm::radians(rotation.x), glm::vec3(axis.x, 0.0f, 0.0f));
+#ifdef ATLAS_DEBUG
+		printf("X Rotation:\n");
+		printf("    (%f, %f, %f, %f)\n", returnValue[0][0], returnValue[0][1], returnValue[0][2], returnValue[0][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[1][0], returnValue[1][1], returnValue[1][2], returnValue[1][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[2][0], returnValue[2][1], returnValue[2][2], returnValue[2][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[3][0], returnValue[3][1], returnValue[3][2], returnValue[3][3]);
+#endif
+	}
+	if (axis.y > 0.05f || axis.y < -0.05f) {
+		returnValue = glm::rotate(returnValue, glm::radians(rotation.y), glm::vec3(0.0f, axis.y, 0.0f));
+#ifdef ATLAS_DEBUG
+		printf("Y Rotation:\n");
+		printf("    (%f, %f, %f, %f)\n", returnValue[0][0], returnValue[0][1], returnValue[0][2], returnValue[0][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[1][0], returnValue[1][1], returnValue[1][2], returnValue[1][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[2][0], returnValue[2][1], returnValue[2][2], returnValue[2][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[3][0], returnValue[3][1], returnValue[3][2], returnValue[3][3]);
+#endif
+	}
+	if (axis.z > 0.05f || axis.z < -0.05f) {
+		returnValue = glm::rotate(returnValue, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, axis.z));
+#ifdef ATLAS_DEBUG
+		printf("Z Rotation:\n");
+		printf("    (%f, %f, %f, %f)\n", returnValue[0][0], returnValue[0][1], returnValue[0][2], returnValue[0][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[1][0], returnValue[1][1], returnValue[1][2], returnValue[1][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[2][0], returnValue[2][1], returnValue[2][2], returnValue[2][3]);
+		printf("    (%f, %f, %f, %f)\n", returnValue[3][0], returnValue[3][1], returnValue[3][2], returnValue[3][3]);
+#endif
+	}
+
+	return returnValue;
 }

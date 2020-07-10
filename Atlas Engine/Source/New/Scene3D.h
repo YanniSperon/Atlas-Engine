@@ -17,7 +17,9 @@ namespace Atlas {
 		~Scene3D();
 
 		void Update(float deltaTime);
+		void Begin();
 		void Draw(Renderer* renderer);
+		void End();
 
 		Node3D* GetRootNode();
 		Node3D* CreateChildNode();

@@ -26,7 +26,7 @@ namespace Atlas {
 		// an individual node may contain a camera, a light, an object (physics body/mesh), and an infinite number of children nodes
 
 		void Update(float deltaTime);
-		void Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix);
+		void Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix, glm::vec3 axis);
 
 		void AddChildNode(Node3D* newChild);
 		void RemoveChildByNode(Node3D* child);
@@ -55,8 +55,10 @@ namespace Atlas {
 		glm::mat4 GetRotationMatrix();
 		glm::mat4 GetScaleMatrix();
 		glm::mat4 GetTransformationMatrix();
+		glm::mat4 GetTranslationScaleMatrix();
 		glm::mat4 GetCameraViewMatrix();
 		glm::mat4 GetCameraProjectionMatrix();
+		glm::mat4 RotateAbout(glm::mat4 matrix, glm::vec3 rotation, glm::vec3 axis);
 
 		void SetParent(Node3D* newParent);
 		void SetCamera(Camera* camera);

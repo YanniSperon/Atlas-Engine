@@ -13,4 +13,6 @@ Atlas::GlobalVariables::GlobalVariables()
 	mouseIn = Input::MouseInput();
 
 	window = NULL;
+
+	shouldReceiveInput = true;
 }

@@ -44,6 +44,7 @@ namespace Atlas {
 		glm::mat4 GetRotationMatrix();
 		glm::mat4 GetScaleMatrix();
 		glm::mat4 GetTransformationMatrix();
+		glm::mat4 GetTranslationScaleMatrix();
 
 		void SetLocalTranslation(glm::vec3 newTranslation);
 		void SetLocalRotation(glm::vec3 newRotation);
