@@ -16,6 +16,6 @@ namespace L_Atlas {
 		static void DrawPostProcessingManager(GLFWwindow* window);
 		static void DrawSpawnWindow(std::vector<L_Object*>& objectsOnScene, unsigned int& selectedObject);
 		static void DrawObjectSettingsWindow(L_Object* object);
-		static void DrawPhysicsManager();
+		static void DrawPhysicsManager(double& timeConstant);
 	};
 }

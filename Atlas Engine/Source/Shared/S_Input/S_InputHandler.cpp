@@ -1,14 +1,16 @@
 #include "S_InputHandler.h"
 #include <vector>
+#include "Shared/S_Vendor/S_GLM/glm.hpp"
 #include "Shared/S_Vendor/S_IMGUI/imgui.h"
 #include "Shared/S_Vendor/S_IMGUI/imgui_impl_glfw_gl3.h"
 
-namespace L_Atlas {
+namespace Input {
 
 	static std::vector<int> keyButtons;
 	static std::vector<int> keyActions;
 	static std::vector<int> mouseButtons;
 	static std::vector<int> mouseActions;
+	static glm::vec2 mousePosition;
 
 	void InputHandler::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
@@ -19,6 +21,12 @@ namespace L_Atlas {
 	void InputHandler::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
 		mouseButtons.push_back(button);
 		mouseActions.push_back(action);
+	}
+
+	void InputHandler::MousePositionCallback(GLFWwindow* window, double xpos, double ypos)
+	{
+		mousePosition.x = xpos;
+		mousePosition.y = ypos;
 	}
 
 	void InputHandler::ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn)
@@ -860,9 +868,12 @@ namespace L_Atlas {
 
 		mouseButtons.clear();
 		mouseActions.clear();
+
+		mouseIn->mouseXPos = mousePosition.x;
+		mouseIn->mouseYPos = mousePosition.y;
 	}
 
-	void InputHandler::Flush(KeyboardInput* keyIn, MouseInput* mouseIn)
+	void Input::InputHandler::Flush(KeyboardInput* keyIn, MouseInput* mouseIn)
 	{
 		if (keyIn->aPressed) {
 			keyIn->aPressed = false;

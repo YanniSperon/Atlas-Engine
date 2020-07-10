@@ -24,7 +24,7 @@ namespace L_Atlas {
 		ImGui::StyleColorsDark();
 	}
 
-	void L_GUI::LoadLevelEditorGUI(GLFWwindow* window, L_LevelEditor::L_EditorType currentEditorType, L_LevelEditor::L_Mode currentMode, unsigned int& selectedObject, bool& EnableWireframe)
+	void L_GUI::LoadLevelEditorGUI(GLFWwindow* window, L_LevelEditor::L_EditorType currentEditorType, L_LevelEditor::L_Mode currentMode, unsigned int& selectedObject, bool& EnableWireframe, double& timeConstant)
 	{
 		ImGui_ImplGlfwGL3_NewFrame();
 		static bool EnableDebug = true;
@@ -103,9 +103,9 @@ namespace L_Atlas {
 			L_Window::DrawPostProcessingManager(window);
 		}
 
-		//if (EnablePhysicsManager) {
-		//	Window::DrawPhysicsManager();
-		//}
+		if (EnablePhysicsManager) {
+			L_Window::DrawPhysicsManager(timeConstant);
+		}
 	}
 
 	void L_GUI::LoadPhysicsSimulatorGUI()

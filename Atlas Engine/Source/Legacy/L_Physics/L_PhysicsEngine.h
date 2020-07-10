@@ -11,7 +11,7 @@ namespace L_Atlas {
 	public:
 		static void Initialize();
 		static void Update(double deltaT);
-		static void SetL_PhysicsScene(L_PhysicsScene* scene);
+		static void SetL_PhysicsScene(L_PhysicsScene* Scene);
 		static btCollisionObject* AddPhysicsBody(btCollisionShape* shape, btTransform& transformation, float mass, L_PhysicsObject* pObj);
 		static void Recalculate(btCollisionObject* object);
 		static void DrawDebug();

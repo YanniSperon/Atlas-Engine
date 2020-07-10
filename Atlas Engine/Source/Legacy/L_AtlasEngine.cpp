@@ -1,5 +1,5 @@
 #include "Legacy/L_AtlasEngine.h"
-#include "Legacy/L_system/L_System.h"
+#include "Legacy/L_System/L_System.h"
 #include "Legacy/L_Rendering/L_WindowManager.h"
 #include "Legacy/L_Global/L_Global.h"
 #include "Legacy/L_Rendering/L_Scene/L_Mesh.h"
@@ -37,7 +37,7 @@ namespace L_Atlas {
 			
 			L_IO::LoadFile(L_Global::Variables.currentScene.objectsOnScene, "Resources/other/", "level.lvl");
 
-			L_LevelEditor::L_EditorType currentEditorType(L_LevelEditor::scene);
+			L_LevelEditor::L_EditorType currentEditorType(L_LevelEditor::Scene);
 			L_LevelEditor::L_Mode currentMode(L_LevelEditor::cam);
 
 			bool GUIEnabled = true;
@@ -69,7 +69,7 @@ namespace L_Atlas {
 				double deltaTime = deltaTimeNanoseconds.count()/1000000000.0 * timeConstant;
 				///////////////////////////////////////////////////////////////////////////
 				glfwPollEvents();
-				InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
+				Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 				///////////////////////////////////////////////////////////////////////////
 				L_RenderingEngine::Begin();
 				///////////////////////////////////////////////////////////////////////////
@@ -83,7 +83,7 @@ namespace L_Atlas {
 					glfwSetWindowShouldClose(L_Global::Variables.window, GLFW_TRUE);
 				}
 				else if ((L_Global::Variables.keyIn.leftControlHeld && L_Global::Variables.keyIn.sHeld) || (L_Global::Variables.keyIn.leftControlPressed && L_Global::Variables.keyIn.sPressed) || (L_Global::Variables.keyIn.leftControlHeld && L_Global::Variables.keyIn.sPressed) || (L_Global::Variables.keyIn.leftControlPressed && L_Global::Variables.keyIn.sHeld)) {
-					L_Global::Variables.currentScene.Save("Resources/L_Other/", "level.lvl");
+					L_Global::Variables.currentScene.Save("Resources/other/", "level.lvl");
 				}
 				if (L_Global::Variables.keyIn.leftControlHeld && L_Global::Variables.keyIn.rightControlHeld) {
 					shouldLaunchSimulation = true;
@@ -98,9 +98,9 @@ namespace L_Atlas {
 				///////////////////////////////////////////////////////////////////////////
 				L_Global::Variables.currentRenderer->SimpleFlush(L_Global::Variables.activeCamera, L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, L_Global::Variables.FOV, L_Global::Variables.currentScene.lightsOnScene.at(0));
 				///////////////////////////////////////////////////////////////////////////
-				L_RenderingEngine::Render(EnableWireframe, GUIEnabled, currentEditorType, currentMode, selectedObject);
+				L_RenderingEngine::Render(EnableWireframe, GUIEnabled, currentEditorType, currentMode, selectedObject, timeConstant);
 				///////////////////////////////////////////////////////////////////////////
-				InputHandler::Flush(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
+				Input::InputHandler::Flush(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 				///////////////////////////////////////////////////////////////////////////
 				L_RenderingEngine::End();
 				///////////////////////////////////////////////////////////////////////////

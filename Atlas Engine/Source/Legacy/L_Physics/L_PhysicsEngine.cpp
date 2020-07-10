@@ -72,9 +72,9 @@ namespace L_Atlas {
 		}
 	}
 
-	void L_PhysicsEngine::SetL_PhysicsScene(L_PhysicsScene* scene)
+	void L_PhysicsEngine::SetL_PhysicsScene(L_PhysicsScene* Scene)
 	{
-		physicsScene = scene;
+		physicsScene = Scene;
 	}
 
 	btCollisionObject* L_PhysicsEngine::AddPhysicsBody(btCollisionShape* shape, btTransform& transformation, float mass, L_PhysicsObject* pObj)

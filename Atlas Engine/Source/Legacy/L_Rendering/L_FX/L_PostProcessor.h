@@ -26,7 +26,7 @@ namespace L_Atlas {
 		static void PrepareForRendering();
 		static void PrepareForRenderingPhysicsSimulation();
 		static void Render(L_Renderer* renderer);
-		static void RenderPhysicsRenderer(L_PhysicsRenderer* renderer, L_PhysicsScene* scene);
+		static void RenderPhysicsRenderer(L_PhysicsRenderer* renderer, L_PhysicsScene* Scene);
 
 		static void ChangeEffect(std::string newShaderShortenedName);
 		static void Cleanup();

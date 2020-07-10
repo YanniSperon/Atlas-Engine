@@ -202,7 +202,7 @@ void ImGui_ImplGlfw_MouseButtonCallback(GLFWwindow* window, int button, int acti
 		g_MouseJustPressed[button] = true;
 
 	if (!ImGui::GetIO().WantCaptureMouse) {
-		L_Atlas::InputHandler::MouseButtonCallback(window, button, action, mods);
+		Input::InputHandler::MouseButtonCallback(window, button, action, mods);
 	}
 }
 
@@ -212,7 +212,7 @@ void ImGui_ImplGlfw_ScrollCallback(GLFWwindow*, double xoffset, double yoffset)
 	io.MouseWheelH += (float)xoffset;
 	io.MouseWheel += (float)yoffset;
 	if (!io.WantCaptureMouse) {
-		// add atlas::inputhandler::scroll callback here
+		// add atlas::Input::InputHandler::scroll callback here
 	}
 }
 
@@ -231,7 +231,7 @@ void ImGui_ImplGlfw_KeyCallback(GLFWwindow* window, int key, int scancode, int a
 	io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
 
 	if (!io.WantCaptureKeyboard) {
-		L_Atlas::InputHandler::KeyCallback(window, key, scancode, action, mods);
+		Input::InputHandler::KeyCallback(window, key, scancode, action, mods);
 	}
 }
 

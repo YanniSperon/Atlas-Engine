@@ -4,6 +4,6 @@
 namespace L_Atlas {
 	class L_PhysicsSimulator {
 	public:
-		static void LaunchSimulation(L_Scene* sceneToSimulate, double timeConstant);
+		static void LaunchSimulation(L_Scene* SceneToSimulate, double timeConstant);
 	};
 }

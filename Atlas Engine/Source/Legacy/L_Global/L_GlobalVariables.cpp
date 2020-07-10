@@ -28,8 +28,8 @@ namespace L_Atlas {
 		currentWidth = initialWidth;
 		currentHeight = initialHeight;
 
-		keyIn = KeyboardInput();
-		mouseIn = MouseInput();
+		keyIn = Input::KeyboardInput();
+		mouseIn = Input::MouseInput();
 
 		enableMouseClick = true;
 		enableMouseMove = true;

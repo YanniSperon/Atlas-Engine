@@ -67,7 +67,7 @@ namespace L_Atlas {
 		L_PostProcessor::PrepareForRenderingPhysicsSimulation();
 	}
 
-	void L_RenderingEngine::Render(bool& EnableWireframe, bool& EnableGUI, L_LevelEditor::L_EditorType& currentEditorType, L_LevelEditor::L_Mode& currentMode, unsigned int& selectedObject)
+	void L_RenderingEngine::Render(bool& EnableWireframe, bool& EnableGUI, L_LevelEditor::L_EditorType& currentEditorType, L_LevelEditor::L_Mode& currentMode, unsigned int& selectedObject, double& timeConstant)
 	{
 		if (EnableWireframe) {
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -80,7 +80,7 @@ namespace L_Atlas {
 			L_PostProcessor::Render(L_Global::Variables.currentRenderer);
 		}
 		if (EnableGUI) {
-			L_GUI::LoadLevelEditorGUI(L_Global::Variables.window, currentEditorType, currentMode, selectedObject, EnableWireframe);
+			L_GUI::LoadLevelEditorGUI(L_Global::Variables.window, currentEditorType, currentMode, selectedObject, EnableWireframe, timeConstant);
 			L_GUI::Draw();
 		}
 	}

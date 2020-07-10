@@ -11,7 +11,7 @@ namespace L_LevelEditor {
 
 	enum L_EditorType
 	{
-		scene, light
+		Scene, light
 	};
 
 	struct L_Texture

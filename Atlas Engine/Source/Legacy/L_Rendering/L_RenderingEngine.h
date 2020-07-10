@@ -8,7 +8,7 @@ namespace L_Atlas {
 		static void Initialize();
 		static void Begin();
 		static void BeginPhysicsSimulator();
-		static void Render(bool& EnableWireframe, bool& EnableGUI, L_LevelEditor::L_EditorType& currentEditorType, L_LevelEditor::L_Mode& currentMode, unsigned int& selectedObject);
+		static void Render(bool& EnableWireframe, bool& EnableGUI, L_LevelEditor::L_EditorType& currentEditorType, L_LevelEditor::L_Mode& currentMode, unsigned int& selectedObject, double& timeConstant);
 		static void End();
 		static void Cleanup();
 	};

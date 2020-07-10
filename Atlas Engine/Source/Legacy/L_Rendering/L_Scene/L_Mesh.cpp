@@ -203,8 +203,6 @@ namespace L_Atlas {
 		return (glm::translate(glm::mat4(), translation) * glm::yawPitchRoll(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z)));
 	}
 
-	
-
 	void L_Mesh::RotateX(float x)
 	{
 		rotation.x = x;

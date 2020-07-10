@@ -19,13 +19,13 @@ void L_LevelEditor::L_LevelEditorControl::Control(L_LevelEditor::L_EditorType& c
 	}
 
 	if (L_Atlas::L_Global::Variables.keyIn.onePressed) {
-		currentEditorType = L_LevelEditor::L_EditorType::scene;
+		currentEditorType = L_LevelEditor::L_EditorType::Scene;
 	}
 	if (L_Atlas::L_Global::Variables.keyIn.twoPressed) {
 		currentEditorType = L_LevelEditor::L_EditorType::light;
 	}
 
-	if ((L_Atlas::L_Global::Variables.currentScene.objectsOnScene.size() > 0 && currentEditorType == L_LevelEditor::L_EditorType::scene) || (currentEditorType == L_LevelEditor::L_EditorType::light)) {
+	if ((L_Atlas::L_Global::Variables.currentScene.objectsOnScene.size() > 0 && currentEditorType == L_LevelEditor::L_EditorType::Scene) || (currentEditorType == L_LevelEditor::L_EditorType::light)) {
 		if (L_Atlas::L_Global::Variables.keyIn.cPressed) {
 			currentMode = L_LevelEditor::L_Mode::cam;
 		}
@@ -46,7 +46,7 @@ void L_LevelEditor::L_LevelEditorControl::Control(L_LevelEditor::L_EditorType& c
 		currentMode = L_LevelEditor::L_Mode::cam;
 	}
 	///////////////////////////////////////////////////////////////////////////
-	if (currentEditorType == L_LevelEditor::L_EditorType::scene) {
+	if (currentEditorType == L_LevelEditor::L_EditorType::Scene) {
 		if (currentMode == L_LevelEditor::L_Mode::scale) {
 			if (L_Atlas::L_Global::Variables.keyIn.wHeld) {
 				L_Atlas::L_Global::Variables.currentScene.objectsOnScene[selectedObject]->ScaleAdd3f(0.0f, 0.0f, -L_Atlas::L_Global::Variables.movementSpeed * deltaTime);

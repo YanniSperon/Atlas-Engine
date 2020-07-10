@@ -156,7 +156,7 @@ namespace L_Atlas {
 		}
 	}
 
-	void L_PostProcessor::RenderPhysicsRenderer(L_PhysicsRenderer* renderer, L_PhysicsScene* scene)
+	void L_PostProcessor::RenderPhysicsRenderer(L_PhysicsRenderer* renderer, L_PhysicsScene* Scene)
 	{
 		if (multisampling.enabled) {
 			glBindFramebuffer(GL_READ_FRAMEBUFFER, postProcessingFramebuffer);
@@ -167,7 +167,7 @@ namespace L_Atlas {
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 			renderer->Submit2D(quadForRenderingFX);
-			renderer->SimpleFlush(scene->playersOnScene.at(0), L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, L_Global::Variables.FOV, scene->physicsL_LightsOnScene.at(0));
+			renderer->SimpleFlush(Scene->playersOnScene.at(0), L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, L_Global::Variables.FOV, Scene->physicsL_LightsOnScene.at(0));
 		}
 		else {
 			glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
@@ -175,7 +175,7 @@ namespace L_Atlas {
 			glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 			renderer->Submit2D(quadForRenderingFX);
-			renderer->SimpleFlush(scene->playersOnScene.at(0), L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, L_Global::Variables.FOV, scene->physicsL_LightsOnScene.at(0));
+			renderer->SimpleFlush(Scene->playersOnScene.at(0), L_Global::Variables.currentWidth, L_Global::Variables.currentHeight, L_Global::Variables.FOV, Scene->physicsL_LightsOnScene.at(0));
 		}
 	}
 

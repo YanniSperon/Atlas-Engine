@@ -12,14 +12,14 @@
 
 namespace L_Atlas {
 	
-	void L_PhysicsSimulator::LaunchSimulation(L_Scene* sceneToSimulate, double timeConstant)
+	void L_PhysicsSimulator::LaunchSimulation(L_Scene* SceneToSimulate, double timeConstant)
 	{
 		L_System::Warn("Physics Simulator entered");
 		L_Camera* originalCamera = L_Global::Variables.activeCamera;
 		L_PhysicsEngine::Initialize();
 		bool shouldExit = false;
 		L_PhysicsRenderer renderer = L_PhysicsRenderer();
-		L_PhysicsScene physicsScene = L_PhysicsScene(sceneToSimulate);
+		L_PhysicsScene physicsScene = L_PhysicsScene(SceneToSimulate);
 		L_PhysicsEngine::SetL_PhysicsScene(&physicsScene);
 		bool shouldReenableMovementControls = false;
 		if (originalCamera->GetHasLookControls()) {
@@ -32,7 +32,7 @@ namespace L_Atlas {
 		while (!shouldExit && !glfwWindowShouldClose(L_Global::Variables.window)) {
 			///////////////////////////////////////////////////////////////////////////
 			glfwPollEvents();
-			InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
+			Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 			///////////////////////////////////////////////////////////////////////////
 			currentTime = std::chrono::high_resolution_clock::now();
 			auto deltaTimeNanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - lastTime);
@@ -94,7 +94,7 @@ namespace L_Atlas {
 			///////////////////////////////////////////////////////////////////////////
 			L_RenderingEngine::End();
 			///////////////////////////////////////////////////////////////////////////
-			InputHandler::Flush(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
+			Input::InputHandler::Flush(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 			///////////////////////////////////////////////////////////////////////////
 		}
 		if (shouldReenableMovementControls) {

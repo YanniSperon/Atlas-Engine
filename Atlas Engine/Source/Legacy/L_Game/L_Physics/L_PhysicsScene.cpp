@@ -9,19 +9,19 @@ namespace L_Atlas {
 
 	}
 
-	L_PhysicsScene::L_PhysicsScene(L_Scene* scene)
+	L_PhysicsScene::L_PhysicsScene(L_Scene* Scene)
 	{
-		for (unsigned int i = 0; i < scene->preloadedObjectsOnScene.size(); i++) {
-			physicsObjectsOnScene.push_back(new L_PhysicsObject(scene->preloadedObjectsOnScene.at(i), 0.0f));
+		for (unsigned int i = 0; i < Scene->preloadedObjectsOnScene.size(); i++) {
+			physicsObjectsOnScene.push_back(new L_PhysicsObject(Scene->preloadedObjectsOnScene.at(i), 0.0f));
 		}
-		for (unsigned int i = 0; i < scene->objectsOnScene.size(); i++) {
-			physicsObjectsOnScene.push_back(new L_PhysicsObject(scene->objectsOnScene.at(i), 1.0f));
+		for (unsigned int i = 0; i < Scene->objectsOnScene.size(); i++) {
+			physicsObjectsOnScene.push_back(new L_PhysicsObject(Scene->objectsOnScene.at(i), 1.0f));
 		}
-		for (unsigned int i = 0; i < scene->preloadedObjectsOnScene.size(); i++) {
-			physicsL_LightsOnScene.push_back(new L_PhysicsLight(scene->lightsOnScene.at(i)));
+		for (unsigned int i = 0; i < Scene->preloadedObjectsOnScene.size(); i++) {
+			physicsL_LightsOnScene.push_back(new L_PhysicsLight(Scene->lightsOnScene.at(i)));
 		}
-		for (unsigned int i = 0; i < scene->camerasOnScene.size(); i++) {
-			playersOnScene.push_back(new L_Player(scene->camerasOnScene.at(i)));
+		for (unsigned int i = 0; i < Scene->camerasOnScene.size(); i++) {
+			playersOnScene.push_back(new L_Player(Scene->camerasOnScene.at(i)));
 		}
 		if (playersOnScene.size() == 0) {
 			L_System::Err("Error initializing player!");

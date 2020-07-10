@@ -11,8 +11,7 @@ extern "C"
 //#define ATLAS_LEGACY
 
 #ifdef ATLAS_LEGACY
-#include "Legacy/AtlasEngine.h"
-
+#include "Legacy/L_AtlasEngine.h"
 int main(void)
 {
 	if (L_Atlas::AtlasEngine::Start()) {

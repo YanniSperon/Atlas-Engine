@@ -97,9 +97,9 @@ namespace L_Atlas {
 		ImGui::Text("Current Editor Type: ");
 		ImGui::SameLine();
 		if (currentEditorType == L_LevelEditor::L_EditorType::light) {
-			ImGui::Text("L_Light");
+			ImGui::Text("Light");
 		}
-		else if (currentEditorType == L_LevelEditor::L_EditorType::scene) {
+		else if (currentEditorType == L_LevelEditor::L_EditorType::Scene) {
 			ImGui::Text("Scene");
 		}
 		ImGui::Separator();
@@ -755,13 +755,14 @@ namespace L_Atlas {
 		ImGui::End();
 	}
 
-	void L_Window::DrawPhysicsManager()
+	void L_Window::DrawPhysicsManager(double& timeConstant)
 	{
 		static bool EnablePhysics = true;
 		static glm::vec3 gravity = glm::vec3(0.0f, -9.80665, 0.0f);
+		static double tempTimeConstant = 1.0;
 		L_PhysicsEngine::SetPhysics(EnablePhysics);
-		ImGui::SetNextWindowPos(ImVec2((1605.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (445.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
-		ImGui::SetNextWindowSize(ImVec2((295.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (100.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
+		ImGui::SetNextWindowPos(ImVec2((20.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (405.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
+		ImGui::SetNextWindowSize(ImVec2((190.0f / 1920.0f) * ((float)L_Global::Variables.currentWidth), (175.0f / 1080.0f) * ((float)L_Global::Variables.currentHeight)));
 		ImGui::Begin("Physics Manager", NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.3f).x);
 		ImGui::Checkbox("Enable Physics", &EnablePhysics);
@@ -770,6 +771,12 @@ namespace L_Atlas {
 		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.25f).x);
 		if (ImGui::Button("Apply##applygravitybutton", ImVec2(ImGui::GetWindowSize().x * 0.50f, 0.0f))) {
 			L_PhysicsEngine::SetGravity(L_Convert::Vector3(gravity));
+		}
+		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.1f).x);
+		ImGui::InputDouble("Time Constant##timeconstantdoublein", &timeConstant);
+		ImGui::SetCursorPosX((ImGui::GetWindowSize() * 0.25f).x);
+		if (ImGui::Button("Apply##applytimeconstantbutton", ImVec2(ImGui::GetWindowSize().x * 0.50f, 0.0f))) {
+			timeConstant = tempTimeConstant;
 		}
 		ImGui::End();
 	}

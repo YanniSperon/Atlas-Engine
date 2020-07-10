@@ -16,7 +16,7 @@ namespace L_Atlas {
 		std::vector<L_Player*> playersOnScene;
 
 		L_PhysicsScene();
-		L_PhysicsScene(L_Scene* scene);
+		L_PhysicsScene(L_Scene* Scene);
 		~L_PhysicsScene();
 
 		void Submit(L_PhysicsRenderer* renderer, L_Player* camera);

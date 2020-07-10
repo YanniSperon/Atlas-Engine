@@ -1,6 +1,6 @@
 #pragma once
 
-namespace L_Atlas {
+namespace Input {
 
 	struct KeyboardInput {
 		bool aPressed;

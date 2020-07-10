@@ -5,6 +5,6 @@
 namespace L_Atlas {
 	class L_PhysicsLinker {
 	public:
-		static void DeleteObjectFromScene(L_PhysicsScene* scene, L_PhysicsObject* obj);
+		static void DeleteObjectFromScene(L_PhysicsScene* Scene, L_PhysicsObject* obj);
 	};
 }
