@@ -4,7 +4,8 @@
 #include "Global.h"
 #include "Renderer.h"
 #include "MeshGenerator.h"
-#include "Scene3D.h"
+#include "LayerManager.h"
+#include "Layer3D.h"
 #include "Shared/S_Input/S_InputHandler.h"
 
 #define IMGUI_DEFINE_MATH_OPERATORS
@@ -133,6 +134,9 @@ namespace Atlas {
         tempNode2->SetObject(object3);
 
         scene->SetBackgroundColor(glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+
+        LayerManager manager = LayerManager();
+        manager.AddLayer(new Layer3D());
 
         // TIME INIT
         double timeConstant = 1.0;

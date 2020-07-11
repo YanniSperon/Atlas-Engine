@@ -1,6 +1,15 @@
 #include "Object3D.h"
+#include "Global.h"
+#include "MeshGenerator.h"
 #include "Shared/S_Vendor/S_GLM/gtc/matrix_transform.hpp"
 #include "Shared/S_Vendor/S_GLM/gtx/euler_angles.hpp"
+
+void Atlas::Object3D::Initialize()
+{
+	Global::Variables.loadedMeshes["cube"] = MeshGenerator::CreateCube(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.5f, 0.5f, 0.5f));
+	Global::Variables.loadedMeshes["skybox"] = MeshGenerator::CreateCube(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.5f, 0.5f, 0.5f));
+	Global::Variables.loadedMeshes["cube"] = MeshGenerator::CreateCube(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.5f, 0.5f, 0.5f));
+}
 
 Atlas::Object3D::Object3D()
 	: ibo(0), vbo(0), mesh(), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)

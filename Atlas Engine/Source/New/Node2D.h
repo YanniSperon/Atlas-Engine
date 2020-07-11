@@ -4,33 +4,62 @@
 #include "Shared/S_Vendor/S_GLM/glm.hpp"
 #include "Text.h"
 #include "Object2D.h"
+#include "Renderer.h"
 
 namespace Atlas {
 	class Node2D {
 	private:
 		Node2D* parent;
 		std::vector<Node2D*> children;
-		glm::vec3 translation;
 		Object2D* objectComponent;
 		Text* textComponent;
+		std::string name;
+		glm::vec2 translation;
+		float rotation;
+		glm::vec2 scale;
 	public:
 		Node2D();
+		Node2D(Node2D* parentNode);
 		~Node2D();
-		// an individual node may contain a camera, a light, an object (physics body/mesh), and an infinite number of children nodes
 
 		void Update(float deltaTime);
+		void Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix);
 
 		void AddChildNode(Node2D* newChild);
+		void RemoveChildByNode(Node2D* child);
+		void RemoveChildByName(std::string name);
+		void RemoveAndDeleteChildByNode(Node2D* child);
+		void RemoveAndDeleteChildByName(std::string name);
 
-		void RemoveAndDeleteChildNode(Node2D* child);
+		Node2D* SearchChildrenForNode(std::string nodeName);
+		Node2D* SearchParentAndChildrenForNode(std::string nodeName);
 
+		bool IsNameTaken(std::string nodeName);
 
+		Node2D* GetParent();
+		std::vector<Node2D*> GetChildren();
+		Object2D* GetObject();
+		Text* GetText();
+		std::string GetName();
+		glm::vec2 GetTranslation();
+		float GetRotation();
+		glm::vec2 GetScale();
+
+		glm::mat4 GetTranslationMatrix();
+		glm::mat4 GetRotationMatrix();
+		glm::mat4 GetScaleMatrix();
+		glm::mat4 GetTransformationMatrix();
+		glm::mat4 GetTranslationScaleMatrix();
+		glm::mat4 GetCameraViewMatrix();
+		glm::mat4 GetCameraProjectionMatrix();
+		glm::mat4 RotateAbout(glm::mat4 matrix, float rotation);
 
 		void SetParent(Node2D* newParent);
-
-		Node2D* GetParentNode();
-		std::vector<Node2D*> GetChildren();
-		Object2D* GetObjectComponent();
-		Text* GetTextComponent();
+		void SetObject(Object2D* object);
+		void SetText(Text* text);
+		void SetName(std::string newName);
+		void SetTranslation(glm::vec2 newTranslation);
+		void SetRotation(float newRotation);
+		void SetScale(glm::vec2 newScale);
 	};
 }

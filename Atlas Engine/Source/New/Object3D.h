@@ -5,6 +5,7 @@
 #include "Shader.h"
 #include "Texture.h"
 #include "Shared/S_Vendor/S_GLM/glm.hpp"
+#include <string>
 
 namespace Atlas {
 	class Object3D {
@@ -18,23 +19,21 @@ namespace Atlas {
 		glm::vec3 localRotation;
 		glm::vec3 localScale;
 	public:
+		static void Initialize();
+
 		Object3D();
 		Object3D(Mesh3D objectMesh, Shader* shdr, Texture* tex);
+		Object3D(const std::string& mesh, const std::string& shader, const std::string& texture);
 		~Object3D();
 
 		void LoadIntoVRAM();
 		void UnloadFromVRAM();
 
 		void Draw(glm::mat4 model, glm::mat4 view, glm::mat4 projection);
-		//void Bind(glm::mat4 model, glm::mat4 view, glm::mat4 projection);
 		void Bind();
 		void Unbind();
 
-
 		void Update(float deltaTime);
-		// this will contain a mesh, a physics body and much more customizable information such as
-		// texture, shader, etc
-
 
 		glm::vec3 GetLocalTranslation();
 		glm::vec3 GetLocalRotation();

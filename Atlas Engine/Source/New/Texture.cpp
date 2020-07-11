@@ -29,6 +29,10 @@ GLuint Atlas::Texture::LoadTexture(const std::string& texDirAndName, GLint textu
 	return texID;
 }
 
+Atlas::Texture::Texture()
+{
+}
+
 Atlas::Texture::Texture(const std::string& texDirAndName)
 	: textureID(0)
 {

@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <chrono>
+#include <unordered_map>
 
 #include "Scene.h"
 #include "Shared/S_Input/S_Input.h"
@@ -24,6 +25,10 @@ namespace Atlas {
 		Input::MouseInput mouseIn;
 
 		bool shouldReceiveInput;
+
+		std::unordered_map<std::string, Mesh3D> loadedMeshes;
+		std::unordered_map<std::string, Shader*> loadedShaders;
+		std::unordered_map<std::string, Texture*> loadedTextures;
 
 		GLFWwindow* window;
 	};

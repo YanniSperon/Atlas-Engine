@@ -8,13 +8,14 @@ namespace Atlas {
 	private:
 		Object2D* objectBeingRendered;
 
-		glm::vec2 finalTranslation;
-		float finalRotation;
-		glm::vec2 finalScale;
+		glm::mat4 finalTransformation;
 	public:
-		Renderable2D();
+		Renderable2D(Object2D* object);
+		Renderable2D(Object2D* object, glm::mat4 transformationMatrix);
+		Renderable2D(Object2D* object, glm::mat4 translation, glm::mat4 rotation, glm::mat4 scale);
 		~Renderable2D();
 
 		Object2D* GetObject();
+		glm::mat4 GetTransformMatrix();
 	};
 }

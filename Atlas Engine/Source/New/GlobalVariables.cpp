@@ -12,7 +12,11 @@ Atlas::GlobalVariables::GlobalVariables()
 	keyIn = Input::KeyboardInput();
 	mouseIn = Input::MouseInput();
 
-	window = nullptr;
-
 	shouldReceiveInput = true;
+
+	loadedMeshes = std::unordered_map<std::string, Mesh3D>();
+	loadedShaders = std::unordered_map<std::string, Shader*>();
+	loadedTextures = std::unordered_map<std::string, Texture*>();
+
+	window = nullptr;
 }

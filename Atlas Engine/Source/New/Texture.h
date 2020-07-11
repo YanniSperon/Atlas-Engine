@@ -10,6 +10,7 @@ namespace Atlas {
 
 		GLuint LoadTexture(const std::string& texDirAndName, GLint textureWrapS, GLint textureWrapT, GLint textureMinFilter, GLint textureMaxFilter);
 	public:
+		Texture();
 		Texture(const std::string& texDirAndName);
 		~Texture();
 

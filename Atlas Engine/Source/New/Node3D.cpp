@@ -32,9 +32,15 @@ void Atlas::Node3D::Update(float deltaTime)
 	for (int i = 0; i < children.size(); i++) {
 		children.at(i)->Update(deltaTime);
 	}
-	cameraComponent->Update(deltaTime);
-	lightComponent->Update(deltaTime);
-	objectComponent->Update(deltaTime);
+	if (cameraComponent) {
+		cameraComponent->Update(deltaTime);
+	}
+	if (lightComponent) {
+		lightComponent->Update(deltaTime);
+	}
+	if (objectComponent) {
+		objectComponent->Update(deltaTime);
+	}
 }
 
 void Atlas::Node3D::Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix, glm::vec3 axis)

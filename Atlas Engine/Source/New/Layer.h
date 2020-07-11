@@ -5,14 +5,6 @@
 
 namespace Atlas {
 
-	enum class E_LayerType
-	{
-		NONE = 0,
-		TWODIMENSIONAL,
-		THREEDIMENSIONAL
-
-	};
-
 	class Layer {
 	private:
 		int width;
@@ -20,12 +12,19 @@ namespace Atlas {
 		int x;
 		int y;
 		Scene* scene;
-		E_LayerType layerType;
+		Object2D* 
 	public:
 		Layer();
-		Layer(E_LayerType type, int w, int h, int xPos, int yPos);
+		Layer(int w, int h, int xPos, int yPos);
 		~Layer();
 		
 		void Draw(Renderer* renderer);
+
+		void Update(float deltaTime);
+
+		void SetScene(Scene* newScene);
+		void SetSize(int w, int h);
+		void SetPosition(int xPos, int yPos);
+		Scene* GetScene();
 	};
 }

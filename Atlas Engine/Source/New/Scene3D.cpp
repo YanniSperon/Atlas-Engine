@@ -35,7 +35,7 @@ void Atlas::Scene3D::Draw(Renderer* renderer)
 {
 	if (activeCameraNode) {
 		rootNode->Draw(renderer, glm::mat4(1.0f), glm::vec3(0.0f));
-		renderer->Flush(activeCameraNode->GetCameraViewMatrix(), activeCameraNode->GetCameraProjectionMatrix());
+		renderer->Flush3D(activeCameraNode->GetCameraViewMatrix(), activeCameraNode->GetCameraProjectionMatrix());
 	}
 }
 
@@ -51,8 +51,7 @@ Atlas::Node3D* Atlas::Scene3D::GetRootNode()
 
 Atlas::Node3D* Atlas::Scene3D::CreateChildNode()
 {
-	Node3D* newNode = new Node3D(rootNode);
-	return newNode;
+	return new Node3D(rootNode);
 }
 
 void Atlas::Scene3D::AddNode(Node3D* node)

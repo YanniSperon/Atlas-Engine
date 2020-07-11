@@ -38,9 +38,9 @@ int main(void)
 
 
 
+	
 	/*
-
-	AcceleratedVector<int> av = AcceleratedVector<int>(1000000);
+	AcceleratedVector<int> av = AcceleratedVector<int>();
 	AcceleratedVector<int>* avHA = new AcceleratedVector<int>();
 	std::vector<int> v = std::vector<int>();
 	std::vector<int>* vHA = new std::vector<int>();

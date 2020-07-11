@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <strstream>
+#include "Global.h"
 
 Atlas::Mesh3D Atlas::MeshGenerator::CreateCube(const glm::vec3& min, const glm::vec3& max)
 {
@@ -145,6 +146,207 @@ Atlas::Mesh3D Atlas::MeshGenerator::CreateCube(const glm::vec3& min, const glm::
 	return cube;
 }
 
+Atlas::Mesh3D Atlas::MeshGenerator::CreateSkybox()
+{
+	Mesh3D cube;
+
+	Vertex3D positions[] = {
+		glm::vec3(-1.0f, -1.0f, -1.0f),   // 0 -- 9/1/1
+		glm::vec2(+0.25f, +0.25f),        // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, +1.0f),   // 1 -- 13/2/1
+		glm::vec2(+0.5f, +0.0f),          // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, -1.0f, +1.0f),   // 2 -- 11/3/1
+		glm::vec2(+0.25f, +0.0f),         // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, -1.0f, -1.0f),   // 3 -- 17/4/2
+		glm::vec2(+0.25f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, -1.0f),   // 4 -- 16/5/2
+		glm::vec2(+0.5f, +0.25f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+		glm::vec3(-1.0f, -1.0f, -1.0f),   // 5 -- 10/6/2
+		glm::vec2(+0.25f, +0.25f),        // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, -1.0f, +1.0f),   // 6 -- 21/7/3
+		glm::vec2(+0.25f, +0.75f),        // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, -1.0f),   // 7 -- 20/8/3
+		glm::vec2(+0.5f, +0.5f),          // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, -1.0f, -1.0f),   // 8 -- 18/9/3
+		glm::vec2(+0.25f, +0.5f),         // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(-1.0f, -1.0f, +1.0f),   // 9 -- 12/10/4
+		glm::vec2(+0.25f, +1.0f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, +1.0f),   // 10 -- 24/11/4
+		glm::vec2(+0.5f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+		glm::vec3(+1.0f, -1.0f, +1.0f),   // 11 -- 22/12/4
+		glm::vec2(+0.25f, +0.75f),        // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+
+
+		glm::vec3(-1.0f, -1.0f, +1.0f),   // 12 -- 1/13/5
+		glm::vec2(+0.0f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, -1.0f, -1.0f),   // 13 -- 7/14/5
+		glm::vec2(+0.25f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, -1.0f, -1.0f),   // 14 -- 3/15/5
+		glm::vec2(+0.0f, +0.5f),          // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, +1.0f, +1.0f),   // 15 -- 6/16/6
+		glm::vec2(+0.5f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, -1.0f),   // 16 -- 4/17/6
+		glm::vec2(+0.75f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, -1.0f),   // 17 -- 8/18/6
+		glm::vec2(+0.5f, +0.5f),          // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(-1.0f, -1.0f, -1.0f),   // 18 -- 9/1/1
+		glm::vec2(+0.25f, +0.25f),        // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, -1.0f),   // 19 -- 15/19/1
+		glm::vec2(+0.5f, +0.25f),         // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, +1.0f),   // 20 -- 13/2/1
+		glm::vec2(+0.5f, +0.0f),          // texCoord
+		glm::vec3(+1.0f, +0.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, -1.0f, -1.0f),   // 21 -- 17/4/2
+		glm::vec2(+0.25f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, -1.0f),   // 22 -- 19/20/2
+		glm::vec2(+0.5f, +0.5f),          // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, -1.0f),   // 23 -- 16/5/2
+		glm::vec2(+0.5f, +0.25f),          // texCoord
+		glm::vec3(+0.0f, +0.0f, +1.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, -1.0f, +1.0f),   // 24 -- 21/7/3
+		glm::vec2(+0.25f, +0.75f),          // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, +1.0f),   // 25 -- 23/21/3
+		glm::vec2(+0.5f, +0.75f),         // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, -1.0f),   // 26 -- 20/8/3
+		glm::vec2(+0.5f, +0.5f),          // texCoord
+		glm::vec3(-1.0f, +0.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(-1.0f, -1.0f, +1.0f),   // 27 -- 12/10/4
+		glm::vec2(+0.25f, +1.0f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, +1.0f),   // 28 -- 14/22/4
+		glm::vec2(+0.5f, +1.0f),          // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+		glm::vec3(+1.0f, +1.0f, +1.0f),   // 29 -- 24/11/4
+		glm::vec2(+0.5f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, +0.0f, -1.0f),   // normal
+
+
+
+		glm::vec3(-1.0f, -1.0f, +1.0f),   // 30 -- 1/13/5
+		glm::vec2(+0.0f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, -1.0f, +1.0f),   // 31 -- 5/23/5
+		glm::vec2(+0.25f, +0.75f),        // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+		glm::vec3(+1.0f, -1.0f, -1.0f),   // 32 -- 7/14/5
+		glm::vec2(+0.25f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, +1.0f, +0.0f),   // normal
+
+
+
+		glm::vec3(+1.0f, +1.0f, +1.0f),   // 33 -- 6/16/6
+		glm::vec2(+0.5f, +0.75f),         // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, +1.0f),   // 34 -- 2/24/6
+		glm::vec2(+0.75f, +0.75f),        // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+
+		glm::vec3(-1.0f, +1.0f, -1.0f),   // 35 -- 4/17/6
+		glm::vec2(+0.75f, +0.5f),         // texCoord
+		glm::vec3(+0.0f, -1.0f, +0.0f),   // normal
+	};
+
+	cube.numVertices = NUM_ARRAY_ELEMENTS(positions);
+	cube.vertices = new Vertex3D[cube.numVertices];
+	memcpy(cube.vertices, positions, sizeof(positions));
+
+	GLuint indices[] = {
+		0, 1, 2,
+		3, 4, 5,
+
+		6, 7, 8,
+		9, 10, 11,
+
+		12, 13, 14,
+		15, 16, 17,
+
+		18, 19, 20,
+		21, 22, 23,
+
+		24, 25, 26,
+		27, 28, 29,
+
+		30, 31, 32,
+		33, 34, 35
+	};
+	cube.numIndices = NUM_ARRAY_ELEMENTS(indices);
+	cube.indices = new GLuint[cube.numIndices];
+	memcpy(cube.indices, indices, sizeof(indices));
+
+	return cube;
+}
 
 Atlas::Mesh3D Atlas::MeshGenerator::LoadTexturedShape(const std::string& modelDirAndName)
 {
@@ -274,6 +476,108 @@ Atlas::Mesh3D Atlas::MeshGenerator::LoadTexturedShape(const std::string& modelDi
 	for (unsigned int k = 0; k < indicesSize; k++) {
 		ret.indices[k] = indices.at(k);
 	}
+
+	return ret;
+}
+
+Atlas::Mesh2D Atlas::MeshGenerator::CreateSquare()
+{
+	Mesh2D ret;
+
+	Vertex2D positions[] = {
+		glm::vec2(0.0f, 0.0f), // 0
+		glm::vec2(0.0f, 0.0f), // texCoord
+
+		glm::vec2(1.0f, 0.0f), // 1
+		glm::vec2(1.0f, 0.0f), // texCoord
+
+		glm::vec2(1.0f, 1.0f), // 2
+		glm::vec2(1.0f, 1.0f), // texCoord
+
+		glm::vec2(0.0f, 1.0f), // 3
+		glm::vec2(0.0f, 1.0f), // texCoord
+	};
+
+	ret.numVertices = NUM_ARRAY_ELEMENTS(positions);
+	ret.vertices = new Vertex2D[ret.numVertices];
+	memcpy(ret.vertices, positions, sizeof(positions));
+
+	GLuint indices[] = {
+		0, 1, 2, // Right Face  | /|
+		0, 2, 3, // Left Face   |/_|
+	};
+
+	ret.numIndices = NUM_ARRAY_ELEMENTS(indices);
+	ret.indices = new GLuint[ret.numIndices];
+	memcpy(ret.indices, indices, sizeof(indices));
+
+	return ret;
+}
+
+Atlas::Mesh2D Atlas::MeshGenerator::CreateSquareFixedSize(const glm::vec2& minTexCoord, const glm::vec2& maxTexCoord)
+{
+	Mesh2D ret;
+
+	Vertex2D positions[] = {
+		glm::vec2(0.0f, 0.0f), // 0
+		glm::vec2(minTexCoord.x, minTexCoord.y), // texCoord
+
+		glm::vec2((float)Global::Variables.screenWidth, 0.0f), // 1
+		glm::vec2(maxTexCoord.x, minTexCoord.y), // texCoord
+
+		glm::vec2((float)Global::Variables.screenWidth, (float)Global::Variables.screenHeight), // 2
+		glm::vec2(maxTexCoord.x, maxTexCoord.y), // texCoord
+
+		glm::vec2(0.0f, (float)Global::Variables.screenHeight), // 3
+		glm::vec2(minTexCoord.x, maxTexCoord.y), // texCoord
+	};
+
+	ret.numVertices = NUM_ARRAY_ELEMENTS(positions);
+	ret.vertices = new Vertex2D[ret.numVertices];
+	memcpy(ret.vertices, positions, sizeof(positions));
+
+	GLuint indices[] = {
+		0, 1, 2, // Right Face  | /|
+		0, 2, 3, // Left Face   |/_|
+	};
+
+	ret.numIndices = NUM_ARRAY_ELEMENTS(indices);
+	ret.indices = new GLuint[ret.numIndices];
+	memcpy(ret.indices, indices, sizeof(indices));
+
+	return ret;
+}
+
+Atlas::Mesh2D Atlas::MeshGenerator::CreateScreenSizedSquare()
+{
+	Mesh2D ret;
+
+	Vertex2D positions[] = {
+		glm::vec2(0.0f, 0.0f), // 0
+		glm::vec2(0.0f, 0.0f), // texCoord
+
+		glm::vec2((float)Global::Variables.screenWidth, 0.0f), // 1
+		glm::vec2(1.0f, 0.0f), // texCoord
+
+		glm::vec2((float)Global::Variables.screenWidth, (float)Global::Variables.screenHeight), // 2
+		glm::vec2(1.0f, 1.0f), // texCoord
+
+		glm::vec2(0.0f, (float)Global::Variables.screenHeight), // 3
+		glm::vec2(0.0f, 1.0f), // texCoord
+	};
+
+	ret.numVertices = NUM_ARRAY_ELEMENTS(positions);
+	ret.vertices = new Vertex2D[ret.numVertices];
+	memcpy(ret.vertices, positions, sizeof(positions));
+
+	GLuint indices[] = {
+		0, 1, 2, // Right Face  | /|
+		0, 2, 3, // Left Face   |/_|
+	};
+
+	ret.numIndices = NUM_ARRAY_ELEMENTS(indices);
+	ret.indices = new GLuint[ret.numIndices];
+	memcpy(ret.indices, indices, sizeof(indices));
 
 	return ret;
 }

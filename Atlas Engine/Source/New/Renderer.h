@@ -23,6 +23,7 @@ namespace Atlas {
 		void AddRenderable2D(const Renderable2D& renderable);
 		void AddRenderableText(const RenderableText& renderable);
 
-		void Flush(glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
+		void Flush2D(glm::mat4 orthoMatrix);
+		void Flush3D(glm::mat4 viewMatrix, glm::mat4 projectionMatrix);
 	};
 }
