@@ -29,9 +29,9 @@ namespace Input {
 		mousePosition.y = ypos;
 	}
 
-	void InputHandler::ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn, bool shouldReceiveInput)
+	void InputHandler::ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn)
 	{
-		if (shouldReceiveInput) {
+		if (keyIn->shouldRecieveInput) {
 			if (keyButtons.size() == keyActions.size()) {
 				for (unsigned int i = 0; i < keyButtons.size(); i++) {
 					if (keyButtons[i] == GLFW_KEY_A) {
@@ -810,7 +810,8 @@ namespace Input {
 
 			keyButtons.clear();
 			keyActions.clear();
-
+		}
+		if (mouseIn->shouldRecieveInput) {
 			if (mouseButtons.size() == mouseActions.size()) {
 				for (unsigned int i = 0; i < mouseButtons.size(); i++) {
 					if (mouseButtons[i] == GLFW_MOUSE_BUTTON_LEFT) {

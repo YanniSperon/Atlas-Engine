@@ -198,6 +198,8 @@ namespace Input {
 		bool escapeReleased;
 		bool spaceReleased;
 
+		bool shouldRecieveInput;
+
 		KeyboardInput() {
 			aPressed = false;
 			bPressed = false;
@@ -393,6 +395,8 @@ namespace Input {
 			downReleased = false;
 			escapeReleased = false;
 			spaceReleased = false;
+
+			shouldRecieveInput = true;
 		}
 	};
 
@@ -416,6 +420,8 @@ namespace Input {
 		double mouseXPos;
 		double mouseYPos;
 
+		bool shouldRecieveInput;
+
 		MouseInput() {
 			leftClicked = false;
 			leftHeld = false;
@@ -435,6 +441,8 @@ namespace Input {
 
 			mouseXPos = 0.0;
 			mouseYPos = 0.0;
+
+			shouldRecieveInput = true;
 		}
 	};
 }

@@ -14,7 +14,7 @@ namespace Input {
 
 		static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos);
 
-		static void ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn, bool shouldReceiveInput);
+		static void ProcessEvents(KeyboardInput* keyIn, MouseInput* mouseIn);
 
 		static void Flush(KeyboardInput* keyIn, MouseInput* mouseIn);
 	};

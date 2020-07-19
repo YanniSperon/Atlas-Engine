@@ -32,7 +32,7 @@ namespace L_Atlas {
 		while (!shouldExit && !glfwWindowShouldClose(L_Global::Variables.window)) {
 			///////////////////////////////////////////////////////////////////////////
 			glfwPollEvents();
-			Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn, true);
+			Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 			///////////////////////////////////////////////////////////////////////////
 			currentTime = std::chrono::high_resolution_clock::now();
 			auto deltaTimeNanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - lastTime);

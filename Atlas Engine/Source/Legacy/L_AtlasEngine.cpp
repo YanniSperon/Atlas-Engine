@@ -69,7 +69,7 @@ namespace L_Atlas {
 				double deltaTime = deltaTimeNanoseconds.count()/1000000000.0 * timeConstant;
 				///////////////////////////////////////////////////////////////////////////
 				glfwPollEvents();
-				Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn, true);
+				Input::InputHandler::ProcessEvents(&L_Global::Variables.keyIn, &L_Global::Variables.mouseIn);
 				///////////////////////////////////////////////////////////////////////////
 				L_RenderingEngine::Begin();
 				///////////////////////////////////////////////////////////////////////////
