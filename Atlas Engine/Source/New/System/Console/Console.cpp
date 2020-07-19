@@ -1,9 +1,12 @@
 #include <chrono>
+#include <mutex>
 #include "Console.h"
 #include "New/System/Global/Global.h"
 #ifdef _WIN32
 #include <Windows.h>
 #endif
+
+static std::mutex printMutex;
 
 /// <summary>
 /// Print a success message to the console
@@ -11,6 +14,7 @@
 /// <param name="text">The text you would like to print in the success message, do not include a new line</param>
 void Atlas::Console::Success(const std::string& text)
 {
+	printMutex.lock();
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - Global::Variables.systemStartTime);
 	auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
@@ -27,6 +31,7 @@ void Atlas::Console::Success(const std::string& text)
 	if (Global::Variables.consoleLog.size() > 50) {
 		Global::Variables.consoleLog.erase(Global::Variables.consoleLog.begin());
 	}
+	printMutex.unlock();
 }
 
 /// <summary>
@@ -35,6 +40,7 @@ void Atlas::Console::Success(const std::string& text)
 /// <param name="text">The text you would like to print in the message, do not include a new line</param>
 void Atlas::Console::Info(const std::string& text)
 {
+	printMutex.lock();
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - Global::Variables.systemStartTime);
 	auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
@@ -51,6 +57,7 @@ void Atlas::Console::Info(const std::string& text)
 	if (Global::Variables.consoleLog.size() > 50) {
 		Global::Variables.consoleLog.erase(Global::Variables.consoleLog.begin());
 	}
+	printMutex.unlock();
 }
 
 /// <summary>
@@ -59,6 +66,7 @@ void Atlas::Console::Info(const std::string& text)
 /// <param name="text">The text you would like to print in the warning, do not include a new line</param>
 void Atlas::Console::Warning(const std::string& text)
 {
+	printMutex.lock();
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - Global::Variables.systemStartTime);
 	auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
@@ -75,6 +83,7 @@ void Atlas::Console::Warning(const std::string& text)
 	if (Global::Variables.consoleLog.size() > 50) {
 		Global::Variables.consoleLog.erase(Global::Variables.consoleLog.begin());
 	}
+	printMutex.unlock();
 }
 
 /// <summary>
@@ -83,6 +92,7 @@ void Atlas::Console::Warning(const std::string& text)
 /// <param name="text">The text you would like to print in the warning, do not include a new line</param>
 void Atlas::Console::Error(const std::string& text)
 {
+	printMutex.lock();
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - Global::Variables.systemStartTime);
 	auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
@@ -99,6 +109,7 @@ void Atlas::Console::Error(const std::string& text)
 	if (Global::Variables.consoleLog.size() > 50) {
 		Global::Variables.consoleLog.erase(Global::Variables.consoleLog.begin());
 	}
+	printMutex.unlock();
 }
 
 /// <summary>
@@ -107,6 +118,7 @@ void Atlas::Console::Error(const std::string& text)
 /// <param name="text">The text you would like to print in the error, do not include a new line</param>
 void Atlas::Console::FatalError(const std::string& text)
 {
+	printMutex.lock();
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(currentTime - Global::Variables.systemStartTime);
 	auto hours = std::chrono::duration_cast<std::chrono::hours>(duration);
@@ -123,4 +135,5 @@ void Atlas::Console::FatalError(const std::string& text)
 	if (Global::Variables.consoleLog.size() > 50) {
 		Global::Variables.consoleLog.erase(Global::Variables.consoleLog.begin());
 	}
+	printMutex.unlock();
 }

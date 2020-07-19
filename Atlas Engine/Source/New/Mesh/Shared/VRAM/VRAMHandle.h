@@ -5,13 +5,12 @@
 namespace Atlas {
 	struct VRAMHandle {
 		VRAMHandle()
-			: vbo(0), ibo(0), referencingMesh()
+			: vbo(0), ibo(0)
 		{
 
 		}
 		GLuint vbo;
 		GLuint ibo;
-		void* referencingMesh;
 
 		void DeleteFromVRAM() {
 			glDeleteBuffers(1, &vbo);

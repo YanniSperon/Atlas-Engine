@@ -4,16 +4,33 @@
 #include "New/System/Global/Global.h"
 
 Atlas::Node3D::Node3D()
-	: parent(nullptr), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: Node(E_NodeType::THREEDIMENSIONAL), parent(nullptr), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	SetName("Root Node");
 }
 
 Atlas::Node3D::Node3D(Node3D* parentNode)
-	: parent(parentNode), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: Node(E_NodeType::THREEDIMENSIONAL), parent(parentNode), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	parentNode->AddChildNode(this);
 	SetName("Node");
+}
+
+Atlas::Node3D::Node3D(const Node3D& node2)
+	: Node(node2), parent(node2.parent), children(), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), name(node2.name), translation(node2.translation), rotation(node2.rotation), scale(node2.scale)
+{
+	for (int i = 0; i < node2.children.size(); i++) {
+		children.push_back(new Node3D(node2.children.at(i)));
+	}
+	if (node2.cameraComponent) {
+		cameraComponent = new Camera(node2.cameraComponent);
+	}
+	if (node2.lightComponent) {
+		lightComponent = new Light(node2.lightComponent);
+	}
+	if (node2.objectComponent) {
+		objectComponent = new Object3D(node2.objectComponent);
+	}
 }
 
 Atlas::Node3D::~Node3D()

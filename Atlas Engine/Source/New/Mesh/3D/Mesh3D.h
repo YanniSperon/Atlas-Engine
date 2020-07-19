@@ -2,15 +2,16 @@
 
 #include "GL/glew.h"
 #include "Vertex3D.h"
+#include "New/Rendering/Shared/Object/Object.h"
 #include <string>
-#include <vector>
+#include <set>
 
 namespace Atlas {
 
 	struct Mesh3D {
 
 		Mesh3D()
-			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), name(""), referencingObjects(), vramHandle(nullptr)
+			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), name("default"), referencingObjects()
 		{
 
 		}
@@ -20,10 +21,8 @@ namespace Atlas {
 		GLuint* indices;
 		GLuint numIndices;
 		std::string name;
-		//        object3d
-		std::vector<void*> referencingObjects;
 
-		void* vramHandle;
+		std::set<Object*> referencingObjects;
 
 		GLsizeiptr VertexBufferSize() const {
 			return numVertices * sizeof(Vertex3D);

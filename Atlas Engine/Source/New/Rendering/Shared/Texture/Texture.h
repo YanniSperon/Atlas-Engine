@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GL/glew.h"
+#include "New/Rendering/Shared/Object/Object.h"
 #include <string>
 #include <vector>
 
@@ -9,7 +10,7 @@ namespace Atlas {
 	private:
 		GLuint textureID;
 		std::string filePath;
-		std::vector<void*> referencingObjects;
+		std::vector<Object*> referencingObjects;
 
 		GLuint LoadTexture(const std::string& texDirAndName, GLint textureWrapS, GLint textureWrapT, GLint textureMinFilter, GLint textureMaxFilter);
 	public:

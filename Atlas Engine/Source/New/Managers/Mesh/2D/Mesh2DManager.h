@@ -2,6 +2,7 @@
 
 #include <string>
 #include <unordered_map>
+#include "New/Rendering/2D/Object/Object2D.h"
 #include "New/Mesh/2D/Mesh2D.h"
 #include "New/Mesh/Shared/VRAM/VRAMHandle.h"
 #include "New/Scene/Shared/Updatable/Updatable.h"
@@ -18,6 +19,7 @@ namespace Atlas {
 		virtual void Update(float deltaTime);
 
 		Mesh2D* GetMesh(Mesh2D* mesh);
+		void Delete(Object2D* obj);
 
 		void DeleteMesh(const std::string& name);
 		void DeleteMesh(Mesh2D* mesh);

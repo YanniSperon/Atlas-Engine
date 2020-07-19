@@ -3,31 +3,33 @@
 #include "New/Mesh/Shared/VRAM/VRAMHandle.h"
 #include "New/Mesh/3D/Mesh3D.h"
 #include "New/Rendering/Shared/Shader/Shader.h"
+#include "New/Scene/Shared/Node/Node.h"
 #include "New/Rendering/Shared/Texture/Texture.h"
 #include "Shared/S_Vendor/S_GLM/glm.hpp"
 #include <string>
 
 namespace Atlas {
-	class Object3D {
+	class Object3D : public Object {
 	private:
 		VRAMHandle* handle;
 		Shader* shader;
 		Texture* texture;
 		Mesh3D* mesh;
+
 		glm::vec3 localTranslation;
 		glm::vec3 localRotation;
 		glm::vec3 localScale;
 
 		glm::mat4 finalTransformation;
 
-		void* referencingNode;
+		Node* referencingNode;
 	public:
-		static void Initialize();
-
 		Object3D();
 		Object3D(Mesh3D* objectMesh, Shader* shdr, Texture* tex);
+		Object3D(Mesh3D* objectMesh, Shader* shdr, Texture* tex);
 		Object3D(const std::string& meshName, const std::string& shaderName, const std::string& textureName);
-		~Object3D();
+		Object3D(const Object3D& obj2);
+		virtual ~Object3D();
 
 		void Draw(glm::mat4 view, glm::mat4 projection);
 		void Bind();

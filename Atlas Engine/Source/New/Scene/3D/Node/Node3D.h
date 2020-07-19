@@ -5,10 +5,11 @@
 #include "New/Rendering/3D/Camera/Camera.h"
 #include "New/Rendering/3D/Light/Light.h"
 #include "New/Rendering/3D/Object/Object3D.h"
+#include "New/Scene/Shared/Node/Node.h"
 #include "New/Rendering/Shared/Renderer/Renderer.h"
 
 namespace Atlas {
-	class Node3D {
+	class Node3D : public Node {
 	private:
 		Node3D* parent;
 		std::vector<Node3D*> children;
@@ -22,7 +23,8 @@ namespace Atlas {
 	public:
 		Node3D();
 		Node3D(Node3D* parentNode);
-		~Node3D();
+		Node3D(const Node3D& node2);
+		virtual ~Node3D();
 		// an individual node may contain a camera, a light, an object (physics body/mesh), and an infinite number of children nodes
 
 		void Update(float deltaTime);

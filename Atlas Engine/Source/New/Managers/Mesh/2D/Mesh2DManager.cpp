@@ -27,7 +27,11 @@ void Atlas::Mesh2DManager::Update(float deltaTime)
 {
 	Updatable::Update(deltaTime);
 	if (Updatable::ShouldUpdate()) {
-
+		for (auto it : loadedMeshes) {
+			if (it.second->referencingObjects.size() == 0) {
+				// remove
+			}
+		}
 	}
 }
 
@@ -53,6 +57,15 @@ Atlas::Mesh2D* Atlas::Mesh2DManager::GetMesh(Mesh2D* mesh)
 	return mesh;
 }
 
+void Atlas::Mesh2DManager::Delete(Object2D* obj)
+{
+	for (auto it : loadedMeshes) {
+		if (it.second == obj->GetMesh()) {
+			it.second->referencingObjects.erase((void*)obj);
+		}
+	}
+}
+
 void Atlas::Mesh2DManager::DeleteMesh(const std::string& name)
 {
 	if (loadedMeshes.find(name) == loadedMeshes.end()) {
@@ -70,10 +83,6 @@ void Atlas::Mesh2DManager::DeleteMesh(const std::string& name)
 			// vram reference, destroy it
 			VRAMHandle* ref = vramReference[loadedMeshes[name]];
 			ref->DeleteFromVRAM();
-			if (((void*) ref != loadedMeshes[name]->vramHandle) || (ref->referencingMesh != (void*) loadedMeshes[name])) {
-				Console::FatalError("VRAM HANDLE AND MESH OUT OF SYNC");
-				exit(-4);
-			}
 			delete ref;
 			vramReference.erase(loadedMeshes[name]);
 		}

@@ -159,6 +159,8 @@
     <ClCompile Include="Source\Legacy\L_Global\L_GlobalVariables.cpp" />
     <ClCompile Include="Source\New\Entry Point\AtlasEngine.cpp" />
     <ClCompile Include="Source\New\Rendering\3D\Camera\Camera.cpp" />
+    <ClCompile Include="Source\New\Rendering\Shared\Object\Object.cpp" />
+    <ClCompile Include="Source\New\Scene\Shared\Node\Node.cpp" />
     <ClCompile Include="Source\New\System\Console\Console.cpp" />
     <ClCompile Include="Source\New\Rendering\2D\Framebuffer\FramebufferObject.cpp" />
     <ClCompile Include="Source\New\Rendering\2D\Layer\Layer2D.cpp" />
@@ -544,6 +546,8 @@
     <ClInclude Include="Source\Legacy\L_Game\L_Scene.h" />
     <ClInclude Include="Source\Legacy\L_Global\L_Global.h" />
     <ClInclude Include="Source\Legacy\L_Global\L_GlobalVariables.h" />
+    <ClInclude Include="Source\New\Rendering\Shared\Object\Object.h" />
+    <ClInclude Include="Source\New\Scene\Shared\Node\Node.h" />
     <ClInclude Include="Source\New\System\Console\Console.h" />
     <ClInclude Include="Source\New\Rendering\2D\Framebuffer\FramebufferObject.h" />
     <ClInclude Include="Source\New\Rendering\2D\Layer\Layer2D.h" />

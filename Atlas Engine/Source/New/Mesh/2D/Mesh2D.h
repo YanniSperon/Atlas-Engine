@@ -2,7 +2,7 @@
 
 #include "GL/glew.h"
 #include "Vertex2D.h"
-#include <vector>
+#include <set>
 #include <string>
 
 namespace Atlas {
@@ -10,7 +10,7 @@ namespace Atlas {
 	struct Mesh2D {
 
 		Mesh2D()
-			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), referencingObjects(), vramHandle(nullptr), name()
+			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), name("default"), referencingObjects()
 		{
 
 		}
@@ -19,10 +19,9 @@ namespace Atlas {
 		GLuint numVertices;
 		GLuint* indices;
 		GLuint numIndices;
-		std::vector<void*> referencingObjects;
 		std::string name;
 
-		void* vramHandle;
+		std::set<void*> referencingObjects;
 
 		GLsizeiptr VertexBufferSize() const {
 			return numVertices * sizeof(Vertex2D);
