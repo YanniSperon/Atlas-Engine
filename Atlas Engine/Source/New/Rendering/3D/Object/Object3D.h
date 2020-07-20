@@ -25,10 +25,10 @@ namespace Atlas {
 		Node* referencingNode;
 	public:
 		Object3D();
+		Object3D(const Object3D& obj2);
 		Object3D(Mesh3D* objectMesh, Shader* shdr, Texture* tex);
 		Object3D(Mesh3D* objectMesh, Shader* shdr, Texture* tex);
 		Object3D(const std::string& meshName, const std::string& shaderName, const std::string& textureName);
-		Object3D(const Object3D& obj2);
 		virtual ~Object3D();
 
 		void Draw(glm::mat4 view, glm::mat4 projection);
@@ -39,6 +39,8 @@ namespace Atlas {
 
 		VRAMHandle* GetVRAMHandle();
 		Mesh3D* GetMesh();
+		Shader* GetShader();
+		Texture* GetTexture();
 
 		glm::vec3 GetLocalTranslation();
 		glm::vec3 GetLocalRotation();
@@ -54,6 +56,8 @@ namespace Atlas {
 
 		void SetVRAMHandle(VRAMHandle* newHandle);
 		void SetMesh(Mesh3D* newMesh);
+		void SetShader(Shader* newShader);
+		void SetTexture(Texture* newTexture);
 
 		void SetLocalTranslation(glm::vec3 newTranslation);
 		void SetLocalRotation(glm::vec3 newRotation);
@@ -63,7 +67,7 @@ namespace Atlas {
 		void AddRotationOffset(glm::vec3 addRotation);
 		void AddScaleOffset(glm::vec3 addScale);
 
-		void* GetReferencingNode();
-		void SetReferencingNode(void* node);
+		Node* GetReferencingNode();
+		void SetReferencingNode(Node* node);
 	};
 }

@@ -5,6 +5,7 @@
 #include "New/Rendering/Shared/Texture/Texture.h"
 #include "New/Rendering/Shared/Shader/Shader.h"
 #include "New/Mesh/Shared/VRAM/VRAMHandle.h"
+#include "New/Scene/Shared/Node/Node.h"
 
 namespace Atlas {
 	class Object2D {
@@ -19,13 +20,14 @@ namespace Atlas {
 
 		glm::mat4 finalTransformation;
 
-		void* referencingNode;
+		Node* referencingNode;
 	public:
 		Object2D();
 		Object2D(Object2D* itemToCopy);
 		Object2D(Mesh2D* objectMesh, Shader* shdr, Texture* tex);
-		Object2D(Mesh2D* objectMesh, const std::string& shader, const std::string& texture);
-		Object2D(Mesh2D* objectMesh, const std::string& shader, Texture* tex);
+		Object2D(Mesh2D* objectMesh, const std::string& shdr, Texture* tex);
+		Object2D(Mesh2D* objectMesh, const std::string& shdr, const std::string& tex);
+		Object2D(const std::string& objectMesh, const std::string& shdr, const std::string& tex);
 		~Object2D();
 
 		virtual void Draw(glm::mat4 projection);
@@ -34,10 +36,10 @@ namespace Atlas {
 
 		void Update(float deltaTime);
 
+		Mesh2D* GetMesh();
 		VRAMHandle* GetVRAMHandle();
 		Shader* GetShader();
 		Texture* GetTexture();
-		Mesh2D* GetMesh();
 
 		glm::mat4 GetFinalTransformation();
 		glm::vec2 GetLocalTranslation();
@@ -50,6 +52,11 @@ namespace Atlas {
 		glm::mat4 GetTransformationMatrix();
 		glm::mat4 GetTranslationScaleMatrix();
 
+		void SetMesh(Mesh2D* newMesh);
+		void SetVRAMHandle(VRAMHandle* newVRAMHandle);
+		void SetShader(Shader* newShader);
+		void SetTexture(Texture* newTexture);
+
 		void SetLocalTranslation(glm::vec2 newTranslation);
 		void SetLocalRotation(float newRotation);
 		void SetLocalScale(glm::vec2 newScale);
@@ -60,7 +67,7 @@ namespace Atlas {
 		void AddRotationOffset(float addRotation);
 		void AddScaleOffset(glm::vec2 addScale);
 
-		void* GetReferencingNode();
-		void SetReferencingNode(void* node);
+		Node* GetReferencingNode();
+		void SetReferencingNode(Node* node);
 	};
 }

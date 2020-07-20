@@ -4,7 +4,13 @@
 #include "New/System/Global/Global.h"
 
 Atlas::Camera::Camera()
-	: forwardDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), translation(0.0f), nearPlane(0.1f), farPlane(100.0f), width(Global::Variables.screenWidth), height(Global::Variables.screenHeight), FOV(90.0f), oldMouseX(0.0), oldMouseY(0.0)
+	: referencingNode(nullptr), forwardDirection(0.0f, 0.0f, -1.0f), upDirection(0.0f, 1.0f, 0.0f), translation(0.0f), nearPlane(0.1f), farPlane(100.0f), width(Global::Variables.screenWidth), height(Global::Variables.screenHeight), FOV(90.0f), oldMouseX(0.0), oldMouseY(0.0)
+{
+
+}
+
+Atlas::Camera::Camera(const Camera& cam2)
+	: referencingNode(cam2.referencingNode), forwardDirection(cam2.forwardDirection), upDirection(cam2.upDirection), translation(cam2.translation), FOV(cam2.FOV), nearPlane(cam2.nearPlane), farPlane(cam2.farPlane), height(cam2.height), width(cam2.width), oldMouseX(cam2.oldMouseX), oldMouseY(cam2.oldMouseY)
 {
 
 }
@@ -158,12 +164,12 @@ void Atlas::Camera::Update(float deltaTime)
 
 }
 
-void* Atlas::Camera::GetReferencingNode()
+Atlas::Node* Atlas::Camera::GetReferencingNode()
 {
 	return referencingNode;
 }
 
-void Atlas::Camera::SetReferencingNode(void* node)
+void Atlas::Camera::SetReferencingNode(Node* node)
 {
 	referencingNode = node;
 }

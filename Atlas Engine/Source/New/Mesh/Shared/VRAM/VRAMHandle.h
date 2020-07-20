@@ -11,10 +11,5 @@ namespace Atlas {
 		}
 		GLuint vbo;
 		GLuint ibo;
-
-		void DeleteFromVRAM() {
-			glDeleteBuffers(1, &vbo);
-			glDeleteBuffers(1, &ibo);
-		}
 	};
 }

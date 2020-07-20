@@ -4,13 +4,29 @@
 #include "New/System/Global/Global.h"
 
 Atlas::Node2D::Node2D()
-	: parent(nullptr), objectComponent(nullptr), textComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: Node(E_NodeType::TWODIMENSIONAL), parent(nullptr), objectComponent(nullptr), textComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	SetName("Root Node");
 }
 
+Atlas::Node2D::Node2D(const Node2D& node2)
+	: Node(E_NodeType::TWODIMENSIONAL), parent(node2.parent), objectComponent(nullptr), textComponent(nullptr), translation(node2.translation), rotation(node2.rotation), scale(node2.scale)
+{
+	for (int i = 0; i < node2.children.size(); i++) {
+		children.push_back(new Node2D(*node2.children.at(i)));
+	}
+	if (node2.textComponent) {
+		textComponent = new Text(*node2.textComponent);
+		textComponent->SetReferencingNode(this);
+	}
+	if (node2.objectComponent) {
+		objectComponent = new Object2D(*node2.objectComponent);
+		objectComponent->SetReferencingNode(this);
+	}
+}
+
 Atlas::Node2D::Node2D(Node2D* parentNode)
-	: parent(parentNode), objectComponent(nullptr), textComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
+	: Node(E_NodeType::TWODIMENSIONAL), parent(parentNode), objectComponent(nullptr), textComponent(nullptr), translation(0.0f), rotation(0.0f), scale(1.0f)
 {
 	parentNode->AddChildNode(this);
 	SetName("Node");
@@ -187,6 +203,11 @@ void Atlas::Node2D::SetObject(Object2D* object)
 	}
 	objectComponent = object;
 	objectComponent->SetReferencingNode(this);
+}
+
+void Atlas::Node2D::SetText(Text* text)
+{
+	textComponent = text;
 }
 
 void Atlas::Node2D::SetName(std::string newName)

@@ -12,19 +12,26 @@ namespace Atlas {
 	private:
 		std::unordered_map<const std::string&, Mesh2D*> loadedMeshes;
 		std::unordered_map<Mesh2D*, VRAMHandle*> vramReference;
+
+		VRAMHandle* LoadIntoVRAM(Mesh2D* mesh);
+		void UnloadFromVRAM(VRAMHandle* handle);
 	public:
 		Mesh2DManager();
 		~Mesh2DManager();
 
 		virtual void Update(float deltaTime);
 
+		Mesh2D* LoadMesh(const std::string& filepath);
+
 		Mesh2D* GetMesh(Mesh2D* mesh);
-		void Delete(Object2D* obj);
+		void Delete(Object* obj);
 
 		void DeleteMesh(const std::string& name);
 		void DeleteMesh(Mesh2D* mesh);
 
 		void SetMesh(Mesh2D* newMesh);
 		void ReplaceMesh(Mesh2D* newMesh);
+
+		VRAMHandle* GetVRAMHandle(Mesh2D* mesh);
 	};
 }

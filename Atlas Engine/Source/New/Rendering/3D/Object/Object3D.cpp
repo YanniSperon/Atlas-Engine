@@ -5,43 +5,49 @@
 #include "Shared/S_Vendor/S_GLM/gtx/euler_angles.hpp"
 
 Atlas::Object3D::Object3D()
-	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(Global::Variables.GetLoadedMesh("cube")), handle(Global::Variables.GetVRAMReference(Global::Variables.GetLoadedMesh("cube"))), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
+	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(Global::Variables.mesh3DManager.LoadMesh("cube")), handle(Global::Variables.mesh3DManager.GetVRAMHandle(mesh)), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
 {
-
+	Global::Variables.mesh3DManager.AddReference(this);
 }
 
 Atlas::Object3D::Object3D(Mesh3D* objectMesh, Shader* shdr, Texture* tex)
-	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(objectMesh), handle(Global::Variables.GetVRAMReference(objectMesh)), shader(shdr), texture(tex), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
+	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(Global::Variables.mesh3DManager.GetMesh(objectMesh)), handle(Global::Variables.mesh3DManager.GetVRAMHandle(objectMesh)), shader(Global::Variables.shaderManager.GetShader(shdr)), texture(Global::Variables.textureManager.GetTexture(tex)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
 {
-
+	Global::Variables.mesh3DManager.AddReference(this);
+	Global::Variables.shaderManager.AddReference(this);
+	Global::Variables.textureManager.AddReference(this);
 }
 
 Atlas::Object3D::Object3D(const std::string& meshName, const std::string& shaderName, const std::string& textureName)
-	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(Global::Variables.GetLoadedMesh(meshName)), handle(Global::Variables.GetVRAMReference(Global::Variables.GetLoadedMesh(meshName))), shader(Global::Variables.GetLoadedShader(shaderName)), texture(Global::Variables.GetLoadedTexture(textureName)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
+	: Object(E_ObjectType::THREEDIMENSIONAL), mesh(Global::Variables.mesh3DManager.LoadMesh(meshName)), handle(Global::Variables.mesh3DManager.GetVRAMHandle(mesh)), shader(Global::Variables.shaderManager.LoadShader(shaderName)), texture(Global::Variables.textureManager.LoadTexture(textureName)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f)
 {
-
+	Global::Variables.mesh3DManager.AddReference(this);
+	Global::Variables.shaderManager.AddReference(this);
+	Global::Variables.textureManager.AddReference(this);
 }
 
 Atlas::Object3D::Object3D(const Object3D& obj2)
 	: Object(obj2), handle(obj2.handle), shader(obj2.shader), texture(obj2.texture), mesh(obj2.mesh), localTranslation(obj2.localTranslation), localRotation(obj2.localRotation), localScale(obj2.localScale), finalTransformation(obj2.finalTransformation), referencingNode(obj2.referencingNode)
 {
-	// ADD THIS OBJECT AS A REFERENCING OBJECT TO THE SHADER, MESH, AND TEXTURE
+	Global::Variables.mesh3DManager.AddReference(this);
+	Global::Variables.shaderManager.AddReference(this);
+	Global::Variables.textureManager.AddReference(this);
 }
 
 Atlas::Object3D::~Object3D()
 {
-	// check cache and see if it is being used anywhere and if it isnt then delete the mesh
+	Global::Variables.mesh3DManager.DeleteReference(this);
+	Global::Variables.shaderManager.DeleteReference(this);
+	Global::Variables.textureManager.DeleteReference(this);
 }
 
 void Atlas::Object3D::Draw(glm::mat4 view, glm::mat4 projection)
 {
-	//Bind(model, view, projection);
 	Bind();
 	shader->SetUniformMat4f("P", projection);
 	shader->SetUniformMat4f("V", view);
 	shader->SetUniformMat4f("M", finalTransformation);
 	glDrawElements(GL_TRIANGLES, mesh->numIndices, GL_UNSIGNED_INT, 0);
-	//glm::mat4 model, glm::mat4 view, glm::mat4 projection
 }
 
 void Atlas::Object3D::Bind()
@@ -74,6 +80,16 @@ Atlas::VRAMHandle* Atlas::Object3D::GetVRAMHandle()
 Atlas::Mesh3D* Atlas::Object3D::GetMesh()
 {
 	return mesh;
+}
+
+Atlas::Shader* Atlas::Object3D::GetShader()
+{
+	return shader;
+}
+
+Atlas::Texture* Atlas::Object3D::GetTexture()
+{
+	return texture;
 }
 
 glm::vec3 Atlas::Object3D::GetLocalTranslation()
@@ -131,6 +147,16 @@ void Atlas::Object3D::SetMesh(Mesh3D* newMesh)
 	mesh = newMesh;
 }
 
+void Atlas::Object3D::SetShader(Shader* newShader)
+{
+	shader = newShader;
+}
+
+void Atlas::Object3D::SetTexture(Texture* newTexture)
+{
+	texture = newTexture;
+}
+
 void Atlas::Object3D::SetLocalTranslation(glm::vec3 newTranslation)
 {
 	localTranslation = newTranslation;
@@ -161,12 +187,12 @@ void Atlas::Object3D::AddScaleOffset(glm::vec3 addScale)
 	localScale += addScale;
 }
 
-void* Atlas::Object3D::GetReferencingNode()
+Atlas::Node* Atlas::Object3D::GetReferencingNode()
 {
 	return referencingNode;
 }
 
-void Atlas::Object3D::SetReferencingNode(void* node)
+void Atlas::Object3D::SetReferencingNode(Node* node)
 {
 	referencingNode = node;
 }

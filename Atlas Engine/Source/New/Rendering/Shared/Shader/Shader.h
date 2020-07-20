@@ -2,10 +2,11 @@
 
 #include <string>
 #include <unordered_map>
-#include <vector>
+#include <set>
 #include "Shared/S_Vendor/S_GLM/glm.hpp"
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
+#include "New/Rendering/Shared/Object/Object.h"
 
 namespace Atlas {
 
@@ -18,12 +19,16 @@ namespace Atlas {
 	class Shader
 	{
 	private:
-		std::string filePath;
-		GLuint m_RendererID;
-		std::unordered_map<std::string, int> m_UniformLocationCache;
+		std::string filepath;
+		std::string name;
+		GLuint rendererID;
+		std::unordered_map<std::string, int> uniformLocationCache;
+		std::set<Object*> referencingObjects;
 	public:
 		Shader();
-		Shader(const std::string& filepath);
+		Shader(const Shader& shader2);
+		Shader(const std::string& path);
+		Shader(const ShaderProgramSource& source, const std::string& path);
 		~Shader();
 
 		void Bind() const;
@@ -36,9 +41,12 @@ namespace Atlas {
 		void SetUniformVec3f(const std::string& name, const glm::vec3& vector);
 		void SetUniformMat4f(const std::string& name, const glm::mat4& matrix);
 		GLuint GetShaderID();
+		const std::string& GetFilepath();
 		const std::string& GetName();
+		void SetName(const std::string& newName);
 
-		std::vector<void*>& GetReferencingObjects();
+		std::set<Object*>& GetReferencingObjects();
+		void SetReferencingObjects(std::set<Object*>& newRefObj);
 	private:
 		ShaderProgramSource ParseShader(const std::string& filepath);
 		unsigned int CompileShader(unsigned int type, const std::string& source);

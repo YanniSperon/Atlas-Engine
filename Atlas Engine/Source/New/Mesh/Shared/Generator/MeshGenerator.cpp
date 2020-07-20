@@ -144,6 +144,7 @@ Atlas::Mesh3D* Atlas::MeshGenerator::CreateCube(const glm::vec3& min, const glm:
 	memcpy(cube->indices, indices, sizeof(indices));
 
 	cube->name = "cube";
+	cube->filepath = "/cube";
 
 	return cube;
 }
@@ -348,6 +349,7 @@ Atlas::Mesh3D* Atlas::MeshGenerator::CreateSkybox()
 	memcpy(cube->indices, indices, sizeof(indices));
 
 	cube->name = "skybox";
+	cube->filepath = "/skybox";
 
 	return cube;
 }
@@ -481,12 +483,13 @@ Atlas::Mesh3D* Atlas::MeshGenerator::LoadTexturedShape(const std::string& modelD
 		ret->indices[k] = indices.at(k);
 	}
 
-	ret->name = modelDirAndName;
+	ret->name = "3dmesh";
+	ret->filepath = modelDirAndName;
 
 	return ret;
 }
 
-Atlas::Mesh3D* Atlas::MeshGenerator::Generate(const std::string& name)
+Atlas::Mesh3D* Atlas::MeshGenerator::Generate3D(const std::string& name)
 {
 	if (name == "cube") {
 		return CreateCube(glm::vec3(-0.5f, -0.5f, -0.5f), glm::vec3(0.5f, 0.5f, 0.5f));
@@ -530,6 +533,9 @@ Atlas::Mesh2D* Atlas::MeshGenerator::CreateSquare()
 	ret->indices = new GLuint[ret->numIndices];
 	memcpy(ret->indices, indices, sizeof(indices));
 
+	ret->name = "square";
+	ret->filepath = "/square";
+
 	return ret;
 }
 
@@ -563,6 +569,9 @@ Atlas::Mesh2D* Atlas::MeshGenerator::CreateSquareCustom(const glm::vec2& minPos,
 	ret->numIndices = NUM_ARRAY_ELEMENTS(indices);
 	ret->indices = new GLuint[ret->numIndices];
 	memcpy(ret->indices, indices, sizeof(indices));
+
+	ret->name = "square";
+	ret->filepath = "/customsquare";
 
 	return ret;
 }
@@ -598,6 +607,9 @@ Atlas::Mesh2D* Atlas::MeshGenerator::CreateSquareFixedSize(const glm::vec2& minT
 	ret->indices = new GLuint[ret->numIndices];
 	memcpy(ret->indices, indices, sizeof(indices));
 
+	ret->name = "square";
+	ret->filepath = "/screensquaretex";
+
 	return ret;
 }
 
@@ -632,5 +644,21 @@ Atlas::Mesh2D* Atlas::MeshGenerator::CreateScreenSizedSquare()
 	ret->indices = new GLuint[ret->numIndices];
 	memcpy(ret->indices, indices, sizeof(indices));
 
+	ret->name = "square";
+	ret->filepath = "/screensquare";
+
 	return ret;
+}
+
+Atlas::Mesh2D* Atlas::MeshGenerator::Generate2D(const std::string& name)
+{
+	if (name == "square") {
+		return CreateSquare();
+	}
+	else if (name == "screensquare") {
+		return CreateScreenSizedSquare();
+	}
+	else {
+		return CreateSquare();
+	}
 }

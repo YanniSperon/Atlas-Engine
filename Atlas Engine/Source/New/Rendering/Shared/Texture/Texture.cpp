@@ -30,14 +30,26 @@ GLuint Atlas::Texture::LoadTexture(const std::string& texDirAndName, GLint textu
 }
 
 Atlas::Texture::Texture()
-	: textureID(0), filePath("INVALID")
+	: textureID(0), filepath(""), referencingObjects(), name("texture")
 {
 }
 
+Atlas::Texture::Texture(const Texture& tex2)
+	: textureID(0), filepath(tex2.filepath), referencingObjects(), name("texture")
+{
+	textureID = LoadTexture(filepath, GL_REPEAT, GL_REPEAT, GL_NEAREST_MIPMAP_NEAREST, GL_NEAREST);
+}
+
 Atlas::Texture::Texture(const std::string& texDirAndName)
-	: textureID(0), filePath(texDirAndName)
+	: textureID(0), filepath(texDirAndName), referencingObjects(), name("texture")
 {
 	textureID = LoadTexture(texDirAndName, GL_REPEAT, GL_REPEAT, GL_NEAREST_MIPMAP_NEAREST, GL_NEAREST);
+}
+
+Atlas::Texture::Texture(GLuint texID, const std::string& path, const std::string& texName)
+	: textureID(texID), filepath(path), name(texName)
+{
+
 }
 
 Atlas::Texture::~Texture()
@@ -55,12 +67,27 @@ void Atlas::Texture::Unbind()
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-const std::string& Atlas::Texture::GetName()
+const std::string& Atlas::Texture::GetFilepath()
 {
-	return filePath;
+	return filepath;
 }
 
-std::vector<void*>& Atlas::Texture::GetReferencingObjects()
+const std::string& Atlas::Texture::GetName()
+{
+	return name;
+}
+
+void Atlas::Texture::SetName(const std::string& newName)
+{
+	name = newName;
+}
+
+void Atlas::Texture::SetReferencingObjects(std::set<Object*>& newRefObj)
+{
+	referencingObjects = newRefObj;
+}
+
+std::set<Atlas::Object*>& Atlas::Texture::GetReferencingObjects()
 {
 	return referencingObjects;
 }

@@ -20,3 +20,13 @@ void Atlas::Text::SetFinalTransformation(glm::mat4 trans)
 {
 	finalTransformation = trans;
 }
+
+Atlas::Node* Atlas::Text::GetReferencingNode()
+{
+	return referencingNode;
+}
+
+void Atlas::Text::SetReferencingNode(Node* newNode)
+{
+	referencingNode = newNode;
+}

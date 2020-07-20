@@ -16,3 +16,8 @@ Atlas::Object::~Object()
 {
 
 }
+
+Atlas::Object::E_ObjectType Atlas::Object::GetType()
+{
+	return type;
+}

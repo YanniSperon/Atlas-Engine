@@ -5,9 +5,10 @@
 #include "New/Rendering/2D/Text/Text.h"
 #include "New/Rendering/2D/Object/Object2D.h"
 #include "New/Rendering/Shared/Renderer/Renderer.h"
+#include "New/Scene/Shared/Node/Node.h"
 
 namespace Atlas {
-	class Node2D {
+	class Node2D : public Node {
 	private:
 		Node2D* parent;
 		std::vector<Node2D*> children;
@@ -19,8 +20,9 @@ namespace Atlas {
 		glm::vec2 scale;
 	public:
 		Node2D();
+		Node2D(const Node2D& node2);
 		Node2D(Node2D* parentNode);
-		~Node2D();
+		virtual ~Node2D();
 
 		void Update(float deltaTime);
 		void Draw(Renderer* renderer, glm::mat4 currentTransformationMatrix);

@@ -1,18 +1,21 @@
 #pragma once
 
+#include "New/Scene/Shared/Node/Node.h"
+
 namespace Atlas {
 	class Light {
 	private:
 		// include data about color etc, make different types of lights extend this class
 
-		void* referencingNode;
+		Node* referencingNode;
 	public:
 		Light();
+		Light(const Light& light2);
 		~Light();
 
 		void Update(float deltaTime);
 
-		void* GetReferencingNode();
-		void SetReferencingNode(void* node);
+		Node* GetReferencingNode();
+		void SetReferencingNode(Node* node);
 	};
 }

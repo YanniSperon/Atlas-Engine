@@ -8,22 +8,35 @@
 namespace Atlas {
 
 	Shader::Shader()
-		: m_RendererID(0), filePath("INVALID")
+		: rendererID(0), filepath(""), name("shader"), uniformLocationCache(), referencingObjects()
 	{
 
 	}
 
-	Shader::Shader(const std::string& filepath)
-		: filePath(filepath), m_RendererID(0)
+	Shader::Shader(const Shader& shader2)
+		: rendererID(0), filepath(shader2.filepath), name("shader"), uniformLocationCache(), referencingObjects()
 	{
 		ShaderProgramSource source = ParseShader(filepath);
-		m_RendererID = CreateShader(source.VertexSource, source.FragmentSource);
+		rendererID = CreateShader(source.VertexSource, source.FragmentSource);
+	}
+
+	Shader::Shader(const std::string& path)
+		: rendererID(0), filepath(path), name("shader"), uniformLocationCache(), referencingObjects()
+	{
+		ShaderProgramSource source = ParseShader(filepath);
+		rendererID = CreateShader(source.VertexSource, source.FragmentSource);
+	}
+
+	Shader::Shader(const ShaderProgramSource& source, const std::string& path)
+		: rendererID(0), filepath(path), name("shader"), uniformLocationCache(), referencingObjects()
+	{
+		rendererID = CreateShader(source.VertexSource, source.FragmentSource);
 	}
 
 	Shader::~Shader()
 	{
 		Unbind();
-		glDeleteProgram(m_RendererID);
+		glDeleteProgram(rendererID);
 	}
 
 	ShaderProgramSource Shader::ParseShader(const std::string& filepath)
@@ -114,7 +127,7 @@ namespace Atlas {
 
 	void Shader::Bind() const
 	{
-		glUseProgram(m_RendererID);
+		glUseProgram(rendererID);
 	}
 
 	void Shader::Unbind() const
@@ -154,11 +167,44 @@ namespace Atlas {
 
 	GLuint Shader::GetShaderID()
 	{
-		return m_RendererID;
+		return rendererID;
+	}
+
+	const std::string& Shader::GetFilepath()
+	{
+		return filepath;
 	}
 
 	const std::string& Shader::GetName()
 	{
-		return filePath;
+		return name;
+	}
+
+	void Shader::SetName(const std::string& newName)
+	{
+		name = newName;
+	}
+
+	std::set<Object*>& Shader::GetReferencingObjects()
+	{
+		return referencingObjects;
+	}
+
+	void Shader::SetReferencingObjects(std::set<Object*>& newRefObj)
+	{
+		referencingObjects = newRefObj;
+	}
+
+	int Shader::GetUniformLocation(const std::string& name)
+	{
+		if (uniformLocationCache.find(name) != uniformLocationCache.end())
+			return uniformLocationCache[name];
+
+		int location = glGetUniformLocation(rendererID, name.c_str());
+		if (location == -1)
+			std::cout << "Warning: uniform '" << name << "' doesn't exist!" << std::endl;
+
+		uniformLocationCache[name] = location;
+		return location;
 	}
 }

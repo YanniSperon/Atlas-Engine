@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Shared/S_Vendor/S_GLM/glm.hpp"
+#include "New/Scene/Shared/Node/Node.h"
 
 namespace Atlas {
 	class Camera {
@@ -17,9 +18,10 @@ namespace Atlas {
 		double oldMouseX;
 		double oldMouseY;
 
-		void* referencingNode;
+		Node* referencingNode;
 	public:
 		Camera();
+		Camera(const Camera& cam2);
 		~Camera();
 
 		glm::mat4 GetViewMatrix();
@@ -50,7 +52,7 @@ namespace Atlas {
 
 		void Update(float deltaTime);
 
-		void* GetReferencingNode();
-		void SetReferencingNode(void* node);
+		Node* GetReferencingNode();
+		void SetReferencingNode(Node* node);
 	};
 }

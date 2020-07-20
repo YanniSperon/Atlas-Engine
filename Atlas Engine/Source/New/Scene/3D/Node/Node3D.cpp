@@ -20,16 +20,19 @@ Atlas::Node3D::Node3D(const Node3D& node2)
 	: Node(node2), parent(node2.parent), children(), cameraComponent(nullptr), lightComponent(nullptr), objectComponent(nullptr), name(node2.name), translation(node2.translation), rotation(node2.rotation), scale(node2.scale)
 {
 	for (int i = 0; i < node2.children.size(); i++) {
-		children.push_back(new Node3D(node2.children.at(i)));
+		children.push_back(new Node3D(*node2.children.at(i)));
 	}
 	if (node2.cameraComponent) {
-		cameraComponent = new Camera(node2.cameraComponent);
+		cameraComponent = new Camera(*node2.cameraComponent);
+		cameraComponent->SetReferencingNode(this);
 	}
 	if (node2.lightComponent) {
-		lightComponent = new Light(node2.lightComponent);
+		lightComponent = new Light(*node2.lightComponent);
+		lightComponent->SetReferencingNode(this);
 	}
 	if (node2.objectComponent) {
-		objectComponent = new Object3D(node2.objectComponent);
+		objectComponent = new Object3D(*node2.objectComponent);
+		objectComponent->SetReferencingNode(this);
 	}
 }
 

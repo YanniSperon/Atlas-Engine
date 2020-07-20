@@ -5,66 +5,43 @@
 #include "New/Mesh/Shared/Generator/MeshGenerator.h"
 
 Atlas::Object2D::Object2D()
-	: handle(nullptr), mesh(nullptr), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
+	: mesh(nullptr), handle(nullptr), shader(nullptr), texture(nullptr), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
 {
 
 }
 
 Atlas::Object2D::Object2D(Object2D* itemToCopy)
-	: handle(itemToCopy->GetVRAMHandle()), mesh(itemToCopy->GetMesh()), shader(itemToCopy->GetShader()), texture(itemToCopy->GetTexture()), localTranslation(itemToCopy->GetLocalTranslation()), localRotation(itemToCopy->GetLocalRotation()), localScale(itemToCopy->GetLocalScale()), finalTransformation(itemToCopy->GetFinalTransformation())
+	: mesh(itemToCopy->GetMesh()), handle(itemToCopy->GetVRAMHandle()), shader(itemToCopy->GetShader()), texture(itemToCopy->GetTexture()), localTranslation(itemToCopy->GetLocalTranslation()), localRotation(itemToCopy->GetLocalRotation()), localScale(itemToCopy->GetLocalScale()), finalTransformation(itemToCopy->GetFinalTransformation())
 {
 
 }
 
 Atlas::Object2D::Object2D(Mesh2D* objectMesh, Shader* shdr, Texture* tex)
-	: handle(Global::Variables.GetVRAMReference(objectMesh)), mesh(objectMesh), shader(shdr), texture(tex), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
+	: mesh(objectMesh), handle(Global::Variables.mesh2DManager.GetVRAMHandle(objectMesh)), shader(shdr), texture(tex), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
 {
 
 }
 
-Atlas::Object2D::Object2D(Mesh2D* objectMesh, const std::string& shader, const std::string& texture)
-	: handle(Global::Variables.GetVRAMReference(objectMesh)), mesh(objectMesh), shader(Global::Variables.GetLoadedShader(shader)), texture(Global::Variables.GetLoadedTexture(texture)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
+Atlas::Object2D::Object2D(Mesh2D* objectMesh, const std::string& shdr, Texture* tex)
+	: mesh(objectMesh), handle(Global::Variables.mesh2DManager.GetVRAMHandle(objectMesh)), shader(Global::Variables.shaderManager.LoadShader(shdr)), texture(tex), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
 {
 
 }
 
-Atlas::Object2D::Object2D(Mesh2D* objectMesh, const std::string& shader, Texture* tex)
-	: handle(Global::Variables.GetVRAMReference(objectMesh)), mesh(objectMesh), shader(Global::Variables.GetLoadedShader(shader)), texture(Global::Variables.PrepareTexture(tex, this)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
+Atlas::Object2D::Object2D(Mesh2D* objectMesh, const std::string& shdr, const std::string& tex)
+	: mesh(objectMesh), handle(Global::Variables.mesh2DManager.GetVRAMHandle(objectMesh)), shader(Global::Variables.shaderManager.LoadShader(shdr)), texture(Global::Variables.textureManager.LoadTexture(tex)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
 {
 
+}
+
+Atlas::Object2D::Object2D(const std::string& objectMesh, const std::string& shdr, const std::string& tex)
+	: mesh(Global::Variables.mesh2DManager.LoadMesh(objectMesh)), handle(Global::Variables.mesh2DManager.GetVRAMHandle(mesh)), shader(Global::Variables.shaderManager.LoadShader(shdr)), texture(Global::Variables.textureManager.LoadTexture(tex)), localTranslation(0.0f), localRotation(0.0f), localScale(1.0f), finalTransformation(1.0f)
+{
 }
 
 Atlas::Object2D::~Object2D()
 {
 
-}
-
-void Atlas::Object2D::LoadIntoVRAM()
-{
-	printf("Loading into vram\n");
-	glGenBuffers(1, &handle->vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, handle->vbo);
-	glBufferData(GL_ARRAY_BUFFER, mesh->VertexBufferSize(), mesh->vertices, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, 0);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (char*)(sizeof(float) * 2));
-
-	glGenBuffers(1, &handle->ibo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, handle->ibo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->IndexBufferSize(), mesh->indices, GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	glFinish();
-}
-
-void Atlas::Object2D::UnloadFromVRAM()
-{
-	printf("Unloading from VRAM");
-	glDeleteBuffers(1, &handle->vbo);
-	glDeleteBuffers(1, &handle->ibo);
 }
 
 void Atlas::Object2D::Draw(glm::mat4 projection)
@@ -162,6 +139,26 @@ glm::mat4 Atlas::Object2D::GetTranslationScaleMatrix()
 	return glm::translate(glm::mat4(), glm::vec3(localTranslation, 0.0f)) * glm::scale(glm::mat4(), glm::vec3(localScale, 1.0f));
 }
 
+void Atlas::Object2D::SetMesh(Mesh2D* newMesh)
+{
+	mesh = newMesh;
+}
+
+void Atlas::Object2D::SetVRAMHandle(VRAMHandle* newVRAMHandle)
+{
+	handle = newVRAMHandle;
+}
+
+void Atlas::Object2D::SetShader(Shader* newShader)
+{
+	shader = newShader;
+}
+
+void Atlas::Object2D::SetTexture(Texture* newTexture)
+{
+	texture = newTexture;
+}
+
 void Atlas::Object2D::SetLocalTranslation(glm::vec2 newTranslation)
 {
 	localTranslation = newTranslation;
@@ -197,12 +194,12 @@ void Atlas::Object2D::AddScaleOffset(glm::vec2 addScale)
 	localScale += addScale;
 }
 
-void* Atlas::Object2D::GetReferencingNode()
+Atlas::Node* Atlas::Object2D::GetReferencingNode()
 {
 	return referencingNode;
 }
 
-void Atlas::Object2D::SetReferencingNode(void* node)
+void Atlas::Object2D::SetReferencingNode(Node* node)
 {
 	referencingNode = node;
 }

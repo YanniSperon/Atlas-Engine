@@ -3,15 +3,15 @@
 #include "GL/glew.h"
 #include "Vertex3D.h"
 #include "New/Rendering/Shared/Object/Object.h"
-#include <string>
 #include <set>
+#include <string>
 
 namespace Atlas {
 
 	struct Mesh3D {
 
 		Mesh3D()
-			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), name("default"), referencingObjects()
+			: vertices(nullptr), numVertices(0), indices(nullptr), numIndices(0), name("3dmesh"), filepath(""), referencingObjects()
 		{
 
 		}
@@ -21,6 +21,7 @@ namespace Atlas {
 		GLuint* indices;
 		GLuint numIndices;
 		std::string name;
+		std::string filepath;
 
 		std::set<Object*> referencingObjects;
 

@@ -4,15 +4,18 @@
 
 namespace Atlas {
 	class Object {
-	protected:
+	public:
 		enum class E_ObjectType {
 			NONE = 0,
 			THREEDIMENSIONAL, TWODIMENSIONAL
 		};
-		E_ObjectType type;
-	public:
+
 		Object(E_ObjectType objectType);
 		Object(const Object& obj2);
 		virtual ~Object();
+
+		E_ObjectType GetType();
+	protected:
+		E_ObjectType type;
 	};
 }

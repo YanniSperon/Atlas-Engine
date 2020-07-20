@@ -12,10 +12,11 @@ namespace Atlas {
 		static Mesh3D* CreateCube(const glm::vec3& min, const glm::vec3& max);
 		static Mesh3D* CreateSkybox();
 		static Mesh3D* LoadTexturedShape(const std::string& modelDirAndName);
-		static Mesh3D* Generate(const std::string& name);
+		static Mesh3D* Generate3D(const std::string& name);
 		static Mesh2D* CreateSquare();
 		static Mesh2D* CreateSquareCustom(const glm::vec2& minPos, const glm::vec2& maxPos, const glm::vec2& minTexCoord, const glm::vec2& maxTexCoord);
 		static Mesh2D* CreateSquareFixedSize(const glm::vec2& minTexCoord, const glm::vec2& maxTexCoord);
 		static Mesh2D* CreateScreenSizedSquare();
+		static Mesh2D* Generate2D(const std::string& name);
 	};
 }

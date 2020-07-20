@@ -2,6 +2,7 @@
 
 #include <string>
 #include "New/Rendering/2D/Object/Object2D.h"
+#include "New/Scene/Shared/Node/Node.h"
 #include "Font.h"
 
 namespace Atlas {
@@ -11,6 +12,8 @@ namespace Atlas {
 		Font* font;
 
 		glm::mat4 finalTransformation;
+
+		Node* referencingNode;
 	public:
 		Text();
 		~Text();
@@ -18,5 +21,8 @@ namespace Atlas {
 		void Update(float deltaTime);
 
 		void SetFinalTransformation(glm::mat4 trans);
+
+		Node* GetReferencingNode();
+		void SetReferencingNode(Node* newNode);
 	};
 }
